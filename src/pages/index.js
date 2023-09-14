@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import styles from '../styles/loginPage.module.css'; // Import the CSS file
 
-
 export default function Home() {
   return (
     <>
@@ -13,22 +12,22 @@ export default function Home() {
 
         {/* favicon */}
         <link rel="icon" href="/favicon.png" />
-
+        
       </Head>
       <main className={styles.loginPage}>
         <div className={styles.loginPageContainer}>
 
           <h2>Login</h2>
           <div className={styles.loginPageInputDiv}>
-            <label for="loginName" class="form-label">Username</label>
-            <input type="text" class="form-control" id="loginName" required />
+            <label htmlFor="loginName" className="form-label">Username</label>
+            <input type="text" className="form-control" id="loginName" required />
           </div>
           <div className={styles.loginPageInputDiv}>
-            <label for="loginMail" class="form-label">Password</label>
-            <input type="password" class="form-control" id="loginMail" required />
+            <label htmlFor="loginMail" className="form-label">Password</label>
+            <input type="password" className="form-control" id="loginMail" required />
           </div>
-          <div class={styles.loginPageButtonDiv}>
-            <button class="btn btn-primary" type="submit">Login</button>
+          <div className={styles.loginPageButtonDiv}>
+            <button className="btn btn-primary" type="submit">Login</button>
           </div>
         </div>
       </main>
