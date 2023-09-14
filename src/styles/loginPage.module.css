@@ -50,9 +50,12 @@
 @media screen and (max-width: 479px) {
   .loginPage {
     background-position: left;
+    align-items: flex-start; 
   }
 
   .loginPageContainer {
     width: 90%;
+    margin: 40% auto 0;
+    background-color: #91c4d4;
   }
 }
