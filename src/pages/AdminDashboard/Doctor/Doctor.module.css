@@ -1,0 +1,7 @@
+.body {
+    display: flex;
+}
+
+.bodyContent {
+    background-color: red;
+}

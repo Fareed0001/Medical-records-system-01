@@ -1,0 +1,27 @@
+.navbar {
+    color: #01120A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.username {
+    font-weight: 600;
+    font-size: .9rem;
+}
+
+.welcome {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.role {
+    font-weight: 700;
+    align-items: center;
+    color: #237fea;
+}
+
+.role .icon {
+    font-size: 1.5rem;
+}
+
