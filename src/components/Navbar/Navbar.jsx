@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Navbar.module.css';
-import { MdAdminPanelSettings } from "react-icons/Md";
+import { MdAdminPanelSettings } from "react-icons/md";
 
 const Navbar = () => {
     return (
