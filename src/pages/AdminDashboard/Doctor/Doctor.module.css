@@ -59,7 +59,8 @@
     background-color: #237fea;
     border-radius: 12px 12px 0 0;
     padding: 1%;
-color: white;
+    color: white;
+    font-weight: 600;
 }
 
 .contentTableBody {
