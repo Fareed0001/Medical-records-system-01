@@ -1,3 +1,36 @@
 .body {
     display: flex;
 }
+
+.profilePicture {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.profilePictureInput {
+    display: none;
+}
+
+.userDetailsDiv {
+    background-color: #e7e7e7;
+    border-radius: 12px;
+    padding: 2% 3%;
+}
+
+.formColDiv {    
+    margin: .5% 0;
+}
+
+.formColDiv label, .formButtonDiv button {
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.formButtonDiv button {
+    margin: 1% 0 0;
+}
+
+.updateDetailsDiv {
+    margin: 2% auto auto;
+}

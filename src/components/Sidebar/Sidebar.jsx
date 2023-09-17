@@ -7,7 +7,9 @@ const Sidebar = () => {
     return (
         <div className={styles.sidebar}>
             <ul>
-            <img src="..\images\moreed-black-logo.png" alt="moreed-logo" />
+                <Link href="/">
+                    <img src="..\images\moreed-black-logo.png" alt="moreed-logo" />
+                </Link>
                 {SidebarData.map((data, key) => (
                     <Link key={key} href={data.link} className={styles.link}>
                         <li>

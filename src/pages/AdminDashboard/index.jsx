@@ -21,7 +21,9 @@ const Index = () => {
                             <p className={styles.bannerText}>Need a medical records system? <br />
                                 Try Moreed</p>
                             <p className={styles.bannerSubText}>Your medical health records technology provider</p>
-                            <button type='button' className='btn btn-light btn-lg'>View patients</button>
+                            <Link href="AdminDashboard/Patient">
+                                <button type='button' className='btn btn-light btn-lg'>View patients</button>
+                            </Link>
                         </div>
                         <div className='col-6'>
                             <img src='.\images\dashboard-images\admin-banner.png' alt='banner-img' />
@@ -32,16 +34,20 @@ const Index = () => {
                 <div className={styles.belowBanner}>
                     <div className='row'>
                         <div className='col-4'>
-                            <div className={styles.belowBannerCol}>
-                                <BsFillCalendar2DateFill className={styles.belowBannerIcons} />
-                                <p>Appointments</p>
-                            </div>
+                            <Link href="AdminDashboard/Appointment">
+                                <div className={styles.belowBannerCol}>
+                                    <BsFillCalendar2DateFill className={styles.belowBannerIcons} />
+                                    <p>Appointments</p>
+                                </div>
+                            </Link>
                         </div>
                         <div className='col-4'>
-                            <div className={styles.belowBannerCol}>
-                                <BsCreditCard2BackFill className={styles.belowBannerIcons} />
-                                <p>Payments</p>
-                            </div>
+                            <Link href="AdminDashboard/Payment">
+                                <div className={styles.belowBannerCol}>
+                                    <BsCreditCard2BackFill className={styles.belowBannerIcons} />
+                                    <p>Payments</p>
+                                </div>
+                            </Link>
                         </div>
                         <div className='col-4'>
                             <Link href="AdminDashboard/Ward">

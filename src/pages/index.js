@@ -1,9 +1,37 @@
-import styles from '../styles/loginPage.module.css'; // Import the CSS file
+import { useRouter } from 'next/router'; // Import the useRouter hook
+import styles from '../styles/loginPage.module.css';
 
 export default function Home() {
+  const router = useRouter(); // Initialize the router
+
+  // Function to handle login
+  const handleLogin = () => {
+    const username = document.getElementById('loginName').value;
+    const password = document.getElementById('loginMail').value;
+
+    // Check the username and password
+    if (username === 'admin' && password === 'admin') {
+      router.push('/AdminDashboard'); // Redirect to AdminDashboard
+    } else if (username === 'doctor' && password === 'doctor') {
+      router.push('/DoctorDashboard'); // Redirect to DoctorDashboard
+    } else if (username === 'nurse' && password === 'nurse') {
+      router.push('/NurseDashboard'); // Redirect to NurseDashboard
+    } else if (username === 'accountant' && password === 'accountant') {
+      router.push('/AccountantDashboard'); // Redirect to AccountantDashboard
+    } else if (username === 'pharmacist' && password === 'pharmacist') {
+      router.push('/PharmacistDashboard'); // Redirect to PharmacistDashboard
+    } else if (username === 'laboratorist' && password === 'laboratorist') {
+      router.push('/LaboratoristDashboard'); // Redirect to LaboratoristDashboard
+    } else if (username === 'receptionist' && password === 'receptionist') {
+      router.push('/ReceptionistDashboard'); // Redirect to ReceptionistDashboard
+    } else {
+      alert('Invalid username or password. Enter correct credentials');
+    }
+  };
+
   return (
     <>
-       <main className={styles.loginPage}>
+      <main className={styles.loginPage}>
         <div className={styles.loginPageContainer}>
 
           <h2>Login</h2>
@@ -16,10 +44,12 @@ export default function Home() {
             <input type="password" className="form-control" id="loginMail" required />
           </div>
           <div className={styles.loginPageButtonDiv}>
-            <button className="btn btn-primary" type="submit">Login</button>
+            <button className="btn btn-primary" type="button" onClick={handleLogin}>
+              Login
+            </button>
           </div>
         </div>
       </main>
     </>
-  )
+  );
 }
