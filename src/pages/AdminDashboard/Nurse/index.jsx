@@ -6,9 +6,7 @@ import { BiSearch, BiSolidEditAlt } from "react-icons/bi"
 import { BsTrashFill } from "react-icons/bs"
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr"
 
-
 const Index = () => {
-
     useEffect(() => {
         // Initialize Bootstrap tabs using JavaScript when the component mounts
         const tabs = new window.bootstrap.Tab(document.getElementById('menu0'));
@@ -25,10 +23,10 @@ const Index = () => {
                 <div className={styles.content}>
                     <ul className="nav nav-tabs" id="myTabs">
                         <li className="nav-item">
-                            <a className={`nav-link active ${styles.navLink}`} id="menu0-tab" data-bs-toggle="tab" href="#menu0" role="tab" aria-controls="menu0" aria-selected="true">Doctors</a>
+                            <a className={`nav-link active ${styles.navLink}`} id="menu0-tab" data-bs-toggle="tab" href="#menu0" role="tab" aria-controls="menu0" aria-selected="true">Nurses</a>
                         </li>
                         <li className="nav-item">
-                            <a className={`nav-link ${styles.navLink}`} id="menu1-tab" data-bs-toggle="tab" href="#menu1" role="tab" aria-controls="menu1" aria-selected="false">Add Doctor</a>
+                            <a className={`nav-link ${styles.navLink}`} id="menu1-tab" data-bs-toggle="tab" href="#menu1" role="tab" aria-controls="menu1" aria-selected="false">Add Nurse</a>
                         </li>
                     </ul>
 
@@ -40,7 +38,7 @@ const Index = () => {
                             </form>
                         </div>
                         <div className={`col-6 ${styles.nextPageDiv}`}>
-                            <p>Total <span className={styles.nextPageSpan}>5</span></p>
+                            <p>Total <span className={styles.nextPageSpan}>3</span></p>
                             <p><GrFormPreviousLink className={styles.nextPrevIcon} /> <span className={styles.nextPageSpan}>1</span> <GrFormNextLink className={styles.nextPrevIcon} /></p>
                         </div>
                     </div>
@@ -61,10 +59,10 @@ const Index = () => {
                                 <div className={styles.contentTableBody}>
                                     <div className="row">
                                         <div className='col-1'>1</div>
-                                        <div className='col-2'>Muhammad Aminu</div>
+                                        <div className='col-2'>Lifted Enoch</div>
                                         <div className='col-2'>Surgery</div>
                                         <div className='col-2'>0905 606 2376</div>
-                                        <div className='col-3'>docaminu@gmail.com</div>
+                                        <div className='col-3'>nurselifted@gmail.com</div>
                                         <div className='col-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
@@ -74,10 +72,10 @@ const Index = () => {
                                 <div className={styles.contentTableBody}>
                                     <div className="row">
                                         <div className='col-1'>2</div>
-                                        <div className='col-2'>Muhammad Nasiru</div>
+                                        <div className='col-2'>Agnes John</div>
                                         <div className='col-2'>Anaesthesiology</div>
                                         <div className='col-2'>0813 633 5154</div>
-                                        <div className='col-3'>docnas@gmail.com</div>
+                                        <div className='col-3'>nurseagnes@gmail.com</div>
                                         <div className='col-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
@@ -87,36 +85,10 @@ const Index = () => {
                                 <div className={styles.contentTableBody}>
                                     <div className="row">
                                         <div className='col-1'>3</div>
-                                        <div className='col-2'>Muhammad Ibrahim</div>
+                                        <div className='col-2'>Maryam Isa</div>
                                         <div className='col-2'>Pathology</div>
                                         <div className='col-2'>0905 292 7094</div>
-                                        <div className='col-3'>docibrahim@gmail.com</div>
-                                        <div className='col-2'>
-                                            <BiSolidEditAlt className={styles.penIcon} />
-                                            <BsTrashFill className={styles.binIcon} />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.contentTableBody}>
-                                    <div className="row">
-                                        <div className='col-1'>4</div>
-                                        <div className='col-2'>Abraham Kamba</div>
-                                        <div className='col-2'>Gynaecology</div>
-                                        <div className='col-2'>0905 292 5643</div>
-                                        <div className='col-3'>dockamba@gmail.com</div>
-                                        <div className='col-2'>
-                                            <BiSolidEditAlt className={styles.penIcon} />
-                                            <BsTrashFill className={styles.binIcon} />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.contentTableBody}>
-                                    <div className="row">
-                                        <div className='col-1'>5</div>
-                                        <div className='col-2'>Kenneth Oche</div>
-                                        <div className='col-2'>Cardiology</div>
-                                        <div className='col-2'>0812 292 5643</div>
-                                        <div className='col-3'>dockenny@gmail.com</div>
+                                        <div className='col-3'>nursemaryam@gmail.com</div>
                                         <div className='col-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
@@ -127,10 +99,7 @@ const Index = () => {
                         </div>
 
                         <div className="tab-pane fade" id="menu1" role="tabpanel" aria-labelledby="menu1-tab">
-
-
                             <form className={styles.form}>
-
                                 <div className='row'>
                                     <div className={`col-md-6 ${styles.formColDiv}`}>
                                         <label htmlFor="nameInputField" className="form-label">Name</label>
@@ -156,23 +125,24 @@ const Index = () => {
                                         <label htmlFor="addressInputField" className="form-label">Address</label>
                                         <input type="text" className="form-control" id="addressInputField" />
                                     </div>
-                                    <div className={`col-md-6 ${styles.formColDiv}`}>
+                                    <div className={`col-md-5 ${styles.formColDiv}`}>
                                         <label htmlFor="phoneInputField" className="form-label">Phone</label>
                                         <input type="text" className="form-control" id="phoneInputField" />
                                     </div>
-                                    <div className={`col-md-6 ${styles.formColDiv}`}>
+                                    <div className={`col-md-2 ${styles.formColDiv}`}>
+                                        <label htmlFor="scheduleInputField" className="form-label">Shift schedule</label>
+                                        <input type="text" className="form-control" id="scheduleInputField" />
+                                    </div>
+                                    <div className={`col-md-5 ${styles.formColDiv}`}>
                                         <label htmlFor="passwordInputField" className="form-label">Password</label>
                                         <input type="password" className="form-control" id="passwordInputField" />
                                     </div>
                                 </div>
 
-                                <div class={`col-auto ${styles.formButtonDiv}`}>
-                                    <button type="submit" class="btn btn-primary">Add doctor</button>
+                                <div className={`col-auto ${styles.formButtonDiv}`}>
+                                    <button type="submit" className="btn btn-primary">Add Nurse</button>
                                 </div>
-
                             </form>
-
-                            
                         </div>
                     </div>
                 </div>

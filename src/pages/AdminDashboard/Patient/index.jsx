@@ -25,10 +25,10 @@ const Index = () => {
                 <div className={styles.content}>
                     <ul className="nav nav-tabs" id="myTabs">
                         <li className="nav-item">
-                            <a className={`nav-link active ${styles.navLink}`} id="menu0-tab" data-bs-toggle="tab" href="#menu0" role="tab" aria-controls="menu0" aria-selected="true">Doctors</a>
+                            <a className={`nav-link active ${styles.navLink}`} id="menu0-tab" data-bs-toggle="tab" href="#menu0" role="tab" aria-controls="menu0" aria-selected="true">Patients</a>
                         </li>
                         <li className="nav-item">
-                            <a className={`nav-link ${styles.navLink}`} id="menu1-tab" data-bs-toggle="tab" href="#menu1" role="tab" aria-controls="menu1" aria-selected="false">Add Doctor</a>
+                            <a className={`nav-link ${styles.navLink}`} id="menu1-tab" data-bs-toggle="tab" href="#menu1" role="tab" aria-controls="menu1" aria-selected="false">Add Patient</a>
                         </li>
                     </ul>
 
@@ -40,7 +40,7 @@ const Index = () => {
                             </form>
                         </div>
                         <div className={`col-6 ${styles.nextPageDiv}`}>
-                            <p>Total <span className={styles.nextPageSpan}>5</span></p>
+                            <p>Total <span className={styles.nextPageSpan}>564532</span></p>
                             <p><GrFormPreviousLink className={styles.nextPrevIcon} /> <span className={styles.nextPageSpan}>1</span> <GrFormNextLink className={styles.nextPrevIcon} /></p>
                         </div>
                     </div>
@@ -51,20 +51,22 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableHead}`}>
                                     <div className="row">
                                         <div className='col-1'>#</div>
+                                        <div className='col-2'>Number</div>
                                         <div className='col-2'>Name</div>
-                                        <div className='col-2'>Department</div>
                                         <div className='col-2'>Phone</div>
-                                        <div className='col-3'>Email</div>
+                                        <div className='col-1'>Gender</div>
+                                        <div className='col-2'>Date of birth</div>
                                         <div className='col-2'>Option</div>
                                     </div>
                                 </div>
                                 <div className={styles.contentTableBody}>
                                     <div className="row">
                                         <div className='col-1'>1</div>
-                                        <div className='col-2'>Muhammad Aminu</div>
-                                        <div className='col-2'>Surgery</div>
-                                        <div className='col-2'>0905 606 2376</div>
-                                        <div className='col-3'>docaminu@gmail.com</div>
+                                        <div className='col-2'>443j4j356j</div>
+                                        <div className='col-2'>Hadiza Isa</div>
+                                        <div className='col-2'>0905 487 2276</div>
+                                        <div className='col-1'>Female</div>
+                                        <div className='col-2'>08 - 12 - 1999</div>
                                         <div className='col-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
@@ -74,10 +76,11 @@ const Index = () => {
                                 <div className={styles.contentTableBody}>
                                     <div className="row">
                                         <div className='col-1'>2</div>
-                                        <div className='col-2'>Muhammad Nasiru</div>
-                                        <div className='col-2'>Anaesthesiology</div>
-                                        <div className='col-2'>0813 633 5154</div>
-                                        <div className='col-3'>docnas@gmail.com</div>
+                                        <div className='col-2'>6540fvv90v</div>
+                                        <div className='col-2'>Wayne Cater</div>
+                                        <div className='col-2'>0912 487 4536</div>
+                                        <div className='col-1'>Male</div>
+                                        <div className='col-2'>03 - 2 - 2009</div>
                                         <div className='col-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
@@ -87,10 +90,11 @@ const Index = () => {
                                 <div className={styles.contentTableBody}>
                                     <div className="row">
                                         <div className='col-1'>3</div>
-                                        <div className='col-2'>Muhammad Ibrahim</div>
-                                        <div className='col-2'>Pathology</div>
-                                        <div className='col-2'>0905 292 7094</div>
-                                        <div className='col-3'>docibrahim@gmail.com</div>
+                                        <div className='col-2'>4039rhrew0</div>
+                                        <div className='col-2'>Pepe Comrade</div>
+                                        <div className='col-2'>0709 786 2276</div>
+                                        <div className='col-1'>Male</div>
+                                        <div className='col-2'>24 - 6 - 2002</div>
                                         <div className='col-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
@@ -100,10 +104,11 @@ const Index = () => {
                                 <div className={styles.contentTableBody}>
                                     <div className="row">
                                         <div className='col-1'>4</div>
-                                        <div className='col-2'>Abraham Kamba</div>
-                                        <div className='col-2'>Gynaecology</div>
-                                        <div className='col-2'>0905 292 5643</div>
-                                        <div className='col-3'>dockamba@gmail.com</div>
+                                        <div className='col-2'>1012049fv9</div>
+                                        <div className='col-2'>Jackie Reacher</div>
+                                        <div className='col-2'>0709 778 5656</div>
+                                        <div className='col-1'>Female</div>
+                                        <div className='col-2'>13 - 12 - 1990</div>
                                         <div className='col-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
@@ -113,10 +118,11 @@ const Index = () => {
                                 <div className={styles.contentTableBody}>
                                     <div className="row">
                                         <div className='col-1'>5</div>
-                                        <div className='col-2'>Kenneth Oche</div>
-                                        <div className='col-2'>Cardiology</div>
-                                        <div className='col-2'>0812 292 5643</div>
-                                        <div className='col-3'>dockenny@gmail.com</div>
+                                        <div className='col-2'>908dvsdf78</div>
+                                        <div className='col-2'>Kenny Rowlan</div>
+                                        <div className='col-2'>0904 655 2452</div>
+                                        <div className='col-1'>Male</div>
+                                        <div className='col-2'>28 - 11 - 2017</div>
                                         <div className='col-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
@@ -132,37 +138,37 @@ const Index = () => {
                             <form className={styles.form}>
 
                                 <div className='row'>
+                                    <div className={`col-md-2 ${styles.formColDiv}`}>
+                                        <label htmlFor="recordInputField" className="form-label">Medical record number</label>
+                                        <input type="text" className="form-control" id="recordInputField" value='04af932sd8' disabled/>
+                                    </div>
                                     <div className={`col-md-6 ${styles.formColDiv}`}>
                                         <label htmlFor="nameInputField" className="form-label">Name</label>
                                         <input type="text" className="form-control" id="nameInputField" />
-                                    </div>
-                                    <div className={`col-md-6 ${styles.formColDiv}`}>
-                                        <label htmlFor="emailInputField" className="form-label">Email</label>
-                                        <input type="email" className="form-control" id="emailInputField" />
-                                    </div>
-                                    <div className={`col-md-6 ${styles.formColDiv}`}>
-                                        <label htmlFor="departmentInputField" className="form-label">Department</label>
-                                        <input type="text" className="form-control" id="departmentInputField" />
-                                    </div>
-                                    <div className={`col-md-6 ${styles.formColDiv}`}>
-                                        <label htmlFor="unitInputField" className="form-label">Unit / Division</label>
-                                        <input type="text" className="form-control" id="unitInputField" />
                                     </div>
                                     <div className={`col-md-2 ${styles.formColDiv}`}>
                                         <label htmlFor="genderInputField" className="form-label">Gender</label>
                                         <input type="text" className="form-control" id="genderInputField" />
                                     </div>
-                                    <div className={`col-10 ${styles.formColDiv}`}>
-                                        <label htmlFor="addressInputField" className="form-label">Address</label>
-                                        <input type="text" className="form-control" id="addressInputField" />
+                                    <div className={`col-md-2 ${styles.formColDiv}`}>
+                                        <label htmlFor="dobInputField" className="form-label">Date of birth</label>
+                                        <input type="date" className="form-control" id="dobInputField" />
+                                    </div>
+                                    <div className={`col-md-2 ${styles.formColDiv}`}>
+                                        <label htmlFor="physicianInputField" className="form-label">Primary Care Physician</label>
+                                        <input type="text" className="form-control" id="physicianInputField"/>
+                                    </div>
+                                    <div className={`col-md-4 ${styles.formColDiv}`}>
+                                        <label htmlFor="allergiesInputField" className="form-label">Allergies</label>
+                                        <input type="text" className="form-control" id="allergiesInputField" />
                                     </div>
                                     <div className={`col-md-6 ${styles.formColDiv}`}>
                                         <label htmlFor="phoneInputField" className="form-label">Phone</label>
                                         <input type="text" className="form-control" id="phoneInputField" />
                                     </div>
-                                    <div className={`col-md-6 ${styles.formColDiv}`}>
-                                        <label htmlFor="passwordInputField" className="form-label">Password</label>
-                                        <input type="password" className="form-control" id="passwordInputField" />
+                                    <div className={`col-12 ${styles.formColDiv}`}>
+                                        <label htmlFor="addressInputField" className="form-label">Address</label>
+                                        <input type="text" className="form-control" id="addressInputField" />
                                     </div>
                                 </div>
 
