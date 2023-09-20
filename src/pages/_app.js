@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
 import Head from 'next/head'
+import Script from 'next/script'; // Import Script component
 
 export default function App({ Component, pageProps }) {
   return (
@@ -12,15 +13,16 @@ export default function App({ Component, pageProps }) {
 
         {/* favicon */}
         <link rel="icon" href="/favicon.png" />
-
-        {/* Bootstrap (load asynchronously) */}
-        <script
-          async  // Add the async attribute to load the script asynchronously
-          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-          integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-          crossOrigin="anonymous"
-        ></script>
       </Head>
+
+      {/* Use the Script component to load Bootstrap */}
+      <Script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossOrigin="anonymous"
+        async // Add the async attribute to load the script asynchronously
+      />
+
       <Component {...pageProps} />
     </>
   )

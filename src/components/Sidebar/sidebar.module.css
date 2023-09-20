@@ -45,3 +45,14 @@
     font-size: .9rem;
     font-weight: 600;
 }
+
+@media screen and (max-width: 767px) {
+    /* Add a selector here */
+    .sidebar {
+        display: none;
+    }
+}
+
+
+/* start of phone styles */
+/* @media screen and (max-width: 479px) {} */

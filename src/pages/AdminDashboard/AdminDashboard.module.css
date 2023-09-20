@@ -2,6 +2,10 @@
     display: flex;
 }
 
+.offCanvas {
+    display: none;
+}
+
 .banner {
     border-radius: 24px;
     width: 100%;
@@ -68,4 +72,79 @@
     font-size: 1.2rem;
     font-weight: 600;
     display: inline-block;
+}
+
+
+
+/* start of pc styles */
+@media screen and (max-width: 991px) {
+    .banner {
+        padding: 3% 5% 5%;
+    }
+    
+    .bannerText {
+        font-size: 1.6rem;
+    }
+
+    .banner img {
+        width: 100%;
+        margin: 15% 0 0;
+    }    
+
+    .banner button {
+        margin: 2% auto auto;
+    }    
+
+    .belowBannerCol {
+        margin: 10% 0;
+        padding: 8% 5% 4%;
+    }
+
+    .belowBannerIcons {
+        font-size: 1.5rem;
+    }
+
+    .belowBannerCol p {
+        font-size: 1.2rem;
+        display: block;
+    }
+}
+
+
+/* start of medium tablet styles */
+/* @media screen and (max-width: 767px) {}  */
+
+/* start of phone styles */
+@media screen and (max-width: 479px) {
+    .banner {
+        text-align: center;
+    }  
+
+    .br {
+        display: none;
+    }
+    
+    .bannerText {  
+        font-size: 1.8rem;      
+    }
+    
+    .bannerSubText {
+        margin: 4% 0 0;
+        font-size: 1.2rem;
+    }
+
+    .belowBannerCol {
+        margin: 5% 0 0;
+        padding: 4% 5% 2%;
+    }
+    
+    .belowBannerIcons {
+        font-size: 1.5rem;
+    }
+
+    .belowBannerCol p {
+        font-size: 1.2rem;
+        display: inline-block;
+    }
+    
 }

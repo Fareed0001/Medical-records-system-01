@@ -1,0 +1,9 @@
+/* start of pc styles */
+@media screen and (max-width: 991px) {}
+
+
+/* start of medium tablet styles */
+@media screen and (max-width: 767px) {} 
+
+/* start of phone styles */
+@media screen and (max-width: 479px) {}

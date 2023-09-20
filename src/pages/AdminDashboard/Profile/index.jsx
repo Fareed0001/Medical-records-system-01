@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
-import Sidebar from '@/components/Sidebar/Sidebar';
-import Navbar from '@/components/Navbar/Navbar';
+import Sidebar from '@/components/Sidebar/AdminSidebar/Sidebar';
+import Navbar from '@/components/Navbar/AdminNavbar/Navbar';
 import styles from "./Profile.module.css";
 
 const Index = () => {

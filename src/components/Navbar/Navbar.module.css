@@ -1,3 +1,5 @@
+/* NAVBAR  */
+
 .navbar {
     color: #01120A;
     display: flex;
@@ -25,3 +27,71 @@
     font-size: 1.5rem;
 }
 
+/* NAVBAR  */
+
+
+
+
+/* MOBILE SIDEBAR */
+/* Sidebar.module.css */
+.offCanvas {
+ display: none;
+}
+
+.mobileSidebar {
+    background-color: #e7e7ee;
+}
+
+.mobileSidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.mobileSidebar .link {
+    text-decoration: none;
+    color: #01120A;
+}
+
+.mobileSidebar ul li {
+    background-color: white;
+    border-radius: 24px;
+    padding: 5%;
+    margin: 5%;
+    cursor: pointer;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.mobileSidebar ul li:hover {
+    background-color: #237FEA;
+    color: white;
+}
+
+.mobileSidebar ul li .icon {
+    margin: 0 2% 0 10%;
+}
+
+.mobileSidebar ul li .title {
+    line-height: 0;
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+/* MOBILE SIDEBAR */
+
+
+
+/* MEDIA QUERIES  */
+
+/* start of pc styles */
+/* @media screen and (max-width: 991px) {} */
+
+
+/* start of medium tablet styles */
+@media screen and (max-width: 767px) {
+    .offCanvas {
+     display: inline-block;
+    }
+} 
+
+/* start of phone styles */
+/* @media screen and (max-width: 479px) {} */

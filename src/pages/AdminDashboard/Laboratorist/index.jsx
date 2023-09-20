@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import Sidebar from '@/components/Sidebar/Sidebar';
-import Navbar from '@/components/Navbar/Navbar';
+import Sidebar from '@/components/Sidebar/AdminSidebar/Sidebar';
+import Navbar from '@/components/Navbar/AdminNavbar/Navbar';
 import styles from "@/pages/AdminDashboard/Styles.module.css";
 import { BiSearch, BiSolidEditAlt } from "react-icons/bi"
 import { BsTrashFill } from "react-icons/bs"
