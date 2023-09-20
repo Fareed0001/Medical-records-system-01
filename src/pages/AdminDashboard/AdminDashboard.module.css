@@ -118,20 +118,23 @@
 @media screen and (max-width: 479px) {
     .banner {
         text-align: center;
-    }  
-
-    .br {
-        display: none;
+        padding: 3% 5% 8%;
+        margin: 5% 0 0;
     }
-    
+        
     .bannerText {  
         font-size: 1.8rem;      
     }
     
     .bannerSubText {
-        margin: 4% 0 0;
+        margin: 3% 0;
         font-size: 1.2rem;
     }
+
+    .banner button {
+        font-size: 1rem;
+        font-weight: 400;
+    }    
 
     .belowBannerCol {
         margin: 5% 0 0;
@@ -139,11 +142,11 @@
     }
     
     .belowBannerIcons {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .belowBannerCol p {
-        font-size: 1.2rem;
+        font-size: 1rem;
         display: inline-block;
     }
     

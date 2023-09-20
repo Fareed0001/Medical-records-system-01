@@ -18,7 +18,7 @@ const Index = () => {
                 <div className={styles.banner}>
                     <div className='row'>
                         <div className='col-sm-6'>
-                            <p className={styles.bannerText}>Need a medical records system? <br className={styles.br} />
+                            <p className={styles.bannerText}>Need a medical records system? <br />
                                 Try Moreed</p>
                             <p className={styles.bannerSubText}>Your medical health records technology provider</p>
                             <Link href="AdminDashboard/Patient">
