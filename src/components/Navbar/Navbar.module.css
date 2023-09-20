@@ -17,6 +17,10 @@
     font-weight: 700;
 }
 
+.roleLink {
+    text-decoration: none;
+}
+
 .role {
     font-weight: 700;
     align-items: center;
@@ -35,7 +39,7 @@
 /* MOBILE SIDEBAR */
 /* Sidebar.module.css */
 .offCanvas {
- display: none;
+    display: none;
 }
 
 .mobileSidebar {
@@ -89,7 +93,24 @@
 /* start of medium tablet styles */
 @media screen and (max-width: 767px) {
     .offCanvas {
-     display: inline-block;
+        display: inline-block;
+    }
+
+    .offCanvasWidth {
+        background-color: #e7e7ee;
+    }
+
+    .offcanvasHeader {
+        padding: 5% 10% 0;
+    }
+
+    .offCanvasImageLink {
+        text-decoration: none;
+    }   
+    
+    .offCanvasImageLink img {
+        width: 10rem;
+        height: auto;
     }
 
     .username {
@@ -100,7 +121,9 @@
     .welcome {
         display: none;
     }
-} 
+}
 
 /* start of phone styles */
-/* @media screen and (max-width: 479px) {} */
+/* @media screen and (max-width: 479px) {
+
+} */
