@@ -91,6 +91,15 @@
     .offCanvas {
      display: inline-block;
     }
+
+    .username {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .welcome {
+        display: none;
+    }
 } 
 
 /* start of phone styles */
