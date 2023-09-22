@@ -51,7 +51,7 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableHead}`}>
                                     <div className="row">
                                         <div className='col-1'>#</div>
-                                        <div className='col-8 col-lg-2'>Name</div>
+                                        <div className='col-8 col-sm-4 col-lg-2'>Name</div>
                                         <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Department</div>
                                         <div className='col-2 d-none d-lg-block'>Phone</div>
                                         <div className='col-3 d-none d-lg-block'>Email</div>
@@ -61,7 +61,7 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>1</div>
-                                        <div className='col-8 col-lg-2'>Muhammad Aminu</div>
+                                        <div className='col-8 col-sm-4 col-lg-2'>Muhammad Aminu</div>
                                         <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Surgery</div>
                                         <div className='col-2 d-none d-lg-block'>0905 606 2376</div>
                                         <div className='col-3 d-none d-lg-block'>docaminu@gmail.com</div>
@@ -74,7 +74,7 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>2</div>
-                                        <div className='col-8 col-lg-2'>Muhammad Nasiru</div>
+                                        <div className='col-8 col-sm-4 col-lg-2'>Muhammad Nasiru</div>
                                         <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Anaesthesiology</div>
                                         <div className='col-2 d-none d-lg-block'>0813 633 5154</div>
                                         <div className='col-3 d-none d-lg-block'>docnas@gmail.com</div>
@@ -87,7 +87,7 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>3</div>
-                                        <div className='col-8 col-lg-2'>Muhammad Ibrahim</div>
+                                        <div className='col-8 col-sm-4 col-lg-2'>Muhammad Ibrahim</div>
                                         <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Pathology</div>
                                         <div className='col-2 d-none d-lg-block'>0905 292 7094</div>
                                         <div className='col-3 d-none d-lg-block'>docibrahim@gmail.com</div>
@@ -100,7 +100,7 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>4</div>
-                                        <div className='col-8 col-lg-2'>Abraham Kamba</div>
+                                        <div className='col-8 col-sm-4 col-lg-2'>Abraham Kamba</div>
                                         <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Gynaecology</div>
                                         <div className='col-2 d-none d-lg-block'>0905 292 5643</div>
                                         <div className='col-3 d-none d-lg-block'>dockamba@gmail.com</div>
@@ -113,7 +113,7 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>5</div>
-                                        <div className='col-8 col-lg-2'>Kenneth Oche</div>
+                                        <div className='col-8 col-sm-4 col-lg-2'>Kenneth Oche</div>
                                         <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Cardiology</div>
                                         <div className='col-2 d-none d-lg-block'>0812 292 5643</div>
                                         <div className='col-3 d-none d-lg-block'>dockenny@gmail.com</div>
