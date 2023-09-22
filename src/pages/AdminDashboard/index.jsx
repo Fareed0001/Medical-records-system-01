@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar/AdminNavbar/Navbar';
 import styles from "./AdminDashboard.module.css";
 import { BsFillCalendar2DateFill } from "react-icons/bs";
 import { BsCreditCard2BackFill } from "react-icons/bs"
-import { FaBedPulse,  } from "react-icons/fa6"
+import { FaBedPulse, } from "react-icons/fa6"
 import Link from 'next/link';
 
 const Index = () => {
@@ -21,9 +21,7 @@ const Index = () => {
                             <p className={styles.bannerText}>Need a medical records system? <br />
                                 Try Moreed</p>
                             <p className={styles.bannerSubText}>Your medical health records technology provider</p>
-                            <Link href="AdminDashboard/Patient">
-                                <button type='button' className='btn btn-light btn-lg'>View patients</button>
-                            </Link>
+                            <button type='button' className='btn btn-light btn-lg'>Analytics</button>
                         </div>
                         <div className='col-sm-6'>
                             <img src='.\images\dashboard-images\admin-banner.png' alt='banner-img' />

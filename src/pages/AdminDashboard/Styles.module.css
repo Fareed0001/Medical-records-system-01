@@ -2,10 +2,15 @@
     display: flex;
 }
 
+.navItem {
+    padding: 0;
+    }
+
 .content .navLink {
     background-color: #237fea;
     font-weight: 600;
     color: white;
+    border-radius: 50%;
 }
 
 
@@ -126,3 +131,26 @@
 }
 
 /* form end  */
+
+
+
+/* start of pc styles */
+@media screen and (max-width: 991px) {
+    .content .navLink {
+        font-size: .9rem;
+    }
+
+    .nextPageSpan {
+    background-color: #237fea;
+    color: white;
+    border-radius: 6px;
+    padding: .1% 2% 1%;
+}
+}
+
+
+/* start of medium tablet styles */
+@media screen and (max-width: 767px) {} 
+
+/* start of phone styles */
+@media screen and (max-width: 479px) {}
