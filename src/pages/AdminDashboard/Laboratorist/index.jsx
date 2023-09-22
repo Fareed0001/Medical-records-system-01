@@ -104,7 +104,7 @@ const Index = () => {
                                         <input type="text" className="form-control" id="phoneInputField" />
                                     </div>
                                     <div className={`col-md-2 ${styles.formColDiv}`}>
-                                        <label htmlFor="scheduleInputField" className="form-label">Shift schedule</label>
+                                        <label htmlFor="scheduleInputField" className="form-label">Shift</label>
                                         <input type="text" className="form-control" id="scheduleInputField" />
                                     </div>
                                     <div className={`col-md-5 ${styles.formColDiv}`}>
