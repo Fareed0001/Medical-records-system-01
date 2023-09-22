@@ -51,34 +51,34 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableHead}`}>
                                     <div className="row">
                                         <div className='col-1'>#</div>
-                                        <div className='col-2'>Department</div>
-                                        <div className='col-3'>Head</div>
-                                        <div className='col-3'>Specialization</div>
-                                        <div className='col-1'>Hours</div>
-                                        <div className='col-2'>Option</div>
+                                        <div className='col-8 col-sm-4 col-lg-2'>Department</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-5 col-lg-3'>Head</div>
+                                        <div className='col-lg-3 d-none d-lg-block'>Specialization</div>
+                                        <div className='col-lg-1 d-none d-lg-block'>Hours</div>
+                                        <div className='col-3 col-sm-2'>Option</div>
                                     </div>
                                 </div>
-                                <div className={styles.contentTableBody}>
+                                <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>1</div>
-                                        <div className='col-2'>Surgery</div>
-                                        <div className='col-3'>Muhammad Aminu</div>
-                                        <div className='col-3'>For operations and surgery</div>
-                                        <div className='col-1'>5</div>
-                                        <div className='col-2'>
+                                        <div className='col-8 col-sm-4 col-lg-2'>Surgery</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-5 col-lg-3'>Muhammad Aminu</div>
+                                        <div className='col-lg-3 d-none d-lg-block'>For operations and surgery</div>
+                                        <div className='col-lg-1 d-none d-lg-block'>5</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>
                                     </div>
                                 </div>
-                                <div className={styles.contentTableBody}>
+                                <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>2</div>
-                                        <div className='col-2'>Anaesthesiology</div>
-                                        <div className='col-3'>Muhammad Nasiru</div>
-                                        <div className='col-3'>Preping patients for surgery</div>
-                                        <div className='col-1'>2</div>
-                                        <div className='col-2'>
+                                        <div className='col-8 col-sm-4 col-lg-2'>Anaesthesiology</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-5 col-lg-3'>Muhammad Nasiru</div>
+                                        <div className='col-lg-3 d-none d-lg-block'>Preping patients for surgery</div>
+                                        <div className='col-lg-1 d-none d-lg-block'>2</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>

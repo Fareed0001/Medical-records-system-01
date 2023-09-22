@@ -56,7 +56,7 @@ const Index = () => {
                                         <div className='col-3 col-sm-2'>Option</div>
                                     </div>
                                 </div>
-                                <div className={styles.contentTableBody}>
+                                <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1 col-lg-1'>1</div>
                                         <div className='col-8 col-sm-3 col-lg-2'>Nora Alen</div>

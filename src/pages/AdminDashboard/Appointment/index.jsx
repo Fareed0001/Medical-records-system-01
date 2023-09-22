@@ -58,7 +58,7 @@ const Index = () => {
                                         <div className='col-2'>Option</div>
                                     </div>
                                 </div>
-                                <div className={styles.contentTableBody}>
+                                <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>1</div>
                                         <div className='col-2'>Nora Alen</div>
@@ -72,7 +72,7 @@ const Index = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={styles.contentTableBody}>
+                                <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>2</div>
                                         <div className='col-2'>Abey Cart</div>
@@ -102,7 +102,7 @@ const Index = () => {
                                         <div className='col-2'>Option</div>
                                     </div>
                                 </div>
-                                <div className={styles.contentTableBody}>
+                                <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>1</div>
                                         <div className='col-2'>Nora Alen</div>
@@ -116,7 +116,7 @@ const Index = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={styles.contentTableBody}>
+                                <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>2</div>
                                         <div className='col-2'>Abey Cart</div>
@@ -130,7 +130,7 @@ const Index = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={styles.contentTableBody}>
+                                <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>3</div>
                                         <div className='col-2'>Abey Cart</div>
@@ -144,7 +144,7 @@ const Index = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={styles.contentTableBody}>
+                                <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>4</div>
                                         <div className='col-2'>Abey Cart</div>
@@ -158,7 +158,7 @@ const Index = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={styles.contentTableBody}>
+                                <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>5</div>
                                         <div className='col-2'>Abey Cart</div>

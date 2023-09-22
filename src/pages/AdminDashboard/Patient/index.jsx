@@ -59,7 +59,7 @@ const Index = () => {
                                         <div className='col-2'>Option</div>
                                     </div>
                                 </div>
-                                <div className={styles.contentTableBody}>
+                                <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>1</div>
                                         <div className='col-2'>443j4j356j</div>
@@ -73,7 +73,7 @@ const Index = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={styles.contentTableBody}>
+                                <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>2</div>
                                         <div className='col-2'>6540fvv90v</div>
@@ -87,7 +87,7 @@ const Index = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={styles.contentTableBody}>
+                                <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>3</div>
                                         <div className='col-2'>4039rhrew0</div>
@@ -101,7 +101,7 @@ const Index = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={styles.contentTableBody}>
+                                <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>4</div>
                                         <div className='col-2'>1012049fv9</div>
@@ -115,7 +115,7 @@ const Index = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className={styles.contentTableBody}>
+                                <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>5</div>
                                         <div className='col-2'>908dvsdf78</div>
