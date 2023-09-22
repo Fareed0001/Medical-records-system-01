@@ -51,21 +51,21 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableHead}`}>
                                     <div className="row">
                                         <div className='col-1'>#</div>
-                                        <div className='col-2'>Name</div>
-                                        <div className='col-2'>Department</div>
-                                        <div className='col-2'>Phone</div>
-                                        <div className='col-3'>Email</div>
-                                        <div className='col-2'>Option</div>
+                                        <div className='col-8 col-lg-2'>Name</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Department</div>
+                                        <div className='col-2 d-none d-lg-block'>Phone</div>
+                                        <div className='col-3 d-none d-lg-block'>Email</div>
+                                        <div className='col-3 col-sm-2'>Option</div>
                                     </div>
                                 </div>
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>1</div>
-                                        <div className='col-2'>Muhammad Aminu</div>
-                                        <div className='col-2'>Surgery</div>
-                                        <div className='col-2'>0905 606 2376</div>
-                                        <div className='col-3'>docaminu@gmail.com</div>
-                                        <div className='col-2'>
+                                        <div className='col-8 col-lg-2'>Muhammad Aminu</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Surgery</div>
+                                        <div className='col-2 d-none d-lg-block'>0905 606 2376</div>
+                                        <div className='col-3 d-none d-lg-block'>docaminu@gmail.com</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>
@@ -74,11 +74,11 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>2</div>
-                                        <div className='col-2'>Muhammad Nasiru</div>
-                                        <div className='col-2'>Anaesthesiology</div>
-                                        <div className='col-2'>0813 633 5154</div>
-                                        <div className='col-3'>docnas@gmail.com</div>
-                                        <div className='col-2'>
+                                        <div className='col-8 col-lg-2'>Muhammad Nasiru</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Anaesthesiology</div>
+                                        <div className='col-2 d-none d-lg-block'>0813 633 5154</div>
+                                        <div className='col-3 d-none d-lg-block'>docnas@gmail.com</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>
@@ -87,11 +87,11 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>3</div>
-                                        <div className='col-2'>Muhammad Ibrahim</div>
-                                        <div className='col-2'>Pathology</div>
-                                        <div className='col-2'>0905 292 7094</div>
-                                        <div className='col-3'>docibrahim@gmail.com</div>
-                                        <div className='col-2'>
+                                        <div className='col-8 col-lg-2'>Muhammad Ibrahim</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Pathology</div>
+                                        <div className='col-2 d-none d-lg-block'>0905 292 7094</div>
+                                        <div className='col-3 d-none d-lg-block'>docibrahim@gmail.com</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>
@@ -100,11 +100,11 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>4</div>
-                                        <div className='col-2'>Abraham Kamba</div>
-                                        <div className='col-2'>Gynaecology</div>
-                                        <div className='col-2'>0905 292 5643</div>
-                                        <div className='col-3'>dockamba@gmail.com</div>
-                                        <div className='col-2'>
+                                        <div className='col-8 col-lg-2'>Abraham Kamba</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Gynaecology</div>
+                                        <div className='col-2 d-none d-lg-block'>0905 292 5643</div>
+                                        <div className='col-3 d-none d-lg-block'>dockamba@gmail.com</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>
@@ -113,11 +113,11 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>5</div>
-                                        <div className='col-2'>Kenneth Oche</div>
-                                        <div className='col-2'>Cardiology</div>
-                                        <div className='col-2'>0812 292 5643</div>
-                                        <div className='col-3'>dockenny@gmail.com</div>
-                                        <div className='col-2'>
+                                        <div className='col-8 col-lg-2'>Kenneth Oche</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Cardiology</div>
+                                        <div className='col-2 d-none d-lg-block'>0812 292 5643</div>
+                                        <div className='col-3 d-none d-lg-block'>dockenny@gmail.com</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>
@@ -152,7 +152,7 @@ const Index = () => {
                                         <label htmlFor="genderInputField" className="form-label">Gender</label>
                                         <input type="text" className="form-control" id="genderInputField" />
                                     </div>
-                                    <div className={`col-10 ${styles.formColDiv}`}>
+                                    <div className={`col-md-10 ${styles.formColDiv}`}>
                                         <label htmlFor="addressInputField" className="form-label">Address</label>
                                         <input type="text" className="form-control" id="addressInputField" />
                                     </div>
