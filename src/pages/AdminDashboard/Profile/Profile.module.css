@@ -18,11 +18,12 @@
     padding: 2% 3%;
 }
 
-.formColDiv {    
+.formColDiv {
     margin: .5% 0;
 }
 
-.formColDiv label, .formButtonDiv button {
+.formColDiv label,
+.formButtonDiv button {
     font-size: .9rem;
     font-weight: 600;
 }
@@ -33,4 +34,32 @@
 
 .updateDetailsDiv {
     margin: 2% auto auto;
+}
+
+/* start of pc styles */
+@media screen and (max-width: 991px) {
+    .userDetailsDiv {
+        padding: 2% 3% 4%;
+    }
+
+    .formButtonDiv button {
+        margin: 3% 0 0;
+    }
+}
+
+
+/* start of medium tablet styles */
+@media screen and (max-width: 767px) {
+    .profilePicture {
+    width: 40%;
+    margin: 5% 30%;
+}
+}
+
+/* start of phone styles */
+@media screen and (max-width: 479px) {
+    .profilePicture {
+        width: 50%;
+        margin: 5% 25%;
+    }
 }

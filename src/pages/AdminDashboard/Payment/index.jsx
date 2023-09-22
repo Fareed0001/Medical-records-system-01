@@ -49,21 +49,21 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableHead}`}>
                                     <div className="row">
                                         <div className='col-1'>#</div>
-                                        <div className='col-2'>Name</div>
-                                        <div className='col-2'>Amount</div>
-                                        <div className='col-2'>Phone</div>
-                                        <div className='col-3'>Email</div>
-                                        <div className='col-2'>Option</div>
+                                        <div className='col-8 col-sm-4 col-lg-2'>Name</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Amount</div>
+                                        <div className='col-2 d-none d-lg-block'>Phone</div>
+                                        <div className='col-3 d-none d-lg-block'>Email</div>
+                                        <div className='col-3 col-sm-2'>Option</div>
                                     </div>
                                 </div>
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>1</div>
-                                        <div className='col-2'>Abba Abdulmanaf</div>
-                                        <div className='col-2'>₦50,000</div>
-                                        <div className='col-2'>0905 606 2376</div>
-                                        <div className='col-3'>Paymentabba@gmail.com</div>
-                                        <div className='col-2'>
+                                        <div className='col-8 col-sm-4 col-lg-2'>Abba Abdulmanaf</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>₦50,000</div>
+                                        <div className='col-2 d-none d-lg-block'>0905 606 2376</div>
+                                        <div className='col-3 d-none d-lg-block'>Paymentabba@gmail.com</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>
@@ -77,21 +77,21 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableHead}`}>
                                     <div className="row">
                                         <div className='col-1'>#</div>
-                                        <div className='col-2'>Name</div>
-                                        <div className='col-2'>Amount</div>
-                                        <div className='col-2'>Phone</div>
-                                        <div className='col-3'>Email</div>
-                                        <div className='col-2'>Option</div>
+                                        <div className='col-8 col-sm-4 col-lg-2'>Name</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Amount</div>
+                                        <div className='col-2 d-none d-lg-block'>Phone</div>
+                                        <div className='col-3 d-none d-lg-block'>Email</div>
+                                        <div className='col-3 col-sm-2'>Option</div>
                                     </div>
                                 </div>
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>1</div>
-                                        <div className='col-2'>Abba Abdulmanaf</div>
-                                        <div className='col-2'>₦50,000</div>
-                                        <div className='col-2'>0905 606 2376</div>
-                                        <div className='col-3'>Paymentabba@gmail.com</div>
-                                        <div className='col-2'>
+                                        <div className='col-8 col-sm-4 col-lg-2'>Abba Abdulmanaf</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>₦50,000</div>
+                                        <div className='col-2 d-none d-lg-block'>0905 606 2376</div>
+                                        <div className='col-3 d-none d-lg-block'>Paymentabba@gmail.com</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>
@@ -101,7 +101,6 @@ const Index = () => {
                         </div>
                     </div>
                 </div>
-
                 {/* body content end */}
             </div>
         </div>

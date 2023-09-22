@@ -49,21 +49,21 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableHead}`}>
                                     <div className="row">
                                         <div className='col-1'>#</div>
-                                        <div className='col-2'>Name</div>
-                                        <div className='col-2'>Type</div>
-                                        <div className='col-2'>Capacity</div>
-                                        <div className='col-3'>Manager</div>
-                                        <div className='col-2'>Option</div>
+                                        <div className='col-8 col-sm-4 col-lg-2'>Name</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Type</div>
+                                        <div className='col-2 d-none d-lg-block'>Capacity</div>
+                                        <div className='col-3 d-none d-lg-block'>Manager</div>
+                                        <div className='col-3 col-sm-2'>Option</div>
                                     </div>
                                 </div>
                                 <div className={styles.contentTableBody}>
                                     <div className="row">
                                         <div className='col-1'>1</div>
-                                        <div className='col-2'>West wing ward</div>
-                                        <div className='col-2'>General</div>
-                                        <div className='col-2'>37</div>
-                                        <div className='col-3'>Isaac Shams</div>
-                                        <div className='col-2'>
+                                        <div className='col-8 col-sm-4 col-lg-2'>West wing ward</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>General</div>
+                                        <div className='col-2 d-none d-lg-block'>37</div>
+                                        <div className='col-3 d-none d-lg-block'>Isaac Shams</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>
@@ -72,11 +72,11 @@ const Index = () => {
                                 <div className={styles.contentTableBody}>
                                     <div className="row">
                                         <div className='col-1'>2</div>
-                                        <div className='col-2'>Central ward</div>
-                                        <div className='col-2'>Special</div>
-                                        <div className='col-2'>2</div>
-                                        <div className='col-3'>Lukas Graham</div>
-                                        <div className='col-2'>
+                                        <div className='col-8 col-sm-4 col-lg-2'>Central ward</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Special</div>
+                                        <div className='col-2 d-none d-lg-block'>2</div>
+                                        <div className='col-3 d-none d-lg-block'>Lukas Graham</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>
@@ -85,11 +85,11 @@ const Index = () => {
                                 <div className={styles.contentTableBody}>
                                     <div className="row">
                                         <div className='col-1'>3</div>
-                                        <div className='col-2'>Confined ward</div>
-                                        <div className='col-2'>Isolation</div>
-                                        <div className='col-2'>100</div>
-                                        <div className='col-3'>Ava max</div>
-                                        <div className='col-2'>
+                                        <div className='col-8 col-sm-4 col-lg-2'>Confined ward</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Isolation</div>
+                                        <div className='col-2 d-none d-lg-block'>100</div>
+                                        <div className='col-3 d-none d-lg-block'>Ava max</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>
@@ -121,7 +121,7 @@ const Index = () => {
                                         <label htmlFor="capacityInputField" className="form-label">Capacity</label>
                                         <input type="number" className="form-control" id="capacityInputField" />
                                     </div>
-                                    <div className={`col-5 ${styles.formColDiv}`}>
+                                    <div className={`col-md-5 ${styles.formColDiv}`}>
                                         <label htmlFor="managerInputField" className="form-label">Manager</label>
                                         <input type="text" className="form-control" id="managerInputField" />
                                     </div>

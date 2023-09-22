@@ -51,23 +51,23 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableHead}`}>
                                     <div className="row">
                                         <div className='col-1'>#</div>
-                                        <div className='col-2'>Number</div>
-                                        <div className='col-2'>Name</div>
-                                        <div className='col-2'>Phone</div>
-                                        <div className='col-1'>Gender</div>
-                                        <div className='col-2'>Date of birth</div>
-                                        <div className='col-2'>Option</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Number</div>
+                                        <div className='col-8 col-sm-5 col-lg-2'>Name</div>
+                                        <div className='col-2 d-none d-lg-block'>Phone</div>
+                                        <div className='col-1 d-none d-lg-block'>Gender</div>
+                                        <div className='col-2 d-none d-lg-block'>Date of birth</div>
+                                        <div className='col-3 col-sm-2'>Option</div>
                                     </div>
                                 </div>
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>1</div>
-                                        <div className='col-2'>443j4j356j</div>
-                                        <div className='col-2'>Hadiza Isa</div>
-                                        <div className='col-2'>0905 487 2276</div>
-                                        <div className='col-1'>Female</div>
-                                        <div className='col-2'>08 - 12 - 1999</div>
-                                        <div className='col-2'>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>443j4j356j</div>
+                                        <div className='col-8 col-sm-5 col-lg-2'>Hadiza Isa</div>
+                                        <div className='col-2 d-none d-lg-block'>0905 487 2276</div>
+                                        <div className='col-1 d-none d-lg-block'>Female</div>
+                                        <div className='col-2 d-none d-lg-block'>08 - 12 - 1999</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>
@@ -76,12 +76,12 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>2</div>
-                                        <div className='col-2'>6540fvv90v</div>
-                                        <div className='col-2'>Wayne Cater</div>
-                                        <div className='col-2'>0912 487 4536</div>
-                                        <div className='col-1'>Male</div>
-                                        <div className='col-2'>03 - 2 - 2009</div>
-                                        <div className='col-2'>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>6540fvv90v</div>
+                                        <div className='col-8 col-sm-5 col-lg-2'>Wayne Cater</div>
+                                        <div className='col-2 d-none d-lg-block'>0912 487 4536</div>
+                                        <div className='col-1 d-none d-lg-block'>Male</div>
+                                        <div className='col-2 d-none d-lg-block'>03 - 2 - 2009</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>
@@ -90,12 +90,12 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>3</div>
-                                        <div className='col-2'>4039rhrew0</div>
-                                        <div className='col-2'>Pepe Comrade</div>
-                                        <div className='col-2'>0709 786 2276</div>
-                                        <div className='col-1'>Male</div>
-                                        <div className='col-2'>24 - 6 - 2002</div>
-                                        <div className='col-2'>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>4039rhrew0</div>
+                                        <div className='col-8 col-sm-5 col-lg-2'>Pepe Comrade</div>
+                                        <div className='col-2 d-none d-lg-block'>0709 786 2276</div>
+                                        <div className='col-1 d-none d-lg-block'>Male</div>
+                                        <div className='col-2 d-none d-lg-block'>24 - 6 - 2002</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>
@@ -104,12 +104,12 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>4</div>
-                                        <div className='col-2'>1012049fv9</div>
-                                        <div className='col-2'>Jackie Reacher</div>
-                                        <div className='col-2'>0709 778 5656</div>
-                                        <div className='col-1'>Female</div>
-                                        <div className='col-2'>13 - 12 - 1990</div>
-                                        <div className='col-2'>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>1012049fv9</div>
+                                        <div className='col-8 col-sm-5 col-lg-2'>Jackie Reacher</div>
+                                        <div className='col-2 d-none d-lg-block'>0709 778 5656</div>
+                                        <div className='col-1 d-none d-lg-block'>Female</div>
+                                        <div className='col-2 d-none d-lg-block'>13 - 12 - 1990</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>
@@ -118,12 +118,12 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableBody}`}>
                                     <div className="row">
                                         <div className='col-1'>5</div>
-                                        <div className='col-2'>908dvsdf78</div>
-                                        <div className='col-2'>Kenny Rowlan</div>
-                                        <div className='col-2'>0904 655 2452</div>
-                                        <div className='col-1'>Male</div>
-                                        <div className='col-2'>28 - 11 - 2017</div>
-                                        <div className='col-2'>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>908dvsdf78</div>
+                                        <div className='col-8 col-sm-5 col-lg-2'>Kenny Rowlan</div>
+                                        <div className='col-2 d-none d-lg-block'>0904 655 2452</div>
+                                        <div className='col-1 d-none d-lg-block'>Male</div>
+                                        <div className='col-2 d-none d-lg-block'>28 - 11 - 2017</div>
+                                        <div className='col-3 col-sm-2'>
                                             <BiSolidEditAlt className={styles.penIcon} />
                                             <BsTrashFill className={styles.binIcon} />
                                         </div>

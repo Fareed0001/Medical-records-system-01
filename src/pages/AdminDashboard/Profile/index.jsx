@@ -19,7 +19,7 @@ const Index = () => {
                 {/* body content start */}
                 <div className='container'>
                     <div className='row'>
-                        <div className={`col-3 ${styles.imgDiv}`}>
+                        <div className={`col-md-3 ${styles.imgDiv}`}>
                             {/* Clicking the image triggers the file input */}
                             <img
                                 src='..\images\profile-pictures\favicon.png'
@@ -35,7 +35,7 @@ const Index = () => {
                             />
                         </div>
 
-                        <div className={`col-9 ${styles.userDetailsDiv}`}>
+                        <div className={`col-md-9 ${styles.userDetailsDiv}`}>
                             <form className={styles.form}>
 
                                 <div className={styles.currentDetailsDiv}>
