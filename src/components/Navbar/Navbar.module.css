@@ -56,6 +56,12 @@
     color: #01120A;
 }
 
+/* Active link styles */
+.mobileSidebar ul li.activeItem {
+    background-color: #237FEA; /* Blue background for active link */
+    color: white; /* White text for active link */
+}
+
 .mobileSidebar ul li {
     background-color: white;
     border-radius: 24px;
@@ -71,7 +77,7 @@
 }
 
 .mobileSidebar ul li .icon {
-    margin: 0 2% 0 10%;
+    margin: 0 2% 0 30%;
 }
 
 .mobileSidebar ul li .title {

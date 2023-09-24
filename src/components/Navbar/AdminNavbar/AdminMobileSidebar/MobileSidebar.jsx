@@ -1,15 +1,18 @@
 import React from 'react';
-import styles from '@/components/Navbar/Navbar.module.css';
-import { SidebarData } from '@/components/Sidebar/AdminSidebar/SidebarData';
+import { useRouter } from 'next/router';
+import styles from '@/components/Navbar/Navbar.module.css'; // Adjust this import path as needed
+import { SidebarData } from '@/components/Sidebar/AdminSidebar/SidebarData'; // Adjust this import path as needed
 import Link from 'next/link';
 
 const MobileSidebar = () => {
+    const router = useRouter();
+
     return (
         <div className={styles.mobileSidebar}>
             <ul>
                 {SidebarData.map((data, key) => (
                     <Link key={key} href={data.link} className={styles.link}>
-                        <li>
+                        <li className={router.pathname === data.link ? styles.activeItem : ''}>
                             <div>
                                 <span className={styles.icon}>{data.icon}</span>
                                 <span className={styles.title}> {data.title}</span>

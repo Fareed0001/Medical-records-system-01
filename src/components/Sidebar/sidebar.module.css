@@ -36,6 +36,11 @@
     color: white;
 }
 
+.sidebar ul li.activeItem {
+    background-color: #237FEA; /* Blue background for active link */
+    color: white; /* White text for active link */
+}
+
 .sidebar ul li .icon {
     margin: 0 2% 0 10%;
 }
