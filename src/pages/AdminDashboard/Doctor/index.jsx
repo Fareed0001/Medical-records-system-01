@@ -1,19 +1,65 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import Sidebar from '@/components/Sidebar/AdminSidebar/Sidebar';
 import Navbar from '@/components/Navbar/AdminNavbar/Navbar';
 import styles from "@/pages/AdminDashboard/Styles.module.css";
-import { BiSearch, BiSolidEditAlt } from "react-icons/bi"
-import { BsTrashFill } from "react-icons/bs"
-import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr"
+import { BiSearch, BiSolidEditAlt } from "react-icons/bi";
+import { BsTrashFill } from "react-icons/bs";
+import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
+import { initialDoctorData } from "@/components/Data/DoctorData";
 
 
 const Index = () => {
+    const totalDoctors = initialDoctorData.length;
 
-    useEffect(() => {
-        // Initialize Bootstrap tabs using JavaScript when the component mounts
-        const tabs = new window.bootstrap.Tab(document.getElementById('menu0'));
-        tabs.show();
-    }, []);
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        department: '',
+        address: '',
+        dateOfBirth: '',
+        division: '',
+        gender: '',
+        nigerianPhoneNumber: '',
+        password: ''
+    });
+
+    const [allDoctors, setAllDoctors] = useState(initialDoctorData);
+
+    const handleFormChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        // Add the new doctor to the list
+        if (
+            formData.firstName &&
+            formData.lastName &&
+            formData.email &&
+            formData.department
+        ) {
+            setAllDoctors([...allDoctors, formData]);
+            // Clear the form
+            setFormData({
+                firstName: '',
+                lastName: '',
+                email: '',
+                department: '',
+                address: '',
+                dateOfBirth: '',
+                division: '',
+                gender: '',
+                nigerianPhoneNumber: '',
+                password: ''
+            });
+        }
+    };
+
 
     return (
         <div className={styles.body}>
@@ -40,7 +86,7 @@ const Index = () => {
                             </form>
                         </div>
                         <div className={`col-6 ${styles.nextPageDiv}`}>
-                            <p>Total <span className={styles.nextPageSpan}>5</span></p>
+                        <p>Total <span className={styles.nextPageSpan}>{totalDoctors}</span></p>
                             <p><GrFormPreviousLink className={styles.nextPrevIcon} /> <span className={styles.nextPageSpan}>1</span> <GrFormNextLink className={styles.nextPrevIcon} /></p>
                         </div>
                     </div>
@@ -58,125 +104,129 @@ const Index = () => {
                                         <div className='col-3 col-sm-2'>Option</div>
                                     </div>
                                 </div>
-                                <div className={`container ${styles.contentTableBody}`}>
-                                    <div className="row">
-                                        <div className='col-1'>1</div>
-                                        <div className='col-8 col-sm-4 col-lg-2'>Muhammad Aminu</div>
-                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Surgery</div>
-                                        <div className='col-2 d-none d-lg-block'>0905 606 2376</div>
-                                        <div className='col-3 d-none d-lg-block'>docaminu@gmail.com</div>
-                                        <div className='col-3 col-sm-2'>
-                                            <BiSolidEditAlt className={styles.penIcon} />
-                                            <BsTrashFill className={styles.binIcon} />
+                                {/* Map doctorData and generate table rows */}
+                                {allDoctors.map((doctor, index) => (
+                                    <div key={index} className={`container ${styles.contentTableBody}`}>
+                                        <div className="row">
+                                            <div className='col-1'>{index + 1}</div>
+                                            <div className='col-8 col-sm-4 col-lg-2'>{doctor.firstName} {doctor.lastName}</div>
+                                            <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>{doctor.department}</div>
+                                            <div className='col-2 d-none d-lg-block'>{doctor.nigerianPhoneNumber}</div>
+                                            <div className='col-3 d-none d-lg-block'>{doctor.email}</div>
+                                            <div className='col-3 col-sm-2'>
+                                                <BiSolidEditAlt className={styles.penIcon} />
+                                                <BsTrashFill className={styles.binIcon} />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className={`container ${styles.contentTableBody}`}>
-                                    <div className="row">
-                                        <div className='col-1'>2</div>
-                                        <div className='col-8 col-sm-4 col-lg-2'>Muhammad Nasiru</div>
-                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Anaesthesiology</div>
-                                        <div className='col-2 d-none d-lg-block'>0813 633 5154</div>
-                                        <div className='col-3 d-none d-lg-block'>docnas@gmail.com</div>
-                                        <div className='col-3 col-sm-2'>
-                                            <BiSolidEditAlt className={styles.penIcon} />
-                                            <BsTrashFill className={styles.binIcon} />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={`container ${styles.contentTableBody}`}>
-                                    <div className="row">
-                                        <div className='col-1'>3</div>
-                                        <div className='col-8 col-sm-4 col-lg-2'>Muhammad Ibrahim</div>
-                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Pathology</div>
-                                        <div className='col-2 d-none d-lg-block'>0905 292 7094</div>
-                                        <div className='col-3 d-none d-lg-block'>docibrahim@gmail.com</div>
-                                        <div className='col-3 col-sm-2'>
-                                            <BiSolidEditAlt className={styles.penIcon} />
-                                            <BsTrashFill className={styles.binIcon} />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={`container ${styles.contentTableBody}`}>
-                                    <div className="row">
-                                        <div className='col-1'>4</div>
-                                        <div className='col-8 col-sm-4 col-lg-2'>Abraham Kamba</div>
-                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Gynaecology</div>
-                                        <div className='col-2 d-none d-lg-block'>0905 292 5643</div>
-                                        <div className='col-3 d-none d-lg-block'>dockamba@gmail.com</div>
-                                        <div className='col-3 col-sm-2'>
-                                            <BiSolidEditAlt className={styles.penIcon} />
-                                            <BsTrashFill className={styles.binIcon} />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={`container ${styles.contentTableBody}`}>
-                                    <div className="row">
-                                        <div className='col-1'>5</div>
-                                        <div className='col-8 col-sm-4 col-lg-2'>Kenneth Oche</div>
-                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Cardiology</div>
-                                        <div className='col-2 d-none d-lg-block'>0812 292 5643</div>
-                                        <div className='col-3 d-none d-lg-block'>dockenny@gmail.com</div>
-                                        <div className='col-3 col-sm-2'>
-                                            <BiSolidEditAlt className={styles.penIcon} />
-                                            <BsTrashFill className={styles.binIcon} />
-                                        </div>
-                                    </div>
-                                </div>
+                                ))}
+                                {/* End of mapping */}
                             </div>
                         </div>
 
                         <div className="tab-pane fade" id="menu1" role="tabpanel" aria-labelledby="menu1-tab">
-
-
-                            <form className={styles.form}>
-
+                            <form className={styles.form} onSubmit={handleFormSubmit}>
                                 <div className='row'>
                                     <div className={`col-md-6 ${styles.formColDiv}`}>
-                                        <label htmlFor="nameInputField" className="form-label">Name</label>
-                                        <input type="text" className="form-control" id="nameInputField" />
+                                        <label htmlFor="firstName" className="form-label">First Name</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="firstName"
+                                            name="firstName"
+                                            value={formData.firstName}
+                                            onChange={handleFormChange}
+                                            required
+                                        />
                                     </div>
                                     <div className={`col-md-6 ${styles.formColDiv}`}>
-                                        <label htmlFor="emailInputField" className="form-label">Email</label>
-                                        <input type="email" className="form-control" id="emailInputField" />
+                                        <label htmlFor="lastName" className="form-label">Last Name</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="lastName"
+                                            name="lastName"
+                                            value={formData.lastName}
+                                            onChange={handleFormChange}
+                                            required
+                                        />
                                     </div>
                                     <div className={`col-md-6 ${styles.formColDiv}`}>
-                                        <label htmlFor="departmentInputField" className="form-label">Department</label>
-                                        <input type="text" className="form-control" id="departmentInputField" />
+                                        <label htmlFor="email" className="form-label">Email</label>
+                                        <input
+                                            type="email"
+                                            className="form-control"
+                                            id="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleFormChange}
+                                            required
+                                        />
                                     </div>
                                     <div className={`col-md-6 ${styles.formColDiv}`}>
-                                        <label htmlFor="unitInputField" className="form-label">Unit / Division</label>
-                                        <input type="text" className="form-control" id="unitInputField" />
+                                        <label htmlFor="department" className="form-label">Department</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="department"
+                                            name="department"
+                                            value={formData.department}
+                                            onChange={handleFormChange}
+                                            required
+                                        />
                                     </div>
                                     <div className={`col-md-2 ${styles.formColDiv}`}>
-                                        <label htmlFor="genderInputField" className="form-label">Gender</label>
-                                        <input type="text" className="form-control" id="genderInputField" />
+                                        <label htmlFor="gender" className="form-label">Gender</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="gender"
+                                            name="gender"
+                                            value={formData.gender}
+                                            onChange={handleFormChange}
+                                        />
                                     </div>
                                     <div className={`col-md-10 ${styles.formColDiv}`}>
-                                        <label htmlFor="addressInputField" className="form-label">Address</label>
-                                        <input type="text" className="form-control" id="addressInputField" />
+                                        <label htmlFor="address" className="form-label">Address</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="address"
+                                            name="address"
+                                            value={formData.address}
+                                            onChange={handleFormChange}
+                                        />
                                     </div>
                                     <div className={`col-md-6 ${styles.formColDiv}`}>
-                                        <label htmlFor="phoneInputField" className="form-label">Phone</label>
-                                        <input type="text" className="form-control" id="phoneInputField" />
+                                        <label htmlFor="nigerianPhoneNumber" className="form-label">Phone</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="nigerianPhoneNumber"
+                                            name="nigerianPhoneNumber"
+                                            value={formData.nigerianPhoneNumber}
+                                            onChange={handleFormChange}
+                                        />
                                     </div>
                                     <div className={`col-md-6 ${styles.formColDiv}`}>
-                                        <label htmlFor="passwordInputField" className="form-label">Password</label>
-                                        <input type="password" className="form-control" id="passwordInputField" />
+                                        <label htmlFor="password" className="form-label">Password</label>
+                                        <input
+                                            type="password"
+                                            className="form-control"
+                                            id="password"
+                                            name="password"
+                                            value={formData.password}
+                                            onChange={handleFormChange}
+                                        />
                                     </div>
                                 </div>
-
-                                <div class={`col-auto ${styles.formButtonDiv}`}>
-                                    <button type="submit" class="btn btn-primary">Add doctor</button>
+                                <div className={`col-auto ${styles.formButtonDiv}`}>
+                                    <button type="submit" className="btn btn-primary">Add doctor</button>
                                 </div>
-
                             </form>
-
-                            
                         </div>
                     </div>
                 </div>
-
                 {/* body content end */}
             </div>
         </div>
