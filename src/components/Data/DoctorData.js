@@ -2,6 +2,8 @@
 
 export const initialDoctorData = [
     {
+        "id": "1",
+        "key": "1",
         "address": "123 Main Street, Lagos",
         "dateOfBirth": "1980-05-15",
         "department": "Cardiology",
@@ -14,6 +16,8 @@ export const initialDoctorData = [
         "password": "securepassword123"
     },
     {
+        "id": "2",
+        "key": "2",
         "address": "456 Elm Avenue, Abuja",
         "dateOfBirth": "1975-08-25",
         "department": "Dermatology",
@@ -26,6 +30,8 @@ export const initialDoctorData = [
         "password": "doctorpass456"
     },
     {
+        "id": "3",
+        "key": "3",
         "address": "789 Oak Road, Port Harcourt",
         "dateOfBirth": "1982-03-10",
         "department": "Neurology",
@@ -38,6 +44,8 @@ export const initialDoctorData = [
         "password": "mike12345"
     },
     {
+        "id": "4",
+        "key": "4",
         "address": "101 Pine Lane, Lagos",
         "dateOfBirth": "1978-11-30",
         "department": "Pediatrics",
@@ -50,6 +58,8 @@ export const initialDoctorData = [
         "password": "pass4susan"
     },
     {
+        "id": "5",
+        "key": "5",
         "address": "222 Cedar Street, Abuja",
         "dateOfBirth": "1985-07-20",
         "department": "Oncology",
@@ -62,6 +72,8 @@ export const initialDoctorData = [
         "password": "brownie987"
     },
     {
+        "id": "6",
+        "key": "6",
         "address": "333 Maple Drive, Lagos",
         "dateOfBirth": "1972-02-14",
         "department": "Gynecology",
@@ -74,6 +86,8 @@ export const initialDoctorData = [
         "password": "linda1234"
     },
     {
+        "id": "7",
+        "key": "7",
         "address": "444 Birch Street, Port Harcourt",
         "dateOfBirth": "1988-09-05",
         "department": "Orthopedics",
@@ -86,6 +100,8 @@ export const initialDoctorData = [
         "password": "ortho567"
     },
     {
+        "id": "8",
+        "key": "8",
         "address": "555 Fir Avenue, Abuja",
         "dateOfBirth": "1979-12-18",
         "department": "Psychiatry",
@@ -98,6 +114,8 @@ export const initialDoctorData = [
         "password": "doctorEm123"
     },
     {
+        "id": "9",
+        "key": "9",
         "address": "666 Spruce Lane, Lagos",
         "dateOfBirth": "1983-06-28",
         "department": "Radiology",
@@ -108,17 +126,5 @@ export const initialDoctorData = [
         "lastName": "Anderson",
         "nigerianPhoneNumber": "+2348901234567",
         "password": "radiology1"
-    },
-    {
-        "address": "777 Pine Drive, Port Harcourt",
-        "dateOfBirth": "1976-04-03",
-        "department": "Urology",
-        "division": "Pediatric Urology",
-        "email": "mary.wilson@example.com",
-        "firstName": "Mary",
-        "gender": "Female",
-        "lastName": "Wilson",
-        "nigerianPhoneNumber": "+2349012345678",
-        "password": "maryUrologist"
     }
 ]

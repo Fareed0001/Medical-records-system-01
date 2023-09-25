@@ -7,10 +7,68 @@ import { BsTrashFill } from "react-icons/bs";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { initialDoctorData } from "@/components/Data/DoctorData";
 
+const ROWS_PER_PAGE = 5; // Number of rows to display per page
 
 const Index = () => {
-    const totalDoctors = initialDoctorData.length;
+    // State to track the total number of doctors
+    const [totalDoctors, setTotalDoctors] = useState(initialDoctorData.length);
 
+    // State to track the current page
+    const [currentPage, setCurrentPage] = useState(1);
+
+    // Calculate the starting index and ending index for the current page
+    const startIndex = (currentPage - 1) * ROWS_PER_PAGE;
+    const endIndex = Math.min(startIndex + ROWS_PER_PAGE, totalDoctors);
+
+    // Slice the initial doctor data to get the rows for the current page
+    const initialDoctorPageData = initialDoctorData.slice(startIndex, endIndex);
+
+    // Separate state for the current page data
+    const [currentDoctorData, setCurrentDoctorData] = useState(initialDoctorPageData);
+
+    console.log(currentDoctorData);
+    // Function to update the current page data
+    const updateCurrentPageData = (page) => {
+        const startIndex = (page - 1) * ROWS_PER_PAGE;
+        const endIndex = Math.min(startIndex + ROWS_PER_PAGE, totalDoctors);
+        const updatedPageData = initialDoctorData.slice(startIndex, endIndex);
+        setCurrentDoctorData(updatedPageData);
+    };
+
+
+    // Define a new state variable for temporary doctor data
+    const [tempDoctorData, setTempDoctorData] = useState([]);
+
+    // Function to handle the delete action when the trash icon is clicked
+    const handleDeleteClick = (doctorId) => {
+        // Remove the doctor with the specified id from tempDoctorData
+        const updatedTempDoctorData = tempDoctorData.filter(doctor => doctor.id !== doctorId);
+
+        // Update the tempDoctorData array
+        setTempDoctorData(updatedTempDoctorData);
+
+        // Update the currentDoctorData with the modified data
+        setCurrentDoctorData(updatedTempDoctorData);
+    };
+
+
+    // Function to handle the "Next" button click
+    const handleNextPageClick = () => {
+        if (currentPage < Math.ceil(totalDoctors / ROWS_PER_PAGE)) {
+            setCurrentPage(currentPage + 1);
+            updateCurrentPageData(currentPage + 1);
+        }
+    };
+
+    // Function to handle the "Previous" button click
+    const handlePrevPageClick = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+            updateCurrentPageData(currentPage - 1);
+        }
+    };
+
+    // State for form data
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -24,8 +82,7 @@ const Index = () => {
         password: ''
     });
 
-    const [allDoctors, setAllDoctors] = useState(initialDoctorData);
-
+    // Function to handle changes in form inputs
     const handleFormChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -34,16 +91,28 @@ const Index = () => {
         });
     };
 
+    // Function to handle the form submission
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        // Add the new doctor to the list
+        // Add the new doctor to the temporary array
         if (
             formData.firstName &&
             formData.lastName &&
             formData.email &&
             formData.department
         ) {
-            setAllDoctors([...allDoctors, formData]);
+            const newDoctor = {
+                ...formData,
+                id: totalDoctors + 1, // Assign a unique ID
+            };
+
+            // Update the temporary doctor data array
+            const newTempDoctorData = [...tempDoctorData, newDoctor];
+            setTempDoctorData(newTempDoctorData);
+
+            // Update the total number of doctors
+            setTotalDoctors(totalDoctors + 1);
+
             // Clear the form
             setFormData({
                 firstName: '',
@@ -55,8 +124,11 @@ const Index = () => {
                 division: '',
                 gender: '',
                 nigerianPhoneNumber: '',
-                password: ''
+                password: '',
             });
+
+            // Update the currentDoctorData with the new temporary data
+            setCurrentDoctorData(newTempDoctorData);
         }
     };
 
@@ -86,8 +158,9 @@ const Index = () => {
                             </form>
                         </div>
                         <div className={`col-6 ${styles.nextPageDiv}`}>
-                        <p>Total <span className={styles.nextPageSpan}>{totalDoctors}</span></p>
-                            <p><GrFormPreviousLink className={styles.nextPrevIcon} /> <span className={styles.nextPageSpan}>1</span> <GrFormNextLink className={styles.nextPrevIcon} /></p>
+                            <p>Total <span className={styles.nextPageSpan}>{totalDoctors}</span></p>
+                            <p onClick={handlePrevPageClick}><GrFormPreviousLink className={styles.nextPrevIcon} /> <span className={styles.nextPageSpan}>{currentPage}</span></p>
+                            <p onClick={handleNextPageClick}><GrFormNextLink className={styles.nextPrevIcon} /></p>
                         </div>
                     </div>
 
@@ -104,9 +177,9 @@ const Index = () => {
                                         <div className='col-3 col-sm-2'>Option</div>
                                     </div>
                                 </div>
-                                {/* Map doctorData and generate table rows */}
-                                {allDoctors.map((doctor, index) => (
-                                    <div key={index} className={`container ${styles.contentTableBody}`}>
+                                {/* Map currentDoctorData and generate table rows */}
+                                {currentDoctorData.map((doctor, index) => (
+                                    <div className={`container ${styles.contentTableBody}`} key={index}>
                                         <div className="row">
                                             <div className='col-1'>{index + 1}</div>
                                             <div className='col-8 col-sm-4 col-lg-2'>{doctor.firstName} {doctor.lastName}</div>
@@ -115,8 +188,12 @@ const Index = () => {
                                             <div className='col-3 d-none d-lg-block'>{doctor.email}</div>
                                             <div className='col-3 col-sm-2'>
                                                 <BiSolidEditAlt className={styles.penIcon} />
-                                                <BsTrashFill className={styles.binIcon} />
+                                                <BsTrashFill
+                                                    className={styles.binIcon}
+                                                    onClick={() => handleDeleteClick(doctor.id)} // Pass the doctor's id to the click handler
+                                                />
                                             </div>
+
                                         </div>
                                     </div>
                                 ))}
