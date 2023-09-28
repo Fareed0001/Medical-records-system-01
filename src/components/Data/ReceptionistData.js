@@ -1,8 +1,6 @@
 export const receptionistData = [
     {
       id: 1,
-      firstName: 'John',
-      lastName: 'Doe',
       name: 'John Doe',
       email: 'john.doe@example.com',
       employmentType: 'Full-Time',
@@ -15,8 +13,6 @@ export const receptionistData = [
     },
     {
       id: 2,
-      firstName: 'Jane',
-      lastName: 'Smith',
       name: 'Jane Smith',
       email: 'jane.smith@example.com',
       employmentType: 'Part-Time',

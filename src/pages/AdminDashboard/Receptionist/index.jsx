@@ -23,7 +23,6 @@ const Index = () => {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
-        name: '',
         email: '',
         employmentType: '',
         notesResponsibilities: '',
@@ -71,31 +70,38 @@ const Index = () => {
     // Function to handle form submission
     const handleFormSubmit = (e) => {
         e.preventDefault();
+        // Map form data to receptionist properties
+        const newReceptionist = {
+            id: totalReceptionists + 1,
+            name: `${formData.firstName} ${formData.lastName}`,
+            email: formData.email,
+            employmentType: formData.employmentType,
+            shift: formData.shift,
+            notesResponsibilities: formData.notesResponsibilities,
+            gender: formData.gender,
+            address: formData.address,
+            phone: formData.phone,
+            password: formData.password,
+        };
+    
         // Add the new receptionist to the list
         if (
             formData.firstName &&
             formData.lastName &&
-            formData.name &&
             formData.email &&
             formData.employmentType &&
-            formData.shift // Make sure shift is required
+            formData.shift
         ) {
-            const newReceptionist = {
-                ...formData,
-                id: totalReceptionists + 1, // Assign a unique ID
-            };
-
             // Update the total number of receptionists
             setTotalReceptionists(totalReceptionists + 1);
-
+    
             // Update the receptionists list
             setReceptionists([...receptionists, newReceptionist]);
-
+    
             // Clear the form
             setFormData({
                 firstName: '',
                 lastName: '',
-                name: '',
                 email: '',
                 employmentType: '',
                 notesResponsibilities: '',
@@ -107,7 +113,7 @@ const Index = () => {
             });
         }
     };
-
+    
     // Function to handle the "Next" button click
     const handleNextPageClick = () => {
         if (currentPage < Math.ceil(filteredReceptionists.length / ROWS_PER_PAGE)) {
@@ -207,13 +213,25 @@ const Index = () => {
                             <form className={styles.form} onSubmit={handleFormSubmit}>
                                 <div className='row'>
                                     <div className={`col-md-6 ${styles.formColDiv}`}>
-                                        <label htmlFor="nameInputField" className="form-label">Name</label>
+                                        <label htmlFor="firstNameInputField" className="form-label">First Name</label>
                                         <input
                                             type="text"
                                             className="form-control"
-                                            id="nameInputField"
-                                            name="name"
-                                            value={formData.name}
+                                            id="firstNameInputField"
+                                            name="firstName"
+                                            value={formData.firstName}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-6 ${styles.formColDiv}`}>
+                                        <label htmlFor="lastNameInputField" className="form-label">Last Name</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="lastNameInputField"
+                                            name="lastName"
+                                            value={formData.lastName}
                                             onChange={handleFormInputChange}
                                             required
                                         />
@@ -240,17 +258,6 @@ const Index = () => {
                                             value={formData.employmentType}
                                             onChange={handleFormInputChange}
                                             required
-                                        />
-                                    </div>
-                                    <div className={`col-md-6 ${styles.formColDiv}`}>
-                                        <label htmlFor="notesInputField" className="form-label">Notes / Responsibilities</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="notesInputField"
-                                            name="notesResponsibilities"
-                                            value={formData.notesResponsibilities}
-                                            onChange={handleFormInputChange}
                                         />
                                     </div>
                                     <div className={`col-md-2 ${styles.formColDiv}`}>
