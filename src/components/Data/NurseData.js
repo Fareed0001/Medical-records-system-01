@@ -1,4 +1,4 @@
-export const initialNurseData = [
+export const NurseData = [
     {
         "id": "1",
         "key": "1",

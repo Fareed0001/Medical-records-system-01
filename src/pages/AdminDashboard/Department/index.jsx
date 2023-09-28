@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from '@/components/Sidebar/AdminSidebar/Sidebar';
 import Navbar from '@/components/Navbar/AdminNavbar/Navbar';
 import styles from "@/pages/AdminDashboard/Styles.module.css";
@@ -16,48 +16,10 @@ const Index = () => {
     // State to track the current page
     const [currentPage, setCurrentPage] = useState(1);
 
-    // Calculate the starting index and ending index for the current page
-    const startIndex = (currentPage - 1) * ROWS_PER_PAGE;
-    const endIndex = Math.min(startIndex + ROWS_PER_PAGE, totalDepartments);
+    // State to store the search input
+    const [searchInput, setSearchInput] = useState('');
 
-    // Slice the department data to get the rows for the current page
-    const departmentPageData = departmentData.slice(startIndex, endIndex);
-
-    // Separate state for the current page data
-    const [currentDepartmentData, setCurrentDepartmentData] = useState(departmentPageData);
-
-    // Define a new state variable for temporary department data
-    const [tempDepartmentData, setTempDepartmentData] = useState([]);
-
-    // Function to handle the delete action when the trash icon is clicked
-    const handleDeleteClick = (departmentId) => {
-        // Remove the department with the specified id from tempDepartmentData
-        const updatedTempDepartmentData = tempDepartmentData.filter(department => department.id !== departmentId);
-
-        // Update the tempDepartmentData array
-        setTempDepartmentData(updatedTempDepartmentData);
-
-        // Update the currentDepartmentData with the modified data
-        setCurrentDepartmentData(updatedTempDepartmentData);
-    };
-
-    // Function to handle the "Next" button click
-    const handleNextPageClick = () => {
-        if (currentPage < Math.ceil(totalDepartments / ROWS_PER_PAGE)) {
-            setCurrentPage(currentPage + 1);
-            updateCurrentPageData(currentPage + 1);
-        }
-    };
-
-    // Function to handle the "Previous" button click
-    const handlePrevPageClick = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-            updateCurrentPageData(currentPage - 1);
-        }
-    };
-
-    // State to store form input values
+    // State for the form input values
     const [formData, setFormData] = useState({
         departmentName: '',
         head: '',
@@ -65,42 +27,90 @@ const Index = () => {
         operatingHours: '',
     });
 
-    // Function to handle form input changes
-    const handleFormChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
+    // State for the list of departments
+    const [departments, setDepartments] = useState([...departmentData]);
+
+    // Calculate the starting index and ending index for the current page
+    const startIndex = (currentPage - 1) * ROWS_PER_PAGE;
+    const endIndex = Math.min(startIndex + ROWS_PER_PAGE, totalDepartments);
+
+    // Filter the departments based on the search input
+    const filteredDepartments = departments.filter(department =>
+        department.departmentName.toLowerCase().includes(searchInput.toLowerCase())
+    );
+
+    // Slice the filtered departments to get the rows for the current page
+    const departmentPageData = filteredDepartments.slice(startIndex, endIndex);
+
+    // Function to handle the delete action when the trash icon is clicked
+    const handleDeleteClick = (departmentId) => {
+        // Remove the department with the specified id
+        const updatedDepartments = departments.filter(department => department.id !== departmentId);
+
+        // Update the total number of departments
+        setTotalDepartments(updatedDepartments.length);
+
+        // Update the departments list
+        setDepartments(updatedDepartments);
     };
+
+    // Function to handle form input change
+    const handleFormInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
 
     // Function to handle form submission
     const handleFormSubmit = (e) => {
         e.preventDefault();
+        // Add the new department to the list
+        if (formData.departmentName && formData.head) {
+            const newDepartment = {
+                ...formData,
+                id: totalDepartments + 1, // Assign a unique ID
+            };
 
-        // Create a new department object from the form data
-        const newDepartment = {
-            ...formData,
-            id: totalDepartments + 1, // Assign a unique ID
-        };
+            // Update the total number of departments
+            setTotalDepartments(totalDepartments + 1);
 
-        // Update the total number of departments
-        setTotalDepartments(totalDepartments + 1);
+            // Update the departments list
+            setDepartments([...departments, newDepartment]);
 
-        // Update the tempDepartmentData array with the new department
-        setTempDepartmentData([...tempDepartmentData, newDepartment]);
-
-        // Update the currentDepartmentData with the modified data
-        setCurrentDepartmentData([...currentDepartmentData, newDepartment]);
-
-        // Clear the form inputs
-        setFormData({
-            departmentName: '',
-            head: '',
-            specialization: '',
-            operatingHours: '',
-        });
+            // Clear the form
+            setFormData({
+                departmentName: '',
+                head: '',
+                specialization: '',
+                operatingHours: '',
+            });
+        }
     };
+
+    // Function to handle the "Next" button click
+    const handleNextPageClick = () => {
+        if (currentPage < Math.ceil(filteredDepartments.length / ROWS_PER_PAGE)) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
+    // Function to handle the "Previous" button click
+    const handlePrevPageClick = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
+    // Function to handle search input change
+    const handleSearchInputChange = (e) => {
+        setSearchInput(e.target.value);
+        setCurrentPage(1); // Reset to the first page when searching
+    };
+
+    // Reset the current page and filtered data when the departments or search input changes
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [departments, searchInput]);
 
     return (
         <div className={styles.body}>
@@ -122,12 +132,19 @@ const Index = () => {
                     <div className={`row ${styles.searchNextDiv}`}>
                         <div className={`col-6 ${styles.searchDiv}`}>
                             <form className="d-flex" role="search">
-                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                                <input
+                                    className="form-control me-2"
+                                    type="search"
+                                    placeholder="Search by department"
+                                    aria-label="Search"
+                                    value={searchInput}
+                                    onChange={handleSearchInputChange}
+                                />
                                 <button className="btn btn-primary" type="submit"><BiSearch /></button>
                             </form>
                         </div>
                         <div className={`col-6 ${styles.nextPageDiv}`}>
-                            <p>Total <span className={styles.nextPageSpan}>{totalDepartments}</span></p>
+                            <p>Total <span className={styles.nextPageSpan}>{filteredDepartments.length}</span></p>
                             <p onClick={handlePrevPageClick}><GrFormPreviousLink className={styles.nextPrevIcon} /> <span className={styles.nextPageSpan}>{currentPage}</span></p>
                             <p onClick={handleNextPageClick}><GrFormNextLink className={styles.nextPrevIcon} /></p>
                         </div>
@@ -146,8 +163,8 @@ const Index = () => {
                                         <div className='col-3 col-sm-2'>Option</div>
                                     </div>
                                 </div>
-                                {/* Map currentDepartmentData and generate table rows */}
-                                {currentDepartmentData.map((department, index) => (
+                                {/* Map departmentPageData and generate table rows */}
+                                {departmentPageData.map((department, index) => (
                                     <div className={`container ${styles.contentTableBody}`} key={department.id}>
                                         <div className="row">
                                             <div className='col-1'>{index + 1}</div>
@@ -159,7 +176,7 @@ const Index = () => {
                                                 <BiSolidEditAlt className={styles.penIcon} />
                                                 <BsTrashFill
                                                     className={styles.binIcon}
-                                                    onClick={() => handleDeleteClick(department.id)} // Pass the department's id to the click handler
+                                                    onClick={() => handleDeleteClick(department.id)}
                                                 />
                                             </div>
                                         </div>
@@ -180,7 +197,7 @@ const Index = () => {
                                             id="departmentName"
                                             name="departmentName"
                                             value={formData.departmentName}
-                                            onChange={handleFormChange}
+                                            onChange={handleFormInputChange}
                                             required
                                         />
                                     </div>
@@ -192,7 +209,7 @@ const Index = () => {
                                             id="head"
                                             name="head"
                                             value={formData.head}
-                                            onChange={handleFormChange}
+                                            onChange={handleFormInputChange}
                                             required
                                         />
                                     </div>
@@ -204,8 +221,7 @@ const Index = () => {
                                             id="specialization"
                                             name="specialization"
                                             value={formData.specialization}
-                                            onChange={handleFormChange}
-                                            required
+                                            onChange={handleFormInputChange}
                                         />
                                     </div>
                                     <div className={`col-md-6 ${styles.formColDiv}`}>
@@ -216,19 +232,7 @@ const Index = () => {
                                             id="operatingHours"
                                             name="operatingHours"
                                             value={formData.operatingHours}
-                                            onChange={handleFormChange}
-                                            required
-                                        />
-                                    </div>
-                                    <div className={`col-12 ${styles.formColDiv}`}>
-                                        <label htmlFor="descriptionInputField" className="form-label">Description</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="descriptionInputField"
-                                            name="descriptionInputField"
-                                            value={formData.descriptionInputField}
-                                            onChange={handleFormChange}
+                                            onChange={handleFormInputChange}
                                         />
                                     </div>
                                 </div>

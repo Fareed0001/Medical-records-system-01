@@ -1,71 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Sidebar from '@/components/Sidebar/AdminSidebar/Sidebar';
 import Navbar from '@/components/Navbar/AdminNavbar/Navbar';
 import styles from "@/pages/AdminDashboard/Styles.module.css";
 import { BiSearch, BiSolidEditAlt } from "react-icons/bi";
 import { BsTrashFill } from "react-icons/bs";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
-import { initialNurseData } from "@/components/Data/NurseData"; // Import nurse data
+import { NurseData } from "@/components/Data/NurseData";
 
 const ROWS_PER_PAGE = 5; // Number of rows to display per page
 
 const Index = () => {
     // State to track the total number of nurses
-    const [totalNurses, setTotalNurses] = useState(initialNurseData.length);
+    const [totalNurses, setTotalNurses] = useState(NurseData.length);
 
     // State to track the current page
     const [currentPage, setCurrentPage] = useState(1);
 
-    // Calculate the starting index and ending index for the current page
-    const startIndex = (currentPage - 1) * ROWS_PER_PAGE;
-    const endIndex = Math.min(startIndex + ROWS_PER_PAGE, totalNurses);
+    // State to store the search input
+    const [searchInput, setSearchInput] = useState('');
 
-    // Slice the initial nurse data to get the rows for the current page
-    const initialNursePageData = initialNurseData.slice(startIndex, endIndex);
-
-    // Separate state for the current page data
-    const [currentNurseData, setCurrentNurseData] = useState(initialNursePageData);
-
-    // Function to update the current page data
-    const updateCurrentPageData = (page) => {
-        const startIndex = (page - 1) * ROWS_PER_PAGE;
-        const endIndex = Math.min(startIndex + ROWS_PER_PAGE, totalNurses);
-        const updatedPageData = initialNurseData.slice(startIndex, endIndex);
-        setCurrentNurseData(updatedPageData);
-    };
-
-    // Define a new state variable for temporary nurse data
-    const [tempNurseData, setTempNurseData] = useState([]);
-
-    // Function to handle the delete action when the trash icon is clicked
-    const handleDeleteClick = (nurseId) => {
-        // Remove the nurse with the specified id from tempNurseData
-        const updatedTempNurseData = tempNurseData.filter(nurse => nurse.id !== nurseId);
-
-        // Update the tempNurseData array
-        setTempNurseData(updatedTempNurseData);
-
-        // Update the currentNurseData with the modified data
-        setCurrentNurseData(updatedTempNurseData);
-    };
-
-    // Function to handle the "Next" button click
-    const handleNextPageClick = () => {
-        if (currentPage < Math.ceil(totalNurses / ROWS_PER_PAGE)) {
-            setCurrentPage(currentPage + 1);
-            updateCurrentPageData(currentPage + 1);
-        }
-    };
-
-    // Function to handle the "Previous" button click
-    const handlePrevPageClick = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-            updateCurrentPageData(currentPage - 1);
-        }
-    };
-
-    // State for form data
+    // State for the form input values
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -80,19 +34,45 @@ const Index = () => {
         shift: '', // Add shift field
     });
 
-    // Function to handle changes in form inputs
-    const handleFormChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value
-        });
+    // State for the list of nurses
+    const [nurses, setNurses] = useState([...NurseData]);
+
+    // Calculate the starting index and ending index for the current page
+    const startIndex = (currentPage - 1) * ROWS_PER_PAGE;
+    const endIndex = Math.min(startIndex + ROWS_PER_PAGE, totalNurses);
+
+    // Filter the nurses based on the search input
+    const filteredNurses = nurses.filter(nurse =>
+        nurse.firstName.toLowerCase().includes(searchInput.toLowerCase()) ||
+        nurse.lastName.toLowerCase().includes(searchInput.toLowerCase()) ||
+        nurse.department.toLowerCase().includes(searchInput.toLowerCase())
+    );
+
+    // Slice the filtered nurses to get the rows for the current page
+    const nursePageData = filteredNurses.slice(startIndex, endIndex);
+
+    // Function to handle the delete action when the trash icon is clicked
+    const handleDeleteClick = (nurseId) => {
+        // Remove the nurse with the specified id
+        const updatedNurses = nurses.filter(nurse => nurse.id !== nurseId);
+
+        // Update the total number of nurses
+        setTotalNurses(updatedNurses.length);
+
+        // Update the nurses list
+        setNurses(updatedNurses);
     };
 
-    // Function to handle the form submission
+    // Function to handle form input change
+    const handleFormInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    // Function to handle form submission
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        // Add the new nurse to the temporary array
+        // Add the new nurse to the list
         if (
             formData.firstName &&
             formData.lastName &&
@@ -105,12 +85,11 @@ const Index = () => {
                 id: totalNurses + 1, // Assign a unique ID
             };
 
-            // Update the temporary nurse data array
-            const newTempNurseData = [...tempNurseData, newNurse];
-            setTempNurseData(newTempNurseData);
-
             // Update the total number of nurses
             setTotalNurses(totalNurses + 1);
+
+            // Update the nurses list
+            setNurses([...nurses, newNurse]);
 
             // Clear the form
             setFormData({
@@ -126,11 +105,33 @@ const Index = () => {
                 password: '',
                 shift: '',
             });
-
-            // Update the currentNurseData with the new temporary data
-            setCurrentNurseData(newTempNurseData);
         }
     };
+
+    // Function to handle the "Next" button click
+    const handleNextPageClick = () => {
+        if (currentPage < Math.ceil(filteredNurses.length / ROWS_PER_PAGE)) {
+            setCurrentPage(currentPage + 1);
+        }
+    };
+
+    // Function to handle the "Previous" button click
+    const handlePrevPageClick = () => {
+        if (currentPage > 1) {
+            setCurrentPage(currentPage - 1);
+        }
+    };
+
+    // Function to handle search input change
+    const handleSearchInputChange = (e) => {
+        setSearchInput(e.target.value);
+        setCurrentPage(1); // Reset to the first page when searching
+    };
+
+    // Reset the current page and filtered data when the nurses or search input changes
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [nurses, searchInput]);
 
     return (
         <div className={styles.body}>
@@ -150,12 +151,19 @@ const Index = () => {
                     <div className={`row ${styles.searchNextDiv}`}>
                         <div className={`col-6 ${styles.searchDiv}`}>
                             <form className="d-flex" role="search">
-                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                                <input
+                                    className="form-control me-2"
+                                    type="search"
+                                    placeholder="Search by name or department"
+                                    aria-label="Search"
+                                    value={searchInput}
+                                    onChange={handleSearchInputChange}
+                                />
                                 <button className="btn btn-primary" type="submit"><BiSearch /></button>
                             </form>
                         </div>
                         <div className={`col-6 ${styles.nextPageDiv}`}>
-                            <p>Total <span className={styles.nextPageSpan}>{totalNurses}</span></p>
+                            <p>Total <span className={styles.nextPageSpan}>{filteredNurses.length}</span></p>
                             <p onClick={handlePrevPageClick}><GrFormPreviousLink className={styles.nextPrevIcon} /> <span className={styles.nextPageSpan}>{currentPage}</span></p>
                             <p onClick={handleNextPageClick}><GrFormNextLink className={styles.nextPrevIcon} /></p>
                         </div>
@@ -173,9 +181,9 @@ const Index = () => {
                                         <div className='col-3 col-sm-2'>Option</div>
                                     </div>
                                 </div>
-                                {/* Map currentNurseData and generate table rows */}
-                                {currentNurseData.map((nurse, index) => (
-                                    <div className={`container ${styles.contentTableBody}`} key={index}>
+                                {/* Map nursePageData and generate table rows */}
+                                {nursePageData.map((nurse, index) => (
+                                    <div className={`container ${styles.contentTableBody}`} key={nurse.id}>
                                         <div className="row">
                                             <div className='col-1'>{index + 1}</div>
                                             <div className='col-8 col-sm-4 col-lg-2'>{nurse.firstName} {nurse.lastName}</div>
@@ -186,7 +194,7 @@ const Index = () => {
                                                 <BiSolidEditAlt className={styles.penIcon} />
                                                 <BsTrashFill
                                                     className={styles.binIcon}
-                                                    onClick={() => handleDeleteClick(nurse.id)} // Pass the nurse's id to the click handler
+                                                    onClick={() => handleDeleteClick(nurse.id)}
                                                 />
                                             </div>
                                         </div>
@@ -206,7 +214,7 @@ const Index = () => {
                                             id="firstName"
                                             name="firstName"
                                             value={formData.firstName}
-                                            onChange={handleFormChange}
+                                            onChange={handleFormInputChange}
                                             required
                                         />
                                     </div>
@@ -218,7 +226,7 @@ const Index = () => {
                                             id="lastName"
                                             name="lastName"
                                             value={formData.lastName}
-                                            onChange={handleFormChange}
+                                            onChange={handleFormInputChange}
                                             required
                                         />
                                     </div>
@@ -230,7 +238,7 @@ const Index = () => {
                                             id="email"
                                             name="email"
                                             value={formData.email}
-                                            onChange={handleFormChange}
+                                            onChange={handleFormInputChange}
                                             required
                                         />
                                     </div>
@@ -242,7 +250,7 @@ const Index = () => {
                                             id="department"
                                             name="department"
                                             value={formData.department}
-                                            onChange={handleFormChange}
+                                            onChange={handleFormInputChange}
                                             required
                                         />
                                     </div>
@@ -254,7 +262,7 @@ const Index = () => {
                                             id="gender"
                                             name="gender"
                                             value={formData.gender}
-                                            onChange={handleFormChange}
+                                            onChange={handleFormInputChange}
                                         />
                                     </div>
                                     <div className={`col-md-10 ${styles.formColDiv}`}>
@@ -265,7 +273,7 @@ const Index = () => {
                                             id="address"
                                             name="address"
                                             value={formData.address}
-                                            onChange={handleFormChange}
+                                            onChange={handleFormInputChange}
                                         />
                                     </div>
                                     <div className={`col-md-5 ${styles.formColDiv}`}>
@@ -276,7 +284,7 @@ const Index = () => {
                                             id="nigerianPhoneNumber"
                                             name="nigerianPhoneNumber"
                                             value={formData.nigerianPhoneNumber}
-                                            onChange={handleFormChange}
+                                            onChange={handleFormInputChange}
                                         />
                                     </div>
                                     <div className={`col-md-2 ${styles.formColDiv}`}>
@@ -287,7 +295,7 @@ const Index = () => {
                                             id="shift"
                                             name="shift"
                                             value={formData.shift}
-                                            onChange={handleFormChange}
+                                            onChange={handleFormInputChange}
                                             required
                                         />
                                     </div>
@@ -299,10 +307,10 @@ const Index = () => {
                                             id="password"
                                             name="password"
                                             value={formData.password}
-                                            onChange={handleFormChange}
+                                            onChange={handleFormInputChange}
                                         />
                                     </div>
-                                                                   </div>
+                                </div>
                                 <div className={`col-auto ${styles.formButtonDiv}`}>
                                     <button type="submit" className="btn btn-primary">Add nurse</button>
                                 </div>
