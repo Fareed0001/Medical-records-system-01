@@ -169,7 +169,7 @@ const Index = () => {
                                         <div className="row">
                                             <div className='col-1'>{index + 1}</div>
                                             <div className='col-8 col-sm-4 col-lg-2'>{department.departmentName}</div>
-                                            <div className='d-none d-sm-block d-md-block d-lg-block col-sm-5 col-lg-3'>{department.head}</div>
+                                            <div className='d-none d-sm-block d-md-block d-lg-block col-sm-5 col-lg-3'>{department.headOfDepartment}</div>
                                             <div className='col-lg-3 d-none d-lg-block'>{department.specialization}</div>
                                             <div className='col-lg-1 d-none d-lg-block'>{department.operatingHours}</div>
                                             <div className='col-3 col-sm-2'>
