@@ -2,10 +2,10 @@ import React from 'react';
 import Sidebar from '@/components/Sidebar/DoctorSidebar/Sidebar';
 import DoctorNavbar from '@/components/Navbar/DoctorNavbar/DoctorNavbar';
 import styles from "./DoctorDashboard.module.css";
-// import { BsFillCalendar2DateFill } from "react-icons/bs";
-// import { BsCreditCard2BackFill } from "react-icons/bs"
-// import { FaBedPulse, } from "react-icons/fa6"
-// import Link from 'next/link';
+import { FaBed } from "react-icons/fa";
+import { BsFillDropletFill } from "react-icons/bs"
+import { TbReport } from "react-icons/tb"
+import Link from 'next/link';
 
 const Index = () => {
     return (
@@ -29,7 +29,35 @@ const Index = () => {
                     </div>
                 </div>
 
-                
+                <div className={styles.belowBanner}>
+                    <div className='row'>
+                        <div className='col-sm-4'>
+                            <Link href="DoctorDashboard/Bed">
+                                <div className={styles.belowBannerCol}>
+                                    <FaBed className={styles.belowBannerIcons} />
+                                    <p>Bed allotment</p>
+                                </div>
+                            </Link>
+                        </div>
+                        <div className='col-sm-4'>
+                            <Link href="DoctorDashboard/Blood">
+                                <div className={styles.belowBannerCol}>
+                                    <BsFillDropletFill className={styles.belowBannerIcons} />
+                                    <p>Blood bank</p>
+                                </div>
+                            </Link>
+                        </div>
+                        <div className='col-sm-4'>
+                            <Link href="DoctorDashboard/Report">
+                                <div className={styles.belowBannerCol}>
+                                    <TbReport className={styles.belowBannerIcons} />
+                                    <p>Status reports</p>
+                                </div>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+
                 {/* body content end */}
             </div>
         </div>
