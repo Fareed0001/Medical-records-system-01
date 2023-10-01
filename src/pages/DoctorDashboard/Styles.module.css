@@ -112,8 +112,8 @@
 }
 
 .formColDiv label {
-   font-size: .9rem;
-   font-weight: 500;
+    font-size: .9rem;
+    font-weight: 500;
 }
 
 .formButtonDiv {
@@ -126,3 +126,68 @@
 }
 
 /* form end  */
+
+
+
+/* start of pc styles */
+@media screen and (max-width: 991px) {
+    .content .navLink {
+        font-size: .9rem;
+    }
+
+    .nextPageSpan {
+        padding: .1% 2% 1%;
+    }
+}
+
+
+/* start of medium tablet styles */
+@media screen and (max-width: 767px) {
+    .content {
+        margin: 5% auto auto;
+    }
+
+    .searchDiv form input,
+    .searchDiv form button {
+        height: 2.5rem;
+    }
+
+    .formColDiv {
+        margin: 3% auto auto;
+    }
+
+    .formButtonDiv {
+        margin: 1% 0 0;
+    }
+}
+
+/* start of phone styles */
+@media screen and (max-width: 479px) {
+    .searchNextDiv {
+        margin: 2% 0 5%;
+    }
+
+
+    .searchDiv form input,
+    .searchDiv form button {
+        height: 2rem;
+        box-shadow: none;
+    }
+
+    .searchDiv form input {
+        width: 80%;
+    }
+
+    .searchDiv form button {
+        width: 20%;
+    }
+
+    .nextPageDiv p {
+        margin: 0;
+        line-height: 0;
+    }
+
+    .formButtonDiv {
+        margin: 3% 0 0;
+    }
+}
