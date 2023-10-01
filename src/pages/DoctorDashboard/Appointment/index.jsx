@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '@/components/Sidebar/DoctorSidebar/Sidebar';
-import Navbar from '@/components/Navbar/DoctorNavbar/Navbar';
+import Navbar from '@/components/Navbar/DoctorNavbar/DoctorNavbar';
 import styles from "@/pages/DoctorDashboard/Styles.module.css";
 import { BiSearch, BiSolidEditAlt } from "react-icons/bi";
 import { BsTrashFill } from "react-icons/bs";

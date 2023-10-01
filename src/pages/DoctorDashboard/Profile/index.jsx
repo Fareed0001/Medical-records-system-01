@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import Sidebar from '@/components/Sidebar/DoctorSidebar/Sidebar';
-import Navbar from '@/components/Navbar/DoctorNavbar/Navbar';
+import Navbar from '@/components/Navbar/DoctorNavbar/DoctorNavbar';
 import styles from "./Profile.module.css";
 
 const Index = () => {
@@ -8,10 +8,10 @@ const Index = () => {
 
     // State to track form input values
     const [formData, setFormData] = useState({
-        name: 'Farid Ibrahim Mohammed',
-        email: 'faridibrahim0003@gmail.com',
-        phoneNumber: '+234 905 292 7094',
-        address: 'Army Barack Kurudu',
+        name: 'Aminu Muhammad',
+        email: 'aminumuhammad@gmail.com',
+        phoneNumber: '+234 905 606 2376',
+        address: 'Gwagwalada',
     });
 
     // State to track the selected image
@@ -76,7 +76,7 @@ const Index = () => {
                                                 type="text"
                                                 className="form-control"
                                                 id="nameInputField"
-                                                placeholder='Farid Ibrahim Mohammed'
+                                                placeholder='Aminu Muhammad'
                                                 defaultValue={formData.name}
                                             />
                                         </div>
@@ -86,7 +86,7 @@ const Index = () => {
                                                 type="email"
                                                 className="form-control"
                                                 id="emailInputField"
-                                                placeholder='faridibrahim0003@gmail.com'
+                                                placeholder='aminumuhammad@gmail.com'
                                                 defaultValue={formData.email}
                                             />
                                         </div>
@@ -96,7 +96,7 @@ const Index = () => {
                                                 type="number"
                                                 className="form-control"
                                                 id="phoneInputField"
-                                                placeholder='+234 905 292 7094'
+                                                placeholder='+234 905 606 2376'
                                                 defaultValue={formData.phoneNumber}
                                             />
                                         </div>
@@ -106,7 +106,7 @@ const Index = () => {
                                                 type="text"
                                                 className="form-control"
                                                 id="addressInputField"
-                                                placeholder='Army Barack Kurudu'
+                                                placeholder='Gwagwalada'
                                                 defaultValue={formData.address}
                                             />
                                         </div>
