@@ -163,24 +163,24 @@ const Index = () => {
                             <div className={styles.contentTable}>
                                 <div className={`container ${styles.contentTableHead}`}>
                                     <div className="row">
-                                        <div className='col-1'>#</div>
-                                        <div className='col-8 col-sm-5 col-lg-3'>Patient</div>
-                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Physician</div>
-                                        <div className='col-2 d-none d-lg-block'>Date</div>
-                                        <div className='col-2 d-none d-lg-block'>Disease</div>
-                                        <div className='col-3 col-sm-2'>Option</div>
+                                        <div className="col-1">#</div>
+                                        <div className="col-8 col-sm-5 col-lg-3">Patient</div>
+                                        <div className="d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2">Physician</div>
+                                        <div className="col-2 d-none d-lg-block">Date</div>
+                                        <div className="col-2 d-none d-lg-block">Disease</div>
+                                        <div className="col-3 col-sm-2">Option</div>
                                     </div>
                                 </div>
                                 {/* Map appointmentPageData and generate table rows */}
                                 {appointmentPageData.map((appointment, index) => (
                                     <div className={`container ${styles.contentTableBody}`} key={appointment.id}>
                                         <div className="row">
-                                            <div className='col-1'>{index + 1}</div>
-                                            <div className='col-8 col-sm-4 col-lg-3'>{appointment.name}</div>
-                                            <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>{appointment.physician}</div>
-                                            <div className='col-2 d-none d-lg-block'>{appointment.date}</div>
-                                            <div className='col-2 d-none d-lg-block'>{appointment.disease}</div>
-                                            <div className='col-3 col-sm-2'>
+                                            <div className="col-1">{index + 1}</div>
+                                            <div className="col-8 col-sm-4 col-lg-3">{appointment.name}</div>
+                                            <div className="d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2">{appointment.physician}</div>
+                                            <div className="col-2 d-none d-lg-block">{appointment.date}</div>
+                                            <div className="col-2 d-none d-lg-block">{appointment.disease}</div>
+                                            <div className="col-3 col-sm-2">
                                                 <BsFillEyeFill className={styles.eyeIcon} />
                                                 <BiSolidEditAlt className={styles.penIcon} />
                                                 <BsTrashFill
@@ -199,7 +199,7 @@ const Index = () => {
                             <form className={styles.doctorForm} onSubmit={handleFormSubmit}>
                                     <h4>Add Prescription</h4>
                                     <hr />
-                                <div className='row'>
+                                <div className="row">
                                     <div className={`col-md-6 ${styles.formColDiv}`}>
                                         <label htmlFor="name" className="form-label">Patient's name</label>
                                         <input
