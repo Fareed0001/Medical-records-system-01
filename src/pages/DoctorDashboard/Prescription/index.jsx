@@ -201,7 +201,7 @@ const Index = () => {
                                     <hr />
                                 <div className="row">
                                     <div className={`col-md-6 ${styles.formColDiv}`}>
-                                        <label htmlFor="name" className="form-label">Patient's name</label>
+                                        <label htmlFor="name" className="form-label">Patient name</label>
                                         <input
                                             type="text"
                                             className="form-control"
