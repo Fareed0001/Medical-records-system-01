@@ -3,7 +3,7 @@ import Sidebar from '@/components/Sidebar/DoctorSidebar/Sidebar';
 import Navbar from '@/components/Navbar/DoctorNavbar/DoctorNavbar';
 import styles from "@/pages/DoctorDashboard/Styles.module.css";
 import { BiSearch, BiSolidEditAlt } from "react-icons/bi";
-import { BsTrashFill } from "react-icons/bs";
+import { BsTrashFill, BsFillEyeFill } from "react-icons/bs";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { AppointmentData } from "@/components/Data/AppointmentData";
 
@@ -23,7 +23,6 @@ const Index = () => {
     const [formData, setFormData] = useState({
         name: '',
         physician: '',
-        phone: '',
         date: '',
         disease: '',
     });
@@ -89,6 +88,7 @@ const Index = () => {
             setFormData({
                 name: '',
                 physician: '',
+                phone: '',
                 date: '',
                 disease: '',
             });
@@ -130,10 +130,10 @@ const Index = () => {
                 <div className={styles.content}>
                     <ul className="nav nav-tabs" id="myTabs">
                         <li className="nav-item">
-                            <a className={`nav-link active ${styles.navLink}`} id="menu0-tab" data-bs-toggle="tab" href="#menu0" role="tab" aria-controls="menu0" aria-selected="true">Appointments</a>
+                            <a className={`nav-link active ${styles.navLink}`} id="menu0-tab" data-bs-toggle="tab" href="#menu0" role="tab" aria-controls="menu0" aria-selected="true">Prescription</a>
                         </li>
                         <li className="nav-item">
-                            <a className={`nav-link ${styles.navLink}`} id="menu1-tab" data-bs-toggle="tab" href="#menu1" role="tab" aria-controls="menu1" aria-selected="false">Add Appointment</a>
+                            <a className={`nav-link ${styles.navLink}`} id="menu1-tab" data-bs-toggle="tab" href="#menu1" role="tab" aria-controls="menu1" aria-selected="false">Add Prescription</a>
                         </li>
                     </ul>
 
@@ -165,10 +165,10 @@ const Index = () => {
                                     <div className="row">
                                         <div className='col-1'>#</div>
                                         <div className='col-8 col-sm-5 col-lg-3'>Patient</div>
-                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>Doctor</div>
-                                        <div className='col-2 d-none d-lg-block'>Date (yy/mm/dd)</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>Physician</div>
+                                        <div className='col-2 d-none d-lg-block'>Date</div>
                                         <div className='col-2 d-none d-lg-block'>Disease</div>
-                                        <div className='col-3 col-sm-1'>Option</div>
+                                        <div className='col-3 col-sm-2'>Option</div>
                                     </div>
                                 </div>
                                 {/* Map appointmentPageData and generate table rows */}
@@ -177,10 +177,11 @@ const Index = () => {
                                         <div className="row">
                                             <div className='col-1'>{index + 1}</div>
                                             <div className='col-8 col-sm-4 col-lg-3'>{appointment.name}</div>
-                                            <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>{appointment.physician}</div>
+                                            <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>{appointment.physician}</div>
                                             <div className='col-2 d-none d-lg-block'>{appointment.date}</div>
                                             <div className='col-2 d-none d-lg-block'>{appointment.disease}</div>
-                                            <div className='col-3 col-sm-1'>
+                                            <div className='col-3 col-sm-2'>
+                                                <BsFillEyeFill className={styles.eyeIcon} />
                                                 <BiSolidEditAlt className={styles.penIcon} />
                                                 <BsTrashFill
                                                     className={styles.binIcon}
@@ -195,10 +196,12 @@ const Index = () => {
                         </div>
 
                         <div className="tab-pane fade" id="menu1" role="tabpanel" aria-labelledby="menu1-tab">
-                            <form className={styles.form} onSubmit={handleFormSubmit}>
+                            <form className={styles.doctorForm} onSubmit={handleFormSubmit}>
+                                    <h4>Add Prescription</h4>
+                                    <hr />
                                 <div className='row'>
-                                    <div className={`col-md-5 ${styles.formColDiv}`}>
-                                        <label htmlFor="name" className="form-label">Name</label>
+                                    <div className={`col-md-6 ${styles.formColDiv}`}>
+                                        <label htmlFor="name" className="form-label">Patient's name</label>
                                         <input
                                             type="text"
                                             className="form-control"
@@ -209,7 +212,7 @@ const Index = () => {
                                             required
                                         />
                                     </div>
-                                    <div className={`col-md-5 ${styles.formColDiv}`}>
+                                    <div className={`col-md-6 ${styles.formColDiv}`}>
                                         <label htmlFor="physician" className="form-label">Physician</label>
                                         <input
                                             type="text"
@@ -221,26 +224,38 @@ const Index = () => {
                                             required
                                         />
                                     </div>
-                                    <div className={`col-md-2 ${styles.formColDiv}`}>
-                                        <label htmlFor="date" className="form-label">Date</label>
-                                        <input
-                                            type="date"
+                                    <div className={`col-12 ${styles.formColDiv}`}>
+                                        <label htmlFor="history" className="form-label">Case history</label>
+                                        <textarea
+                                            type="text"
                                             className="form-control"
-                                            id="date"
-                                            name="date"
-                                            value={formData.date}
+                                            id="history"
+                                            name="textarea"
+                                            value={formData.textarea}
                                             onChange={handleFormInputChange}
                                             required
                                         />
                                     </div>
-                                    <div className={`col-md-6 ${styles.formColDiv}`}>
-                                        <label htmlFor="phone" className="form-label">Phone</label>
-                                        <input
-                                            type="number"
+                                    <div className={`col-12 ${styles.formColDiv}`}>
+                                        <label htmlFor="ailment" className="form-label">Ailment / Desription</label>
+                                        <textarea
+                                            type="text"
                                             className="form-control"
-                                            id="phone"
-                                            name="phone"
-                                            value={formData.phone}
+                                            id="ailment"
+                                            name="textarea"
+                                            value={formData.textarea}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-12 ${styles.formColDiv}`}>
+                                        <label htmlFor="medication" className="form-label">Medication</label>
+                                        <textarea
+                                            type="text"
+                                            className="form-control"
+                                            id="medication"
+                                            name="mediacation"
+                                            value={formData.mediacation}
                                             onChange={handleFormInputChange}
                                             required
                                         />
@@ -257,9 +272,33 @@ const Index = () => {
                                             required
                                         />
                                     </div>
+                                    <div className={`col-md-3 ${styles.formColDiv}`}>
+                                        <label htmlFor="Amount" className="form-label">Amount</label>
+                                        <input
+                                            type="number"
+                                            className="form-control"
+                                            id="Amount"
+                                            name="amount"
+                                            value={formData.amount}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-3 ${styles.formColDiv}`}>
+                                        <label htmlFor="date" className="form-label">Date</label>
+                                        <input
+                                            type="date"
+                                            className="form-control"
+                                            id="date"
+                                            name="date"
+                                            value={formData.date}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
                                 </div>
                                 <div className={`col-auto ${styles.formButtonDiv}`}>
-                                    <button type="submit" className="btn btn-primary">Add appointment</button>
+                                    <button type="submit" className="btn btn-primary">Add prescription</button>
                                 </div>
                             </form>
                         </div>

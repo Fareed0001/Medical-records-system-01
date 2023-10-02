@@ -23,7 +23,7 @@ export const SidebarData = [
     },
     {
         icon: <MdDateRange />,
-        title: "Appointments",
+        title: "Appointment",
         link: "/DoctorDashboard/Appointment"
     },
     {

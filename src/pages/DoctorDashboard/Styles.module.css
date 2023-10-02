@@ -102,10 +102,27 @@
     box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
 
+.eyeIcon {
+    color: #555555;
+    cursor: pointer;
+    margin: 0 1rem 0 0;
+}
+
+.eyeIcon:hover {
+    color: #a9a9a9;
+}
+
 /* content table end  */
 
 
 /* form start  */
+
+.doctorForm {
+    border-radius: 12px;
+    border: none;
+    background-color: #f0f8ff;
+    padding: 3% 5%;
+}
 
 .formColDiv {
     margin: 1% auto auto;
@@ -114,6 +131,10 @@
 .formColDiv label {
     font-size: .9rem;
     font-weight: 500;
+}
+
+.formColDiv textarea {
+    height: 100px;
 }
 
 .formButtonDiv {
