@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from '@/components/Sidebar/DoctorSidebar/Sidebar';
 import Navbar from '@/components/Navbar/DoctorNavbar/DoctorNavbar';
 import styles from "@/pages/DoctorDashboard/Styles.module.css";
-import { BiSearch, BiSolidEditAlt } from "react-icons/bi";
+import { BiSearch } from "react-icons/bi";
 import { BsTrashFill } from "react-icons/bs";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
+import { MdHistoryEdu } from "react-icons/md"
 import { AppointmentData } from "@/components/Data/AppointmentData";
 
 const ROWS_PER_PAGE = 5; // Number of rows to display per page
@@ -176,12 +177,12 @@ const Index = () => {
                                     <div className={`container ${styles.contentTableBody}`} key={appointment.id}>
                                         <div className="row">
                                             <div className='col-1'>{index + 1}</div>
-                                            <div className='col-8 col-sm-4 col-lg-3'>{appointment.name}</div>
+                                            <div className='col-8 col-sm-5 col-lg-3'>{appointment.name}</div>
                                             <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>{appointment.physician}</div>
                                             <div className='col-2 d-none d-lg-block'>{appointment.date}</div>
                                             <div className='col-2 d-none d-lg-block'>{appointment.disease}</div>
-                                            <div className='col-3 col-sm-1'>
-                                                <BiSolidEditAlt className={styles.penIcon} />
+                                            <div className='col-3 col-sm-2 col-lg-1'>
+                                                <MdHistoryEdu className={styles.penIcon} />
                                                 <BsTrashFill
                                                     className={styles.binIcon}
                                                     onClick={() => handleDeleteClick(appointment.id)}

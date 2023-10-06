@@ -81,12 +81,16 @@
 }
 
 
-.penIcon {
+.historyIcon, .penIcon {
     color: #237fea;
     cursor: pointer;
 }
 
-.penIcon:hover {
+.historyIcon {
+    font-size: 1.5rem;
+}
+
+.historyIcon:hover, .penIcon:hover {
     color: #0077ff;
     box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }

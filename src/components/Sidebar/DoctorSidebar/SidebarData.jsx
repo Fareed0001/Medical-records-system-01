@@ -1,19 +1,8 @@
 import React from 'react';
 import { MdDateRange, MdQueue } from "react-icons/md";
-import {
-    FaUserInjured,
-    FaDiagnoses,
-    FaUserCircle
-} from "react-icons/fa";
-import {
-    FaPills
-} from "react-icons/fa6";
-import { CgNotes } from "react-icons/cg";
-import { GiHeartBeats } from "react-icons/gi";
-import {
-    MdSpaceDashboard,
-    MdHistoryEdu
-} from "react-icons/md";
+import { FaUserCircle } from "react-icons/fa";
+import { GrNotes } from "react-icons/gr";
+import { MdSpaceDashboard } from "react-icons/md";
 
 export const SidebarData = [
     {
@@ -28,38 +17,13 @@ export const SidebarData = [
     },
     {
         icon: <MdQueue />,
-        title: "Queue",
-        link: "/DoctorDashboard/Queue"
+        title: "Admission",
+        link: "/DoctorDashboard/Admission"
     },
     {
-        icon: <GiHeartBeats />,
-        title: "Vital",
-        link: "/DoctorDashboard/Vitals"
-    },
-    {
-        icon: <FaUserInjured />,
-        title: "Patient",
-        link: "/DoctorDashboard/Patient"
-    },
-    {
-        icon: <FaPills />,
-        title: "Prescription",
-        link: "/DoctorDashboard/Prescription"
-    },
-    {
-        icon: <CgNotes />,
-        title: "Examination",
-        link: "/DoctorDashboard/Examination"
-    },
-    {
-        icon: <MdHistoryEdu />,
-        title: "History",
-        link: "/DoctorDashboard/History"
-    },
-    {
-        icon: <FaDiagnoses />,
-        title: "Diagnosis",
-        link: "/DoctorDashboard/Diagnosis"
+        icon: <GrNotes />,
+        title: "Nurses note",
+        link: "/DoctorDashboard/NursesNote"
     },
     {
         icon: <FaUserCircle />,
