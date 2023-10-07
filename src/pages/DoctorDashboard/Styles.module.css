@@ -189,9 +189,8 @@
 /* start of phone styles */
 @media screen and (max-width: 479px) {
     .searchNextDiv {
-        margin: 2% 0 5%;
+        margin: 5% 0 5%;
     }
-
 
     .searchDiv form input,
     .searchDiv form button {
@@ -210,6 +209,14 @@
     .nextPageDiv p {
         margin: 0;
         line-height: 0;
+    }
+
+    .contentTableHead {
+        padding: 3%;
+    }
+
+    .contentTableBody {
+        padding: 5% 3%;
     }
 
     .formButtonDiv {

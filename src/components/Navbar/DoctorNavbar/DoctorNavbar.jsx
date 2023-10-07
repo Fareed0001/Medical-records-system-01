@@ -22,7 +22,7 @@ const Navbar = () => {
             </div>
 
             <p className={styles.greeting}>
-                <span className={styles.username}>Muhammad Aminu</span> <br />
+                <span className={styles.username}>Dr Aminu</span> <br />
                 <span className={styles.welcome}>Welcome back</span></p>
 
             <Link href="/" className={styles.roleLink}>

@@ -278,7 +278,7 @@ const Index = () => {
                                             required
                                         />
                                     </div>
-                                    <div className={`col-2 ${styles.formColDiv}`}>
+                                    <div className={`col-md-2 ${styles.formColDiv}`}>
                                         <label htmlFor="bloodInputField" className="form-label">Blood group</label>
                                         <input
                                             type="text"
@@ -289,7 +289,7 @@ const Index = () => {
                                             onChange={handleFormInputChange}
                                         />
                                     </div>
-                                    <div className={`col-10 ${styles.formColDiv}`}>
+                                    <div className={`col-md-10 ${styles.formColDiv}`}>
                                         <label htmlFor="addressInputField" className="form-label">Address</label>
                                         <input
                                             type="text"
