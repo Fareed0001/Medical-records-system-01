@@ -52,7 +52,7 @@ const Index = () => {
                         <div className={`col-md-3 ${styles.imgDiv}`}>
                             {/* Clicking the image triggers the file input */}
                             <img
-                                src={selectedImage || '..\images\profile-pictures\favicon.png'}
+                                src={selectedImage || '/images/profile-pictures/favicon.png'}
                                 alt='profile picture'
                                 className={styles.profilePicture}
                                 onClick={() => fileInputRef.current.click()}
