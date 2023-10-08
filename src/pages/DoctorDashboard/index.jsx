@@ -170,7 +170,7 @@ const Index = () => {
                                         <div className='col-2 d-none d-lg-block'>Phone</div>
                                         <div className='col-1 d-none d-lg-block'>Gender</div>
                                         <div className='col-2 d-none d-lg-block'>Date of Birth</div>
-                                        <div className='col-3 col-sm-2 col-lg-1'>Option</div>
+                                        <div className='col-3 col-sm-2 col-lg-1'>Data</div>
                                     </div>
                                 </div>
                                 {/* Map patientPageData and generate table rows */}
