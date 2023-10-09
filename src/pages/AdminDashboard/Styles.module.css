@@ -80,7 +80,6 @@
     background-color: #e7e7ee;
 }
 
-
 .penIcon {
     color: #237fea;
     cursor: pointer;
@@ -126,6 +125,20 @@
 }
 
 /* form end  */
+
+
+
+/* Slug page start */
+
+.bioData-body {
+    border-radius: 12px;
+    width: 80%;
+    margin: auto;
+    background-color: red;
+    color: white;
+}
+
+/* Slug page end  */
 
 
 
