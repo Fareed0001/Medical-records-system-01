@@ -1,5 +1,6 @@
 export const patientData = [
   {
+    key: 1,
     medicalRecordNumber: 'MRN001',
     name: 'John Doe',
     gender: 'Male',
@@ -28,6 +29,7 @@ export const patientData = [
     },
   },
   {
+    key: 2,
     medicalRecordNumber: 'MRN002',
     name: 'Jane Smith',
     gender: 'Female',
@@ -56,6 +58,7 @@ export const patientData = [
     },
   },
   {
+    key: 3,
     medicalRecordNumber: 'MRN003',
     name: 'Michael Johnson',
     gender: 'Male',
@@ -84,6 +87,7 @@ export const patientData = [
     },
   },
   {
+    key: 4,
     medicalRecordNumber: 'MRN004',
     name: 'Emily Davis',
     gender: 'Female',
@@ -114,6 +118,7 @@ export const patientData = [
   // Additional patient objects with either nursesNotes or ward (or both)
   {
     // Patient without nursesNotes or ward
+    key: 5,
     medicalRecordNumber: 'MRN005',
     name: 'David Wilson',
     gender: 'Male',
@@ -126,6 +131,7 @@ export const patientData = [
   },
   {
     // Patient without nursesNotes or ward
+    key: 6,
     medicalRecordNumber: 'MRN006',
     name: 'Amina Aliyu',
     gender: 'Female',
@@ -138,6 +144,7 @@ export const patientData = [
   },
   {
     // Patient with nursesNotes
+    key: 7,
     medicalRecordNumber: 'MRN007',
     name: 'Chukwudi Eze',
     gender: 'Male',
@@ -157,6 +164,7 @@ export const patientData = [
   },
   {
     // Patient with nursesNotes
+    key: 8,
     medicalRecordNumber: 'MRN008',
     name: 'Nneka Okoro',
     gender: 'Female',
@@ -176,6 +184,7 @@ export const patientData = [
   },
   {
     // Patient with nursesNotes
+    key: 9,
     medicalRecordNumber: 'MRN009',
     name: 'Efe Ojo',
     gender: 'Male',
@@ -195,6 +204,7 @@ export const patientData = [
   },
   {
     // Patient with nursesNotes
+    key: 10,
     medicalRecordNumber: 'MRN010',
     name: 'Rasheed Ahmed',
     gender: 'Male',
@@ -214,6 +224,7 @@ export const patientData = [
   },
   {
     // Patient without nursesNotes or ward
+    key: 11,
     medicalRecordNumber: 'MRN011',
     name: 'Olufemi Afolabi',
     gender: 'Male',
@@ -226,6 +237,7 @@ export const patientData = [
   },
   {
     // Patient without nursesNotes or ward
+    key: 12,
     medicalRecordNumber: 'MRN012',
     name: 'Chinwe Obi',
     gender: 'Female',
@@ -238,6 +250,7 @@ export const patientData = [
   },
   {
     // Patient without nursesNotes or ward
+    key: 13,
     medicalRecordNumber: 'MRN013',
     name: 'Aliyu Musa',
     gender: 'Male',
@@ -250,6 +263,7 @@ export const patientData = [
   },
   {
     // Patient without nursesNotes or ward
+    key: 14,
     medicalRecordNumber: 'MRN014',
     name: 'Aisha Abdullahi',
     gender: 'Female',
@@ -262,6 +276,7 @@ export const patientData = [
   },
   {
     // Patient without nursesNotes or ward
+    key: 15,
     medicalRecordNumber: 'MRN015',
     name: 'Yusuf Ibrahim',
     gender: 'Male',
@@ -274,6 +289,7 @@ export const patientData = [
   },
   {
     // Patient without nursesNotes or ward
+    key: 16,
     medicalRecordNumber: 'MRN017',
     name: 'Sophia Garcia',
     gender: 'Female',
@@ -286,6 +302,7 @@ export const patientData = [
   },
   {
     // Patient without nursesNotes or ward
+    key: 17,
     medicalRecordNumber: 'MRN018',
     name: 'William Brown',
     gender: 'Male',
@@ -298,6 +315,7 @@ export const patientData = [
   },
   {
     // Patient without nursesNotes or ward
+    key: 18,
     medicalRecordNumber: 'MRN019',
     name: 'Isabella Martinez',
     gender: 'Female',
@@ -310,6 +328,7 @@ export const patientData = [
   },
   {
     // Patient without nursesNotes or ward
+    key: 19,
     medicalRecordNumber: 'MRN020',
     name: 'James Wilson',
     gender: 'Male',
