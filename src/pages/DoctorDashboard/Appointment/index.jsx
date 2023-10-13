@@ -5,129 +5,97 @@ import styles from "@/pages/DoctorDashboard/Styles.module.css";
 import { BiSearch } from "react-icons/bi";
 import { BsTrashFill } from "react-icons/bs";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
-import { MdHistoryEdu } from "react-icons/md"
-import { AppointmentData } from "@/components/Data/AppointmentData";
+import { MdHistoryEdu } from "react-icons/md";
+import { patientData } from "@/components/Data/PatientData";
+import Link from "next/link";
 
-const ROWS_PER_PAGE = 5; // Number of rows to display per page
+const ROWS_PER_PAGE = 5;
 
 const Index = () => {
-    // State to track the total number of appointments
-    const [totalAppointments, setTotalAppointments] = useState(AppointmentData.length);
-
-    // State to track the current page
     const [currentPage, setCurrentPage] = useState(1);
-
-    // State to store the search input
     const [searchInput, setSearchInput] = useState('');
+    const [patients, setPatients] = useState([...patientData]);
 
-    // State for the form input values
+    const startIndex = (currentPage - 1) * ROWS_PER_PAGE;
+    const endIndex = Math.min(startIndex + ROWS_PER_PAGE, patients.length);
+
     const [formData, setFormData] = useState({
         name: '',
-        physician: '',
+        primaryCarePhysician: '',
         phone: '',
-        date: '',
+        appointmentDate: '',
         disease: '',
     });
 
-    // State for the list of appointments
-    const [appointments, setAppointments] = useState([...AppointmentData]);
+    const filteredAppointments = patients
+        .filter(patient => patient.disease) // Only include patients with the "disease" object
+        .filter(patient =>
+            patient.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+            patient.primaryCarePhysician.toLowerCase().includes(searchInput.toLowerCase()) ||
+            patient.disease.toLowerCase().includes(searchInput.toLowerCase())
+        );
 
-    // Calculate the starting index and ending index for the current page
-    const startIndex = (currentPage - 1) * ROWS_PER_PAGE;
-    const endIndex = Math.min(startIndex + ROWS_PER_PAGE, totalAppointments);
+    const patientPageData = filteredAppointments.slice(startIndex, endIndex);
 
-    // Filter the appointments based on the search input
-    const filteredAppointments = appointments.filter(appointment =>
-        appointment.name.toLowerCase().includes(searchInput.toLowerCase()) ||
-        appointment.physician.toLowerCase().includes(searchInput.toLowerCase()) ||
-        appointment.disease.toLowerCase().includes(searchInput.toLowerCase())
-    );
-
-    // Slice the filtered appointments to get the rows for the current page
-    const appointmentPageData = filteredAppointments.slice(startIndex, endIndex);
-
-    // Function to handle the delete action when the trash icon is clicked
-    const handleDeleteClick = (appointmentId) => {
-        // Remove the appointment with the specified id
-        const updatedAppointments = appointments.filter(appointment => appointment.id !== appointmentId);
-
-        // Update the total number of appointments
-        setTotalAppointments(updatedAppointments.length);
-
-        // Update the appointments list
-        setAppointments(updatedAppointments);
+    const handleDeleteClick = (patientId) => {
+        const updatedPatients = patients.filter(patient => patient.medicalRecordNumber !== patientId);
+        setPatients(updatedPatients);
     };
 
-    // Function to handle form input change
     const handleFormInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    // Function to handle form submission
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        // Add the new appointment to the list
         if (
             formData.name &&
-            formData.physician &&
+            formData.primaryCarePhysician &&
             formData.phone &&
-            formData.date &&
+            formData.appointmentDate &&
             formData.disease
         ) {
-            const newAppointment = {
+            const newPatient = {
                 ...formData,
-                id: totalAppointments + 1, // Assign a unique ID
+                medicalRecordNumber: `MRN00${patients.length + 1}`,
             };
-
-            // Update the total number of appointments
-            setTotalAppointments(totalAppointments + 1);
-
-            // Update the appointments list
-            setAppointments([...appointments, newAppointment]);
-
-            // Clear the form
+            setPatients([...patients, newPatient]);
             setFormData({
                 name: '',
-                physician: '',
-                date: '',
+                primaryCarePhysician: '',
+                appointmentDate: '',
                 disease: '',
             });
         }
     };
 
-    // Function to handle the "Next" button click
     const handleNextPageClick = () => {
         if (currentPage < Math.ceil(filteredAppointments.length / ROWS_PER_PAGE)) {
             setCurrentPage(currentPage + 1);
         }
     };
 
-    // Function to handle the "Previous" button click
     const handlePrevPageClick = () => {
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
         }
     };
 
-    // Function to handle search input change
     const handleSearchInputChange = (e) => {
         setSearchInput(e.target.value);
-        setCurrentPage(1); // Reset to the first page when searching
+        setCurrentPage(1);
     };
 
-    // Reset the current page and filtered data when the appointments or search input changes
     useEffect(() => {
         setCurrentPage(1);
-    }, [appointments, searchInput]);
+    }, [patients, searchInput]);
 
     return (
         <div className={styles.body}>
             <Sidebar />
             <div className="bodyContent">
                 <Navbar />
-                {/* body content start */}
-
                 <div className={styles.content}>
                     <ul className="nav nav-tabs" id="myTabs">
                         <li className="nav-item">
@@ -137,7 +105,6 @@ const Index = () => {
                             <a className={`nav-link ${styles.navLink}`} id="menu1-tab" data-bs-toggle="tab" href="#menu1" role="tab" aria-controls="menu1" aria-selected="false">Add Appointment</a>
                         </li>
                     </ul>
-
                     <div className={`row ${styles.searchNextDiv}`}>
                         <div className={`col-6 ${styles.searchDiv}`}>
                             <form className="d-flex" role="search">
@@ -158,7 +125,6 @@ const Index = () => {
                             <p onClick={handleNextPageClick}><GrFormNextLink className={styles.nextPrevIcon} /></p>
                         </div>
                     </div>
-
                     <div className="tab-content">
                         <div className="tab-pane fade show active" id="menu0" role="tabpanel" aria-labelledby="menu0-tab">
                             <div className={styles.contentTable}>
@@ -167,34 +133,33 @@ const Index = () => {
                                         <div className='col-1'>#</div>
                                         <div className='col-8 col-sm-5 col-lg-3'>Patient</div>
                                         <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>Doctor</div>
-                                        <div className='col-2 d-none d-lg-block'>Date (yy/mm/dd)</div>
+                                        <div className='col-2 d-none d-lg-block'>Date</div>
                                         <div className='col-2 d-none d-lg-block'>Disease</div>
                                         <div className='col-3 col-sm-1'>Option</div>
                                     </div>
                                 </div>
-                                {/* Map appointmentPageData and generate table rows */}
-                                {appointmentPageData.map((appointment, index) => (
-                                    <div className={`container ${styles.contentTableBody}`} key={appointment.id}>
+                                {patientPageData.map((patient, index) => (
+                                    <div className={`container ${styles.contentTableBody}`} key={patient.medicalRecordNumber}>
                                         <div className="row">
                                             <div className='col-1'>{index + 1}</div>
-                                            <div className='col-8 col-sm-5 col-lg-3'>{appointment.name}</div>
-                                            <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>{appointment.physician}</div>
-                                            <div className='col-2 d-none d-lg-block'>{appointment.date}</div>
-                                            <div className='col-2 d-none d-lg-block'>{appointment.disease}</div>
+                                            <div className='col-8 col-sm-5 col-lg-3'>{patient.name}</div>
+                                            <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>{patient.primaryCarePhysician}</div>
+                                            <div className='col-2 d-none d-lg-block'>{patient.appointmentDate}</div>
+                                            <div className='col-2 d-none d-lg-block'>{patient.disease}</div>
                                             <div className='col-3 col-sm-2 col-lg-1'>
-                                                <MdHistoryEdu className={styles.penIcon} />
+                                                <Link href={`/DoctorDashboard/Appointment/${patient.medicalRecordNumber}`}>
+                                                    <MdHistoryEdu className={styles.penIcon} />
+                                                </Link>
                                                 <BsTrashFill
                                                     className={styles.binIcon}
-                                                    onClick={() => handleDeleteClick(appointment.id)}
+                                                    onClick={() => handleDeleteClick(patient.medicalRecordNumber)}
                                                 />
                                             </div>
                                         </div>
                                     </div>
                                 ))}
-                                {/* End of mapping */}
                             </div>
                         </div>
-
                         <div className="tab-pane fade" id="menu1" role="tabpanel" aria-labelledby="menu1-tab">
                             <form className={styles.form} onSubmit={handleFormSubmit}>
                                 <div className='row'>
@@ -211,25 +176,25 @@ const Index = () => {
                                         />
                                     </div>
                                     <div className={`col-md-5 ${styles.formColDiv}`}>
-                                        <label htmlFor="physician" className="form-label">Physician</label>
+                                        <label htmlFor="primaryCarePhysician" className="form-label">Physician</label>
                                         <input
                                             type="text"
                                             className="form-control"
-                                            id="physician"
-                                            name="physician"
-                                            value={formData.physician}
+                                            id="primaryCarePhysician"
+                                            name="primaryCarePhysician"
+                                            value={formData.primaryCarePhysician}
                                             onChange={handleFormInputChange}
                                             required
                                         />
                                     </div>
                                     <div className={`col-md-2 ${styles.formColDiv}`}>
-                                        <label htmlFor="date" className="form-label">Date</label>
+                                        <label htmlFor="appointmentDate" className="form-label">Date</label>
                                         <input
                                             type="date"
                                             className="form-control"
-                                            id="date"
-                                            name="date"
-                                            value={formData.date}
+                                            id="appointmentDate"
+                                            name="appointmentDate"
+                                            value={formData.appointmentDate}
                                             onChange={handleFormInputChange}
                                             required
                                         />
@@ -260,13 +225,12 @@ const Index = () => {
                                     </div>
                                 </div>
                                 <div className={`col-auto ${styles.formButtonDiv}`}>
-                                    <button type="submit" className="btn btn-primary">Add appointment</button>
+                                    <button type="submit" className="btn btn-primary">Add patient</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-                {/* body content end */}
             </div>
         </div>
     );

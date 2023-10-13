@@ -11,6 +11,8 @@ export const patientData = [
     allergies: 'Penicillin',
     phone: '+1234567890',
     bloodGroup: 'A+',
+    disease: "Hypertension",
+    appointmentDate: "10/10/2023",
     address: '123 Main Street, Anytown, USA',
     // Add doctor's note
     doctorsNote: {
@@ -77,6 +79,8 @@ export const patientData = [
     allergies: 'None',
     phone: '+1987654321',
     bloodGroup: 'O-',
+    disease: "Asthma",
+    appointmentDate: "17/10/2023",
     address: '456 Elm Street, Othertown, USA',
     // Add doctor's note
     doctorsNote: {
@@ -161,6 +165,8 @@ export const patientData = [
     allergies: 'Peanuts',
     phone: '+144996633',
     bloodGroup: 'AB-',
+    disease: "Ulcer",
+    appointmentDate: "26/10/2023",
     address: '101 Pine Street, Somewhere, USA',
     // Add doctor's note
     doctorsNote: {
@@ -272,6 +278,8 @@ export const patientData = [
     allergies: 'Dust',
     phone: '+2348012345678',
     bloodGroup: 'B+',
+    disease: "Asthma",
+    appointmentDate: "13/10/2023",
     address: '123 Lagos Street, Lagos',
     // Add doctor's note
     doctorsNote: {
@@ -762,6 +770,8 @@ export const patientData = [
     allergies: 'None',
     phone: '+1987654321',
     bloodGroup: 'A+',
+    disease: "Flu",
+    appointmentDate: "30/10/2023",
     address: '345 Elm Street, Other City, USA',
     // Add doctor's note
     doctorsNote: {

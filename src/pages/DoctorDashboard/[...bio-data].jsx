@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Sidebar from '@/components/Sidebar/DoctorSidebar/Sidebar';
 import styles from "@/pages/DoctorDashboard/Styles.module.css";
 import { usePathname } from 'next/navigation';
 import { patientData } from "@/components/Data/PatientData";
 
 function Index() {
+
     const pathname = usePathname();
     let parts = [];
     let currentPath = '';
@@ -18,6 +19,34 @@ function Index() {
     const currentPatient = patientData.find(patient =>
         patient.medicalRecordNumber === currentPath
     );
+
+    //FOR E-FOLDER DOWNLOAD
+    
+    const [downloadLink, setDownloadLink] = useState(null);
+  
+    const generateModalContentText = () => {
+      // Get the modal body content
+      const modalBody = document.querySelector('.modal-body');
+      // Convert the modal body content to text
+      return modalBody.innerText;
+    };
+  
+    const handleDownloadClick = () => {
+      // Get the modal content as text
+      const modalContentText = generateModalContentText();
+  
+      // Create a Blob from the text content
+      const blob = new Blob([modalContentText], { type: 'text/plain' });
+  
+      // Create a URL for the Blob
+      const url = URL.createObjectURL(blob);
+  
+      // Set the download link
+      setDownloadLink(url);
+  
+      // Clean up: Revoke the Blob URL after the download
+      URL.revokeObjectURL(url);
+    };
 
     return (
         <div className={styles.body}>
@@ -73,17 +102,26 @@ function Index() {
                         >Lab Report
                     </button>
 
-                    <div class="modal fade" id="labReport" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal fade" id="labReport" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                             <div className="modal-content">
                             <div className="modal-header">
                             <h3 class="modal-title fs-5" id="staticBackdropLabel">Lab report for {currentPatient.name}</h3> 
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div className="modal-body">                               
-                            <div class="mb-3">                                    
+                            <div className="modal-body">  
+                                {currentPatient.labReport ? ( // Check if currentPatient labReport is defined
+                                    <>                             
+                                <div class="mb-3">                                    
                                     <p>Result: {currentPatient.labReport.results}</p>                                        
+                                </div>                              
+                                <div class="mb-3">                                    
+                                    <p>Recommendation: {currentPatient.labReport.recommendations}</p>                                        
                                 </div>
+                                    </>
+                                ) : (
+                                    <p>There is no report from the lab</p>
+                                )}
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">close</button>
@@ -143,6 +181,8 @@ function Index() {
                                 <hr />
                                 
                                 <h5>Medical history</h5>
+                                {currentPatient.doctorsNote ? ( // Check if currentPatient is defined
+                                <>
                                 <div class="mb-3">
                                     <p>Last Presented Complain: <strong>{currentPatient.doctorsNote.presentingComplaint}</strong></p>              
                                 </div>
@@ -164,27 +204,45 @@ function Index() {
                                 <div class="mb-3">
                                     <p>Summary: <strong>{currentPatient.doctorsNote.summary}</strong></p>                 
                                 </div>
+                                </>
+                                ) : (
+                                <p>Patient has no medical history in the database</p>
+                                )}                                
                                 <hr />
 
                                 <h5>Laboratory Report</h5>
+                                {currentPatient.labReport ? ( // Check if currentPatient is defined
+                                <>
                                 <div class="mb-3">
                                     <p>Result: <strong>{currentPatient.labReport.results}</strong></p>              
                                 </div>
                                 <div class="mb-3">
                                     <p>Recommendation: <strong>{currentPatient.labReport.recommendations}</strong></p>              
                                 </div>
+                                </>
+                                ) : (
+                                <p>Patient is yet to get report from the lab</p>
+                                )}
                                 <hr />
 
                                 <h5>Prescription</h5>
+                                {currentPatient.prescription ? ( // Check if currentPatient is defined
+                                <>
                                 <div class="mb-3">
                                     <p>Drug: <strong>{currentPatient.prescription.drug}</strong></p>              
                                 </div>
                                 <div class="mb-3">
                                     <p>Prescription: <strong>{currentPatient.prescription.dispensingInstructions}</strong></p>              
                                 </div>
+                                </>
+                                ) : (
+                                <p>Medications are yet to be prescribed</p>
+                                )}
                                 <hr />
 
                                 <h5>Nurses Notes</h5>
+                                {currentPatient.nursesNote ? ( // Check if currentPatient is defined
+                                <>
                                 <div class="mb-3">
                                     <p>Temperature: <strong>{currentPatient.nursesNote.temperature}</strong></p>              
                                 </div>
@@ -200,9 +258,15 @@ function Index() {
                                 <div class="mb-3">
                                     <p>Notes: <strong>{currentPatient.nursesNote.notes}</strong></p>              
                                 </div>
+                                </>
+                                ) : (
+                                <p>There is no nurse record on patient</p>
+                                )}
                                 <hr />
 
                                 <h5>Admission</h5>
+                                {currentPatient.ward ? ( // Check if currentPatient is defined
+                                <>
                                 <div class="mb-3">
                                     <p>Name: <strong>{currentPatient.ward.name}</strong></p>              
                                 </div>
@@ -227,9 +291,15 @@ function Index() {
                                 <div class="mb-3">
                                     <p>Avalable Equipments: <strong>{currentPatient.ward.facilitiesEquipment}</strong></p>              
                                 </div>
+                                </>
+                                ) : (
+                                <p>Patient was never admitted</p>
+                                )}
                                 <hr />
 
                                 <h5>Discharge Summary</h5>
+                                {currentPatient.dischargeSummary ? ( // Check if currentPatient is defined
+                                <>
                                 <div class="mb-3">
                                     <p>Hospital Course: <strong>{currentPatient.dischargeSummary.hospitalCourse}</strong></p>              
                                 </div>
@@ -248,9 +318,15 @@ function Index() {
                                 <div class="mb-3">
                                     <p>Discharge Diagnosis: <strong>{currentPatient.dischargeSummary.dischargeDiagnosis}</strong></p>              
                                 </div>
+                                </>
+                                ) : (
+                                    <p>Patient was never admitted</p>
+                                )}
                                 <hr />
 
                                 <h5>Radiology Report</h5>
+                                {currentPatient.radiologyReport ? ( // Check if currentPatient is defined
+                                <>
                                 <div class="mb-3">
                                     <p>Study Details: <strong>{currentPatient.radiologyReport.studyDetails}</strong></p>              
                                 </div>
@@ -260,22 +336,40 @@ function Index() {
                                 <div class="mb-3">
                                     <p>Diagnosis: <strong>{currentPatient.radiologyReport.diagnosis}</strong></p>              
                                 </div>
+                                </>
+                                ) : (
+                                <p>Patient is yet to visit the radiologist</p>
+                                )}
                                 <hr />
-
-
-
-
-
-
 
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-primary">Download</button>
+                                <button
+                                    type="button"
+                                    className="btn btn-primary"
+                                    onClick={handleDownloadClick}
+                                >
+                                    Download
+                                </button>
+
+                                {/* Render the download link as a hidden anchor element */}
+                                {downloadLink && (
+                                    <a
+                                    href={downloadLink}
+                                    download="E-folder.txt"
+                                    style={{ display: 'none' }}
+                                    ref={(ref) => ref && ref.click()} // Programmatically trigger the download
+                                    >
+                                    Download Link
+                                    </a>
+                                )}
+
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                             </div>
                         </div>
                     </div>
+                    
                     {/* E-FOLDER MODAL END  */}
                 
 
@@ -298,7 +392,9 @@ function Index() {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
-                                <div class="mb-3">
+                            {currentPatient.doctorsNote ? ( // Check if currentPatient is defined
+                            <>
+                            <div class="mb-3">
                                     <p>Presenting Complain: {currentPatient.doctorsNote.presentingComplaint}</p>                                        
                                 </div>
                                 <div class="mb-3">
@@ -319,6 +415,10 @@ function Index() {
                                 <div class="mb-3">
                                     <p>Summary: {currentPatient.doctorsNote.summary}</p>                                        
                                 </div>
+                            </>
+                            ) : (
+                            <p>Patient has no history records in the database</p>
+                            )}                                
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">close</button>
@@ -408,12 +508,18 @@ function Index() {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
+                            {currentPatient.prescription ? ( // Check if currentPatient is defined
+                            <>
                                 <div class="mb-3">                                    
                                     <p>Dispensing Instruction: {currentPatient.prescription.dispensingInstructions}</p>                                        
                                 </div>
                                 <div class="mb-3">                                    
                                     <p>Prescribed Medication: {currentPatient.prescription.drug}</p>                                        
                                 </div>
+                            </>
+                            ) : (
+                            <p>Patient is yet to recieve a prescription</p>
+                            )}
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">close</button>
@@ -484,7 +590,9 @@ function Index() {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
-                                <div class="mb-3">
+                            {currentPatient.dischargeSummary ? ( // Check if currentPatient is defined
+                            <>
+                            <div class="mb-3">
                                     <p>Hospital course: {currentPatient.dischargeSummary.hospitalCourse}</p>                                        
                                 </div>
                                 <div class="mb-3">
@@ -502,6 +610,10 @@ function Index() {
                                 <div class="mb-3">
                                     <p>Discharge diagnosis: {currentPatient.dischargeSummary.dischargeDiagnosis}</p>                                        
                                 </div>
+                            </>
+                            ) : (
+                            <p>Patient was never admitted</p>
+                            )}
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">close</button>
@@ -530,6 +642,8 @@ function Index() {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div className="modal-body">
+                            {currentPatient.radiologyReport ? ( // Check if currentPatient is defined
+                            <>
                                 <div class="mb-3">
                                     <p>Study details: {currentPatient.radiologyReport.studyDetails}</p>                                        
                                 </div>
@@ -539,6 +653,10 @@ function Index() {
                                 <div class="mb-3">
                                     <p>diagnosis: {currentPatient.radiologyReport.diagnosis}</p>                                        
                                 </div>
+                            </>
+                            ) : (
+                            <p>Patient is yet to visit the radiologist</p>
+                            )}
                             </div>
                             <div className="modal-footer">
                                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">close</button>

@@ -6,6 +6,7 @@ import { BiSearch } from "react-icons/bi";
 import { MdHistoryEdu } from "react-icons/md";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { patientData } from "@/components/Data/PatientData";
+import Link from "next/link";
 
 const ROWS_PER_PAGE = 5; // Number of rows to display per page
 
@@ -108,7 +109,7 @@ const Index = () => {
                                 </div>
                                 {/* Map patientPageData and generate table rows */}
                                 {patientPageData.map((patient, index) => (
-                                    <div className={`container ${styles.contentTableBody}`} key={patient.id}>
+                                    <div className={`container ${styles.contentTableBody}`} key={patient.medicalRecordNumber}>
                                         <div className="row">
                                             <div className='col-1'>{index + 1}</div>
                                             <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>{patient.medicalRecordNumber}</div>
@@ -123,49 +124,42 @@ const Index = () => {
                                                 data-bs-target={`#staticBackdrop-${patient.medicalRecordNumber}`} // Use a unique identifier
                                             />
                                             <div className="modal fade" id={`staticBackdrop-${patient.medicalRecordNumber}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby={`staticBackdropLabel-${patient.medicalRecordNumber}`} aria-hidden="true">
-                                                <div className="modal-dialog">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                                     <div className="modal-content">
                                                     <div className="modal-header">
                                                         <h1 className="modal-title fs-5" id={`staticBackdropLabel-${patient.medicalRecordNumber}`}>{patient.name}</h1>
                                                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div className="modal-body">
-                                                        <div className="row">
-                                                            <div className="col-md-6">
-                                                                <strong>Bed number: </strong>
-                                                                {patient.ward.capacity}
-                                                            </div>
-                                                            <div className="col-md-6">
-                                                                <strong>Ward: </strong>
-                                                                {patient.ward.wardType}
-                                                            </div>
-                                                        </div>
-                                                        <hr />                                                        
-                                                        <div className="row">
-                                                            <div className="col-md-6">
-                                                                <strong>Gender: </strong>
-                                                                {patient.gender}
-                                                            </div>
-                                                            <div className="col-md-6">
-                                                                <strong>Date: </strong>
-                                                                {patient.nursesNote.date}
-                                                            </div>
-                                                        </div>
-                                                        <hr />
-                                                        <strong>Patient temperature: </strong>
-                                                        {patient.nursesNote.temperature}
-                                                        <hr />
-                                                        <strong>Urine output: </strong>
-                                                        {patient.nursesNote.urineOutput}
-                                                        <hr />
-                                                        <strong>Nurses Notes: </strong>
-                                                        {patient.nursesNote.notes}
-                                                        <hr />
-                                                        <strong>Summary: </strong>
-                                                        {patient.nursesNote.summary}
+                                                        
+                                                        <strong>Bed number: </strong>
+                                                        {patient.ward.capacity}
+                                                        <hr />      
+                                                        <strong>Ward: </strong>
+                                                        {patient.ward.wardType}
+                                                        <hr />     
+                                                        <strong>Ward name: </strong>
+                                                        {patient.ward.name}
+                                                        <hr />     
+                                                        <strong>Operation time: </strong>
+                                                        {patient.ward.operatingTime}
+                                                        <hr />     
+                                                        <strong>Manager: </strong>
+                                                        {patient.ward.manager}
+                                                        <hr />     
+                                                        <strong>Ward nurses: </strong>
+                                                        {patient.ward.nurses}
+                                                        <hr />     
+                                                        <strong>Equipment available: </strong>
+                                                        {patient.ward.facilitiesEquipment}
+                                                        <hr />     
+                                                        <strong>Ward description: </strong>
+                                                        {patient.ward.description}                                                                             
                                                     </div>
                                                         <div className="modal-footer">
-                                                            <button type="button" className="btn btn-secondary">Bio-data</button>
+                                                            <Link href={`/DoctorDashboard/Admission/${patient.medicalRecordNumber}`}>
+                                                                <button type="button" className="btn btn-secondary">Bio-data</button>
+                                                            </Link>
                                                             <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Discharge</button>
                                                         </div>
                                                     </div>

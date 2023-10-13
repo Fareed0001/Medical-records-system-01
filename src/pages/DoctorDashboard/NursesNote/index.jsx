@@ -146,7 +146,9 @@ const Index = () => {
                                                     {patient.nursesNote.summary}
                                                 </div>
                                                 <div className="modal-footer">
-                                                    <button type="button" className="btn btn-secondary">Bio-data</button>
+                                                    <Link href={`/DoctorDashboard/NursesNote/${patient.medicalRecordNumber}`}>
+                                                        <button type="button" className="btn btn-secondary">Bio-data</button>
+                                                     </Link>
                                                     <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Discharge</button>
                                                 </div>
                                                 </div>
