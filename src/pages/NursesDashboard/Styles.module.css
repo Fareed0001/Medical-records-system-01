@@ -184,7 +184,7 @@
     align-items: center;
 }
 
-.bioDataDetailsButton {
+.bioDataDetails button {
     margin: 1%;
     display: inline-block;
 }
@@ -280,13 +280,13 @@
         padding: 5%;
         display: grid;
         grid-template-columns: 1fr; /* Set the column to 100% width */
-        justify-content: center;
-        align-items: center;
+        justify-content: start;
     }
     
-    .bioDataDetailsButton {
+    .bioDataDetails button {
         margin: 2% 0;
         display: inline-block;
         width: 100%;
-    }    
+    }
+    
 }

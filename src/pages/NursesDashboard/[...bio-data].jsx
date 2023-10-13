@@ -69,7 +69,7 @@ function Index() {
                         <>
                    {/* LAB REPORT MODAL START */}
                     <button  
-                        type="button" className={`btn btn-outline-dark ${styles.bioDataDetailsButton}`}
+                        type="button" className="btn btn-outline-dark"
                         data-bs-toggle="modal"
                         data-bs-target="#labReport"
                         >Lab Report
@@ -109,7 +109,7 @@ function Index() {
                     
                     {/* E-FOLDER MODAL START */}
                      <button  
-                        type="button" className={`btn btn-outline-dark ${styles.bioDataDetailsButton}`}
+                        type="button" className="btn btn-outline-dark"
                         data-bs-toggle="modal"
                         data-bs-target="#E-folder"
                         >E-folder
@@ -331,7 +331,7 @@ function Index() {
 
                     {/* UPDATE NOTE MODAL START */}
                     <button  
-                        type="button" className={`btn btn-outline-dark ${styles.bioDataDetailsButton}`}
+                        type="button" className="btn btn-outline-dark"
                         data-bs-toggle="modal"
                         data-bs-target="#history"
                         >History
@@ -387,7 +387,7 @@ function Index() {
 
                     {/* NEW NOTE MODAL START */}
                     <button  
-                        type="button" className={`btn btn-outline-dark ${styles.bioDataDetailsButton}`}
+                        type="button" className="btn btn-outline-dark"
                         data-bs-toggle="modal"
                         data-bs-target="#addNewHistory"
                         >Add New History
@@ -447,7 +447,7 @@ function Index() {
 
                     {/* PRESCRIPTION MODAL START */}
                     <button  
-                        type="button" className={`btn btn-outline-dark ${styles.bioDataDetailsButton}`}
+                        type="button" className="btn btn-outline-dark"
                         data-bs-toggle="modal"
                         data-bs-target="#prescription"
                         >Prescription
@@ -488,7 +488,7 @@ function Index() {
 
                     {/* ADD PRESCRIPTION MODAL START */}
                     <button  
-                        type="button" className={`btn btn-outline-dark ${styles.bioDataDetailsButton}`}
+                        type="button" className="btn btn-outline-dark"
                         data-bs-toggle="modal"
                         data-bs-target="#addPrescription"
                         >Add Prescription
@@ -529,7 +529,7 @@ function Index() {
 
                     {/* DISCHARGE SUMMARY MODAL START */}
                     <button  
-                        type="button" className={`btn btn-outline-dark ${styles.bioDataDetailsButton}`}
+                        type="button" className="btn btn-outline-dark"
                         data-bs-toggle="modal"
                         data-bs-target="#dischargeSummary"
                         >Discharge Summary
@@ -581,7 +581,7 @@ function Index() {
 
                     {/* RADIOLOGY REPORT MODAL START */}
                     <button  
-                        type="button" className={`btn btn-outline-dark ${styles.bioDataDetailsButton}`}
+                        type="button" className="btn btn-outline-dark"
                         data-bs-toggle="modal"
                         data-bs-target="#radiologyReport"
                         >Radiology Report
@@ -624,7 +624,7 @@ function Index() {
 
                     {/* NOTE MODAL START */}
                     <button  
-                        type="button" className={`btn btn-outline-dark ${styles.bioDataDetailsButton}`}
+                        type="button" className="btn btn-outline-dark"
                         data-bs-toggle="modal"
                         data-bs-target="#newNote"
                         >New Note
