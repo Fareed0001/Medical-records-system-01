@@ -1,4 +1,6 @@
 export const patientData = [
+
+  // Patient 1
   {
     key: 1,
     medicalRecordNumber: 'MRN001',
@@ -10,6 +12,33 @@ export const patientData = [
     phone: '+1234567890',
     bloodGroup: 'A+',
     address: '123 Main Street, Anytown, USA',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Chest pain',
+      historyOfPresentingComplaint: 'Pain started two days ago',
+      pastMedicalHistory: 'Hypertension',
+      drugHistory: 'Aspirin',
+      familyHistory: 'No significant family history',
+      socialHistory: 'Non-smoker, occasional alcohol',
+      summary: 'Patient presented with chest pain, likely due to hypertension.'
+    },
+    nursesNote: {
+      temperature: '98.6°F',
+      urineOutput: 'Normal',
+      date: '10/15/2023',
+      summary: "Patient's vitals are stable.",
+      notes: 'The patient\'s temperature is within the normal range. Urine output is normal. No concerning symptoms observed.',
+    },
+    // Add lab report
+    labReport: {
+      results: 'Normal blood count, elevated cholesterol',
+      recommendations: 'Continue medication for hypertension, start statin for cholesterol.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'Aspirin',
+      dispensingInstructions: 'Take one tablet daily with food.'
+    },
     ward: {
       name: 'Cardiology Ward',
       wardType: 'Specialty',
@@ -20,14 +49,24 @@ export const patientData = [
       nurses: ['Nurse A', 'Nurse B', 'Nurse C'],
       facilitiesEquipment: ['ECG machines', 'Cardiac monitors', 'Defibrillators'],
     },
-    nursesNote: {
-      temperature: '98.6°F',
-      urineOutput: 'Normal',
-      date: '10/15/2023',
-      summary: "Patient's vitals are stable.",
-      notes: 'The patient\'s temperature is within the normal range. Urine output is normal. No concerning symptoms observed.',
+    // Add discharge summary
+    dischargeSummary: {
+      hospitalCourse: 'Admitted for chest pain evaluation.',
+      reasonForAdmission: 'Chest pain and hypertension',
+      findings: 'Elevated blood pressure, normal ECG',
+      treatment: 'Medication for hypertension, lifestyle advice',
+      progressAndComplications: 'Stable condition, no complications',
+      dischargeDiagnosis: 'Hypertension'
     },
+    // Add radiology report
+    radiologyReport: {
+      studyDetails: 'Chest X-ray',
+      findings: 'No abnormalities detected',
+      diagnosis: 'No acute chest issues'
+    }
   },
+
+  // Patient 2
   {
     key: 2,
     medicalRecordNumber: 'MRN002',
@@ -39,15 +78,15 @@ export const patientData = [
     phone: '+1987654321',
     bloodGroup: 'O-',
     address: '456 Elm Street, Othertown, USA',
-    ward: {
-      name: 'Pediatrics Ward',
-      wardType: 'General',
-      operatingTime: '24/7',
-      description: "Caring for children's health.",
-      capacity: 25,
-      manager: 'Dr. Emily Johnson',
-      nurses: ['Nurse X', 'Nurse Y', 'Nurse Z'],
-      facilitiesEquipment: ['Baby cribs', 'Play area', 'Pediatric beds'],
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Fever and cough',
+      historyOfPresentingComplaint: 'Cough started a week ago, fever for two days',
+      pastMedicalHistory: 'Asthma',
+      drugHistory: 'Inhaler for asthma',
+      familyHistory: 'No significant family history',
+      socialHistory: 'Non-smoker',
+      summary: 'Patient presented with fever and cough, likely due to asthma.'
     },
     nursesNote: {
       temperature: '99.0°F',
@@ -56,7 +95,20 @@ export const patientData = [
       summary: 'Patient is recovering well after surgery.',
       notes: 'The patient\'s temperature is slightly elevated but within an acceptable range. Urine output is normal, and the patient is in good spirits.',
     },
+    // Add lab report
+    labReport: {
+      results: 'Elevated white blood cell count',
+      recommendations: 'Start antibiotics for suspected infection.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'Antibiotics',
+      dispensingInstructions: 'Take one tablet every 8 hours for 7 days.'
+    }
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
+
+  // Patient 3
   {
     key: 3,
     medicalRecordNumber: 'MRN003',
@@ -68,15 +120,15 @@ export const patientData = [
     phone: '+1122334455',
     bloodGroup: 'B+',
     address: '789 Oak Street, Anycity, USA',
-    ward: {
-      name: 'Orthopedics Ward',
-      wardType: 'Specialty',
-      operatingTime: '24/7',
-      description: 'Focus on musculoskeletal issues.',
-      capacity: 20,
-      manager: 'Dr. Michael Brown',
-      nurses: ['Nurse P', 'Nurse Q', 'Nurse R'],
-      facilitiesEquipment: ['X-ray machines', 'Orthopedic beds', 'Crutches'],
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Fractured leg',
+      historyOfPresentingComplaint: 'Fell while running',
+      pastMedicalHistory: 'None',
+      drugHistory: 'Painkillers',
+      familyHistory: 'No significant family history',
+      socialHistory: 'Non-smoker, moderate drinker',
+      summary: 'Patient presented with a fractured leg due to a fall.'
     },
     nursesNote: {
       temperature: '98.2°F',
@@ -85,7 +137,20 @@ export const patientData = [
       summary: 'Patient is recovering from a fracture.',
       notes: 'The patient\'s temperature is normal. Urine output is as expected. The patient is following the treatment plan diligently.',
     },
+    // Add lab report
+    labReport: {
+      results: 'Normal blood tests',
+      recommendations: 'Monitor and manage pain, follow-up appointments.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'Painkillers',
+      dispensingInstructions: 'Take one tablet every 6 hours as needed for pain.'
+    }
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
+
+  // Patient 4
   {
     key: 4,
     medicalRecordNumber: 'MRN004',
@@ -97,15 +162,15 @@ export const patientData = [
     phone: '+144996633',
     bloodGroup: 'AB-',
     address: '101 Pine Street, Somewhere, USA',
-    ward: {
-      name: 'Surgical Ward',
-      wardType: 'General',
-      operatingTime: '24/7',
-      description: 'Post-surgery recovery and care.',
-      capacity: 40,
-      manager: 'Dr. Sarah White',
-      nurses: ['Nurse M', 'Nurse N', 'Nurse O'],
-      facilitiesEquipment: ['Surgical beds', 'Medical supplies', 'Recovery rooms'],
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Abdominal pain',
+      historyOfPresentingComplaint: 'Pain in the lower abdomen',
+      pastMedicalHistory: 'Gastric ulcers',
+      drugHistory: 'Proton pump inhibitors',
+      familyHistory: 'No significant family history',
+      socialHistory: 'Non-smoker',
+      summary: 'Patient presented with abdominal pain, likely due to gastric ulcers.'
     },
     nursesNote: {
       temperature: '98.8°F',
@@ -114,10 +179,45 @@ export const patientData = [
       summary: 'Patient underwent successful surgery.',
       notes: 'The patient successfully underwent surgery and is in stable condition. Vital signs are within normal ranges.',
     },
+    // Add lab report
+    labReport: {
+      results: 'Positive for H. pylori infection',
+      recommendations: 'Start antibiotics for H. pylori eradication.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'Antibiotics',
+      dispensingInstructions: 'Take one tablet every 12 hours for 14 days.'
+    },
+    ward: {
+      name: 'Pediatrics Ward',
+      wardType: 'General',
+      operatingTime: '24/7',
+      description: "Caring for children's health.",
+      capacity: 25,
+      manager: 'Dr. Emily Johnson',
+      nurses: ['Nurse X', 'Nurse Y', 'Nurse Z'],
+      facilitiesEquipment: ['Baby cribs', 'Play area', 'Pediatric beds'],
+    },
+    // Add discharge summary
+    dischargeSummary: {
+      hospitalCourse: 'Admitted for abdominal pain evaluation.',
+      reasonForAdmission: 'Abdominal pain and gastric ulcers',
+      findings: 'Positive for H. pylori infection',
+      treatment: 'Antibiotics for infection, proton pump inhibitors for ulcers',
+      progressAndComplications: 'Stable condition, infection treated successfully',
+      dischargeDiagnosis: 'Gastric ulcers and H. pylori infection'
+    },
+    // Add radiology report
+    radiologyReport: {
+      studyDetails: 'Abdominal Ultrasound',
+      findings: 'No structural abnormalities detected',
+      diagnosis: 'No acute abdominal issues'
+    }
   },
-  // Additional patient objects with either nursesNotes or ward (or both)
+
+  // Patient 5
   {
-    // Patient without nursesNotes or ward
     key: 5,
     medicalRecordNumber: 'MRN005',
     name: 'David Wilson',
@@ -128,9 +228,41 @@ export const patientData = [
     phone: '+1223344556',
     bloodGroup: 'O+',
     address: '246 Cedar Street, Nowhere, USA',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Headache',
+      historyOfPresentingComplaint: 'Frequent headaches for the past week',
+      pastMedicalHistory: 'Migraines',
+      drugHistory: 'Prescribed migraine medication',
+      familyHistory: 'Family history of migraines',
+      socialHistory: 'Non-smoker, non-drinker',
+      summary: 'Patient presented with recurrent headaches, likely due to migraines.'
+    },
+    // Add lab report
+    labReport: {
+      results: 'Normal blood tests',
+      recommendations: 'Continue migraine medication and maintain a headache diary.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'Migraine Medication',
+      dispensingInstructions: 'Take one tablet at the onset of a headache, record symptoms in a diary.'
+    },
+    ward: {
+      name: 'Orthopedics Ward',
+      wardType: 'Specialty',
+      operatingTime: '24/7',
+      description: 'Focus on musculoskeletal issues.',
+      capacity: 20,
+      manager: 'Dr. Michael Brown',
+      nurses: ['Nurse P', 'Nurse Q', 'Nurse R'],
+      facilitiesEquipment: ['X-ray machines', 'Orthopedic beds', 'Crutches'],
+    },
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
+
+  // Patient 6
   {
-    // Patient without nursesNotes or ward
     key: 6,
     medicalRecordNumber: 'MRN006',
     name: 'Amina Aliyu',
@@ -141,9 +273,31 @@ export const patientData = [
     phone: '+2348012345678',
     bloodGroup: 'B+',
     address: '123 Lagos Street, Lagos',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Respiratory infection',
+      historyOfPresentingComplaint: 'Cough, fever, and shortness of breath',
+      pastMedicalHistory: 'Asthma',
+      drugHistory: 'Inhaler for asthma, antihistamines',
+      familyHistory: 'No significant family history',
+      socialHistory: 'Non-smoker',
+      summary: 'Patient presented with symptoms of a respiratory infection, likely due to asthma.'
+    },
+    // Add lab report
+    labReport: {
+      results: 'Elevated white blood cell count',
+      recommendations: 'Start antibiotics and continue asthma management.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'Antibiotics',
+      dispensingInstructions: 'Take one tablet every 8 hours for 7 days.'
+    }
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
+
+  // Patient 7
   {
-    // Patient with nursesNotes
     key: 7,
     medicalRecordNumber: 'MRN007',
     name: 'Chukwudi Eze',
@@ -154,6 +308,16 @@ export const patientData = [
     phone: '+2348023456789',
     bloodGroup: 'O+',
     address: '456 Abuja Road, Abuja',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Respiratory infection',
+      historyOfPresentingComplaint: 'Cough, fever, and shortness of breath',
+      pastMedicalHistory: 'Seasonal allergies',
+      drugHistory: 'Antihistamines for allergies',
+      familyHistory: 'Family history of allergies',
+      socialHistory: 'Non-smoker',
+      summary: 'Patient presented with symptoms of a respiratory infection, likely due to seasonal allergies.'
+    },
     nursesNote: {
       temperature: '98.7°F',
       urineOutput: 'Normal',
@@ -161,9 +325,21 @@ export const patientData = [
       summary: 'Patient is recovering from a respiratory infection.',
       notes: 'The patient is responding well to treatment for a respiratory infection. Vital signs are improving.',
     },
+    // Add lab report
+    labReport: {
+      results: 'Elevated white blood cell count',
+      recommendations: 'Start antibiotics and continue allergy management.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'Antibiotics',
+      dispensingInstructions: 'Take one tablet every 8 hours for 7 days.'
+    },
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
+
+  // Patient 8
   {
-    // Patient with nursesNotes
     key: 8,
     medicalRecordNumber: 'MRN008',
     name: 'Nneka Okoro',
@@ -174,6 +350,16 @@ export const patientData = [
     phone: '+2348034567890',
     bloodGroup: 'A-',
     address: '789 Enugu Avenue, Enugu',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Minor injury',
+      historyOfPresentingComplaint: 'Fell and sustained a minor injury to the arm',
+      pastMedicalHistory: 'No significant medical history',
+      drugHistory: 'Pain relief medication',
+      familyHistory: 'No significant family history',
+      socialHistory: 'Non-smoker',
+      summary: 'Patient presented with a minor injury to the arm; no underlying medical conditions.'
+    },
     nursesNote: {
       temperature: '98.4°F',
       urineOutput: 'Normal',
@@ -181,9 +367,21 @@ export const patientData = [
       summary: 'Patient is recovering from a minor injury.',
       notes: 'The patient sustained a minor injury but is recovering well. Vital signs are stable.',
     },
+    // Add lab report
+    labReport: {
+      results: 'No abnormalities in blood tests',
+      recommendations: 'Pain relief and rest for recovery.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'Pain Relief Medication',
+      dispensingInstructions: 'Take as needed for pain relief.'
+    },
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
+
+  // Patient 9
   {
-    // Patient with nursesNotes
     key: 9,
     medicalRecordNumber: 'MRN009',
     name: 'Efe Ojo',
@@ -194,6 +392,16 @@ export const patientData = [
     phone: '+2347045678901',
     bloodGroup: 'B-',
     address: '321 Kano Lane, Kano',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Surgery recovery',
+      historyOfPresentingComplaint: 'Underwent surgery and in the recovery phase',
+      pastMedicalHistory: 'No significant medical history',
+      drugHistory: 'Post-surgery medication',
+      familyHistory: 'No significant family history',
+      socialHistory: 'Non-smoker',
+      summary: 'Patient underwent surgery and is in the recovery phase. No complications.'
+    },
     nursesNote: {
       temperature: '98.9°F',
       urineOutput: 'Normal',
@@ -201,9 +409,21 @@ export const patientData = [
       summary: 'Patient is recovering from surgery.',
       notes: 'The patient underwent surgery and is in the recovery phase. Vital signs are being monitored closely.',
     },
+    // Add lab report
+    labReport: {
+      results: 'Normal post-surgery blood tests',
+      recommendations: 'Continue post-surgery medication and monitoring.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'Post-Surgery Medication',
+      dispensingInstructions: 'Follow post-surgery medication instructions.'
+    },
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
+
+  // Patient 10
   {
-    // Patient with nursesNotes
     key: 10,
     medicalRecordNumber: 'MRN010',
     name: 'Rasheed Ahmed',
@@ -214,6 +434,16 @@ export const patientData = [
     phone: '+2347056789012',
     bloodGroup: 'AB+',
     address: '567 Ibadan Close, Ibadan',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Allergic reaction',
+      historyOfPresentingComplaint: 'Experienced an allergic reaction after consuming nuts',
+      pastMedicalHistory: 'Known nut allergy',
+      drugHistory: 'Antihistamines for allergies',
+      familyHistory: 'Family history of allergies',
+      socialHistory: 'Non-smoker',
+      summary: 'Patient presented with an allergic reaction due to nuts; known nut allergy.'
+    },
     nursesNote: {
       temperature: '98.3°F',
       urineOutput: 'Normal',
@@ -221,9 +451,21 @@ export const patientData = [
       summary: 'Patient is recovering from an allergic reaction.',
       notes: 'The patient had an allergic reaction but is now stable. Allergic symptoms have subsided.',
     },
+    // Add lab report
+    labReport: {
+      results: 'Elevated IgE levels indicative of allergy',
+      recommendations: 'Avoid nuts, carry antihistamines.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'Antihistamines (e.g., Cetirizine)',
+      dispensingInstructions: 'Take one tablet daily as needed for allergies.'
+    },
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
+
+  // Patient 11
   {
-    // Patient without nursesNotes or ward
     key: 11,
     medicalRecordNumber: 'MRN011',
     name: 'Olufemi Afolabi',
@@ -234,9 +476,31 @@ export const patientData = [
     phone: '+2347067890123',
     bloodGroup: 'O+',
     address: '987 Lagos Road, Lagos',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'General check-up',
+      historyOfPresentingComplaint: 'Routine health check-up',
+      pastMedicalHistory: 'No significant medical history',
+      drugHistory: 'No regular medication',
+      familyHistory: 'No significant family history',
+      socialHistory: 'Non-smoker',
+      summary: 'Routine health check-up; patient has no specific health concerns.'
+    },
+    // Add lab report
+    labReport: {
+      results: 'All lab tests within normal ranges',
+      recommendations: 'Continue routine health maintenance.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'No prescription needed',
+      dispensingInstructions: 'No medication required at this time.'
+    },
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
+
+  // Patient 12
   {
-    // Patient without nursesNotes or ward
     key: 12,
     medicalRecordNumber: 'MRN012',
     name: 'Chinwe Obi',
@@ -247,9 +511,31 @@ export const patientData = [
     phone: '+2348078901234',
     bloodGroup: 'A+',
     address: '543 Enugu Street, Enugu',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'General check-up',
+      historyOfPresentingComplaint: 'Routine health check-up',
+      pastMedicalHistory: 'No significant medical history',
+      drugHistory: 'No regular medication',
+      familyHistory: 'No significant family history',
+      socialHistory: 'Non-smoker',
+      summary: 'Routine health check-up; patient has no specific health concerns.'
+    },
+    // Add lab report
+    labReport: {
+      results: 'All lab tests within normal ranges',
+      recommendations: 'Continue routine health maintenance.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'No prescription needed',
+      dispensingInstructions: 'No medication required at this time.'
+    },
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
+
+  // Patient 13
   {
-    // Patient without nursesNotes or ward
     key: 13,
     medicalRecordNumber: 'MRN013',
     name: 'Aliyu Musa',
@@ -260,9 +546,41 @@ export const patientData = [
     phone: '+2347012345678',
     bloodGroup: 'B-',
     address: '753 Kano Avenue, Kano',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Allergic reaction',
+      historyOfPresentingComplaint: 'Experienced an allergic reaction after consuming peanuts',
+      pastMedicalHistory: 'Known peanut allergy',
+      drugHistory: 'Epinephrine for allergies',
+      familyHistory: 'Family history of allergies',
+      socialHistory: 'Non-smoker',
+      summary: 'Patient presented with an allergic reaction due to peanuts; known peanut allergy.'
+    },
+    // Add lab report
+    labReport: {
+      results: 'Elevated IgE levels indicative of allergy',
+      recommendations: 'Avoid peanuts, carry an epinephrine auto-injector.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'Epinephrine Auto-Injector',
+      dispensingInstructions: 'Carry the auto-injector at all times.'
+    },
+    ward: {
+      name: 'Surgical Ward',
+      wardType: 'General',
+      operatingTime: '24/7',
+      description: 'Post-surgery recovery and care.',
+      capacity: 40,
+      manager: 'Dr. Sarah White',
+      nurses: ['Nurse M', 'Nurse N', 'Nurse O'],
+      facilitiesEquipment: ['Surgical beds', 'Medical supplies', 'Recovery rooms'],
+    },
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
+
+  // Patient 14
   {
-    // Patient without nursesNotes or ward
     key: 14,
     medicalRecordNumber: 'MRN014',
     name: 'Aisha Abdullahi',
@@ -273,9 +591,31 @@ export const patientData = [
     phone: '+2347012345678',
     bloodGroup: 'O+',
     address: '123 Kaduna Road, Kaduna',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Routine check-up',
+      historyOfPresentingComplaint: 'No specific complaints, routine check-up',
+      pastMedicalHistory: 'Generally healthy',
+      drugHistory: 'No ongoing medications',
+      familyHistory: 'No significant family medical history',
+      socialHistory: 'Non-smoker, occasional exercise',
+      summary: 'Patient presented for a routine check-up, no specific health issues reported.'
+    },
+    // Add lab report
+    labReport: {
+      results: 'All blood test parameters within normal range',
+      recommendations: 'Continue routine check-ups, maintain a healthy lifestyle.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'None',
+      dispensingInstructions: 'No medications prescribed.'
+    },
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
+
+  // Patient 15
   {
-    // Patient without nursesNotes or ward
     key: 15,
     medicalRecordNumber: 'MRN015',
     name: 'Yusuf Ibrahim',
@@ -286,9 +626,31 @@ export const patientData = [
     phone: '+2347012345678',
     bloodGroup: 'AB+',
     address: '456 Sokoto Street, Sokoto',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Allergic reaction',
+      historyOfPresentingComplaint: 'Experienced an allergic reaction after consuming shellfish',
+      pastMedicalHistory: 'Known shellfish allergy',
+      drugHistory: 'Epinephrine auto-injector for allergies',
+      familyHistory: 'Family history of allergies',
+      socialHistory: 'Non-smoker',
+      summary: 'Patient presented with an allergic reaction due to shellfish; known shellfish allergy.'
+    },
+    // Add lab report
+    labReport: {
+      results: 'Elevated IgE levels indicative of allergy',
+      recommendations: 'Avoid shellfish, carry epinephrine auto-injector.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'Epinephrine auto-injector (e.g., EpiPen)',
+      dispensingInstructions: 'Carry at all times and use as directed in case of allergic reaction.'
+    },
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
+
+  // Patient 16
   {
-    // Patient without nursesNotes or ward
     key: 16,
     medicalRecordNumber: 'MRN017',
     name: 'Sophia Garcia',
@@ -299,9 +661,30 @@ export const patientData = [
     phone: '+1987654321',
     bloodGroup: 'O-',
     address: '789 Maple Avenue, Another City, USA',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Lactose intolerance symptoms',
+      historyOfPresentingComplaint: 'Experienced digestive issues after consuming dairy products',
+      pastMedicalHistory: 'Known lactose intolerance',
+      drugHistory: 'Lactase supplements for lactose intolerance',
+      familyHistory: 'No significant family medical history',
+      socialHistory: 'Non-smoker, avoids dairy products',
+      summary: 'Patient presented with symptoms of lactose intolerance after consuming dairy products; known lactose intolerance.'
+    },
+    // Add lab report
+    labReport: {
+      results: 'Lactase deficiency confirmed',
+      recommendations: 'Continue lactase supplements, avoid dairy products.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'Lactase supplements (e.g., Lactaid)',
+      dispensingInstructions: 'Take as needed with dairy-containing meals.'
+    },
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
+
   {
-    // Patient without nursesNotes or ward
     key: 17,
     medicalRecordNumber: 'MRN018',
     name: 'William Brown',
@@ -312,9 +695,30 @@ export const patientData = [
     phone: '+1234567890',
     bloodGroup: 'A+',
     address: '567 Oak Street, Somewhere, USA',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Annual check-up',
+      historyOfPresentingComplaint: 'No specific complaints, annual health check-up',
+      pastMedicalHistory: 'Generally healthy',
+      drugHistory: 'No ongoing medications',
+      familyHistory: 'No significant family medical history',
+      socialHistory: 'Non-smoker, regular exercise',
+      summary: 'Patient presented for an annual health check-up, no specific health issues reported.'
+    },
+    // Add lab report
+    labReport: {
+      results: 'All health parameters within normal range',
+      recommendations: 'Continue healthy lifestyle, follow up annually.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'None',
+      dispensingInstructions: 'No medications prescribed.'
+    },
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
+
   {
-    // Patient without nursesNotes or ward
     key: 18,
     medicalRecordNumber: 'MRN019',
     name: 'Isabella Martinez',
@@ -325,18 +729,128 @@ export const patientData = [
     phone: '+1122334455',
     bloodGroup: 'B+',
     address: '101 Elm Street, Anytown, USA',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Mild allergic reaction',
+      historyOfPresentingComplaint: 'Experienced a mild allergic reaction after eating shellfish',
+      pastMedicalHistory: 'Known shellfish allergy',
+      drugHistory: 'Antihistamines for allergies',
+      familyHistory: 'Family history of allergies',
+      socialHistory: 'Non-smoker',
+      summary: 'Patient presented with a mild allergic reaction due to shellfish; known shellfish allergy.'
+    },
+    // Add lab report
+    labReport: {
+      results: 'Elevated IgE levels indicative of allergy',
+      recommendations: 'Avoid shellfish, carry antihistamines.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'Antihistamines (e.g., Benadryl)',
+      dispensingInstructions: 'Use as needed in case of allergic reaction.'
+    },
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
+
   {
-    // Patient without nursesNotes or ward
-    key: 19,
-    medicalRecordNumber: 'MRN020',
-    name: 'James Wilson',
+    key: 20,
+    medicalRecordNumber: 'MRN021',
+    name: 'Liam Taylor',
     gender: 'Male',
-    dateOfBirth: '04/03/1994',
-    primaryCarePhysician: 'Dr. Smith',
-    allergies: 'Peanuts',
+    dateOfBirth: '03/21/1987',
+    primaryCarePhysician: 'Dr. Walker',
+    allergies: 'None',
+    phone: '+1987654321',
+    bloodGroup: 'A+',
+    address: '345 Elm Street, Other City, USA',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Sore throat and cough',
+      historyOfPresentingComplaint: 'Complains of a sore throat and persistent cough for a week',
+      pastMedicalHistory: 'No significant medical history',
+      drugHistory: 'None',
+      familyHistory: 'No specific family medical history',
+      socialHistory: 'Non-smoker',
+      summary: 'Patient presented with a sore throat and cough, likely due to a viral infection. No significant medical history.'
+    },
+    // Add lab report
+    labReport: {
+      results: 'Elevated white blood cell count, indicative of an infection',
+      recommendations: 'Rest, drink fluids, and consider over-the-counter cold remedies.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'Over-the-counter cough syrup and pain relievers',
+      dispensingInstructions: 'Use as directed on the labels.'
+    },
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
+  },
+
+  {
+    key: 21,
+    medicalRecordNumber: 'MRN022',
+    name: 'Olivia Harris',
+    gender: 'Female',
+    dateOfBirth: '09/15/1991',
+    primaryCarePhysician: 'Dr. Miller',
+    allergies: 'None',
+    phone: '+1122334455',
+    bloodGroup: 'B+',
+    address: '789 Oak Street, Anytown, USA',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Routine check-up',
+      historyOfPresentingComplaint: 'No specific complaints, annual health check-up',
+      pastMedicalHistory: 'Generally healthy',
+      drugHistory: 'No ongoing medications',
+      familyHistory: 'No significant family medical history',
+      socialHistory: 'Non-smoker, moderate exercise',
+      summary: 'Patient presented for an annual health check-up, no specific health issues reported.'
+    },
+    // Add lab report
+    labReport: {
+      results: 'All health parameters within normal range',
+      recommendations: 'Continue healthy lifestyle, follow up annually.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'None',
+      dispensingInstructions: 'No medications prescribed.'
+    },
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
+  },
+
+  {
+    key: 22,
+    medicalRecordNumber: 'MRN023',
+    name: 'Noah Wright',
+    gender: 'Male',
+    dateOfBirth: '06/20/1980',
+    primaryCarePhysician: 'Dr. Turner',
+    allergies: 'Pollen',
     phone: '+144996633',
     bloodGroup: 'AB-',
-    address: '246 Pine Street, Othertown, USA',
+    address: '101 Pine Street, Somewhere, USA',
+    // Add doctor's note
+    doctorsNote: {
+      presentingComplaint: 'Seasonal allergies',
+      historyOfPresentingComplaint: 'Experiencing symptoms of seasonal allergies (sneezing, itchy eyes)',
+      pastMedicalHistory: 'Known pollen allergy',
+      drugHistory: 'Antihistamines for allergies',
+      familyHistory: 'Family history of allergies',
+      socialHistory: 'Non-smoker, regular exercise',
+      summary: 'Patient presented with symptoms of seasonal allergies, known pollen allergy.'
+    },
+    // Add lab report
+    labReport: {
+      results: 'Elevated IgE levels indicative of allergy',
+      recommendations: 'Continue antihistamines, avoid pollen exposure.'
+    },
+    // Add prescription
+    prescription: {
+      drug: 'Antihistamines (e.g., Claritin)',
+      dispensingInstructions: 'Take as directed, especially during allergy season.'
+    },
+    // Additional patient information (ward, discharge summary, radiology report) can be added as needed.
   },
 ];

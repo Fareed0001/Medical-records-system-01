@@ -6,6 +6,7 @@ import { BiSearch } from "react-icons/bi";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { MdHistoryEdu } from "react-icons/md"
 import { patientData } from "@/components/Data/PatientData";
+import Link from "next/link";
 
 const ROWS_PER_PAGE = 5; // Number of rows to display per page
 
@@ -184,7 +185,9 @@ const Index = () => {
                                             <div className='col-1 d-none d-lg-block'>{patient.gender}</div>
                                             <div className='col-2 d-none d-lg-block'>{patient.dateOfBirth}</div>
                                             <div className='col-3 col-sm-2 col-lg-1'>
+                                            <Link href={`/DoctorDashboard/${patient.medicalRecordNumber}`}>
                                                 <MdHistoryEdu className={styles.historyIcon} />
+                                            </Link>
                                             </div>
                                         </div>
                                     </div>
