@@ -132,28 +132,28 @@ const Index = () => {
                                                     </div>
                                                     <div className="modal-body">
                                                         
-                                                        <strong>Bed number: </strong>
+                                                        <strong>Bed number:</strong>
                                                         {patient.ward.capacity}
                                                         <hr />      
-                                                        <strong>Ward: </strong>
+                                                        <strong>Ward:</strong>
                                                         {patient.ward.wardType}
                                                         <hr />     
-                                                        <strong>Ward name: </strong>
+                                                        <strong>Ward name:</strong>
                                                         {patient.ward.name}
                                                         <hr />     
-                                                        <strong>Operation time: </strong>
+                                                        <strong>Operation time:</strong>
                                                         {patient.ward.operatingTime}
                                                         <hr />     
-                                                        <strong>Manager: </strong>
+                                                        <strong>Manager:</strong>
                                                         {patient.ward.manager}
                                                         <hr />     
-                                                        <strong>Ward nurses: </strong>
+                                                        <strong>Ward nurses:</strong>
                                                         {patient.ward.nurses}
                                                         <hr />     
-                                                        <strong>Equipment available: </strong>
+                                                        <strong>Equipment available:</strong>
                                                         {patient.ward.facilitiesEquipment}
                                                         <hr />     
-                                                        <strong>Ward description: </strong>
+                                                        <strong>Ward description:</strong>
                                                         {patient.ward.description}                                                                             
                                                     </div>
                                                         <div className="modal-footer">
