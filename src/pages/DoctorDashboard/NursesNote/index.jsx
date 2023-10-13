@@ -6,6 +6,7 @@ import { BiSearch } from "react-icons/bi";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { MdHistoryEdu } from "react-icons/md";
 import { patientData } from "@/components/Data/PatientData";
+import Link from "next/link";
 
 const ROWS_PER_PAGE = 5; // Number of rows to display per page
 
