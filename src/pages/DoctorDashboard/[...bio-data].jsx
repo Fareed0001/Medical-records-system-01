@@ -92,8 +92,9 @@ function Index() {
                     )}
                 </div>
                 <div className={styles.bioDataDetails}>
-                {/* MODALS */}
-
+                    {/* MODALS */}
+                    {currentPatient ? ( // Check if currentPatient is defined
+                        <>
                    {/* LAB REPORT MODAL START */}
                     <button  
                         type="button" class="btn btn-outline-dark"
@@ -181,7 +182,7 @@ function Index() {
                                 <hr />
                                 
                                 <h5>Medical history</h5>
-                                {currentPatient.doctorsNote ? ( // Check if currentPatient is defined
+                                {currentPatient && currentPatient.doctorsNote ? ( // Check if currentPatient is defined
                                 <>
                                 <div class="mb-3">
                                     <p>Last Presented Complain: <strong>{currentPatient.doctorsNote.presentingComplaint}</strong></p>              
@@ -211,7 +212,7 @@ function Index() {
                                 <hr />
 
                                 <h5>Laboratory Report</h5>
-                                {currentPatient.labReport ? ( // Check if currentPatient is defined
+                                {currentPatient && currentPatient.labReport ? ( // Check if currentPatient is defined
                                 <>
                                 <div class="mb-3">
                                     <p>Result: <strong>{currentPatient.labReport.results}</strong></p>              
@@ -226,7 +227,7 @@ function Index() {
                                 <hr />
 
                                 <h5>Prescription</h5>
-                                {currentPatient.prescription ? ( // Check if currentPatient is defined
+                                {currentPatient && currentPatient.prescription ? ( // Check if currentPatient is defined
                                 <>
                                 <div class="mb-3">
                                     <p>Drug: <strong>{currentPatient.prescription.drug}</strong></p>              
@@ -241,7 +242,7 @@ function Index() {
                                 <hr />
 
                                 <h5>Nurses Notes</h5>
-                                {currentPatient.nursesNote ? ( // Check if currentPatient is defined
+                                {currentPatient && currentPatient.nursesNote ? ( // Check if currentPatient is defined
                                 <>
                                 <div class="mb-3">
                                     <p>Temperature: <strong>{currentPatient.nursesNote.temperature}</strong></p>              
@@ -265,7 +266,7 @@ function Index() {
                                 <hr />
 
                                 <h5>Admission</h5>
-                                {currentPatient.ward ? ( // Check if currentPatient is defined
+                                {currentPatient && currentPatient.ward ? ( // Check if currentPatient is defined
                                 <>
                                 <div class="mb-3">
                                     <p>Name: <strong>{currentPatient.ward.name}</strong></p>              
@@ -298,7 +299,7 @@ function Index() {
                                 <hr />
 
                                 <h5>Discharge Summary</h5>
-                                {currentPatient.dischargeSummary ? ( // Check if currentPatient is defined
+                                {currentPatient && currentPatient.dischargeSummary ? ( // Check if currentPatient is defined
                                 <>
                                 <div class="mb-3">
                                     <p>Hospital Course: <strong>{currentPatient.dischargeSummary.hospitalCourse}</strong></p>              
@@ -325,7 +326,7 @@ function Index() {
                                 <hr />
 
                                 <h5>Radiology Report</h5>
-                                {currentPatient.radiologyReport ? ( // Check if currentPatient is defined
+                                {currentPatient && currentPatient.radiologyReport ? ( // Check if currentPatient is defined
                                 <>
                                 <div class="mb-3">
                                     <p>Study Details: <strong>{currentPatient.radiologyReport.studyDetails}</strong></p>              
@@ -715,9 +716,11 @@ function Index() {
                             </div>
                         </div>
                     </div>
-                    {/* NOTE MODAL END  */}
-
-
+                    {/* NOTE MODAL END  */}             
+                    </>
+                    ) : (
+                        <p>An error occured. Do not reload the page, instead go back and try accessing it again</p>
+                    )}
 
 
 
