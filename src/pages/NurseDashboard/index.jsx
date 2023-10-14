@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Sidebar from '@/components/Sidebar/DoctorSidebar/Sidebar';
-import Navbar from '@/components/Navbar/DoctorNavbar/DoctorNavbar';
-import styles from "@/pages/DoctorDashboard/Styles.module.css";
+import Sidebar from '@/components/Sidebar/NurseSidebar/Sidebar';
+import Navbar from '@/components/Navbar/NurseNavbar/NurseNavbar';
+import styles from "@/pages/NurseDashboard/Styles.module.css";
 import { BiSearch } from "react-icons/bi";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { MdHistoryEdu } from "react-icons/md"
@@ -185,7 +185,7 @@ const Index = () => {
                                             <div className='col-1 d-none d-lg-block'>{patient.gender}</div>
                                             <div className='col-2 d-none d-lg-block'>{patient.dateOfBirth}</div>
                                             <div className='col-3 col-sm-2 col-lg-1'>
-                                            <Link href={`/DoctorDashboard/${patient.medicalRecordNumber}`}>
+                                            <Link href={`/NurseDashboard/${patient.medicalRecordNumber}`}>
                                                 <MdHistoryEdu className={styles.historyIcon} />
                                             </Link>
                                             </div>

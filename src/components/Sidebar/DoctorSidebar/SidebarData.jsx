@@ -11,14 +11,14 @@ export const SidebarData = [
         link: "/DoctorDashboard"
     },
     {
-        icon: <MdDateRange />,
-        title: "Appointment",
-        link: "/DoctorDashboard/Appointment"
-    },
-    {
         icon: <MdQueue />,
         title: "Admission",
         link: "/DoctorDashboard/Admission"
+    },
+    {
+        icon: <MdDateRange />,
+        title: "Appointment",
+        link: "/DoctorDashboard/Appointment"
     },
     {
         icon: <GrNotes />,

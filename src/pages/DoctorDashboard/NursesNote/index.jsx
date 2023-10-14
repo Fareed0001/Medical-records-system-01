@@ -5,6 +5,7 @@ import styles from "@/pages/DoctorDashboard/Styles.module.css";
 import { BiSearch } from "react-icons/bi";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { MdHistoryEdu } from "react-icons/md";
+import { BsTrashFill } from "react-icons/bs";
 import { patientData } from "@/components/Data/PatientData";
 import Link from "next/link";
 
@@ -56,6 +57,13 @@ const Index = () => {
             setCurrentPage(currentPage - 1);
         }
     };
+
+    //Handle delete
+    const handleDeleteClick = (patientId) => {
+        const updatedPatients = patients.filter(patient => patient.medicalRecordNumber !== patientId);
+        setPatients(updatedPatients);
+    };
+
 
     // Reset the current page and filtered data when the patients or search input changes
     useEffect(() => {
@@ -118,7 +126,7 @@ const Index = () => {
                                     <div className='col-2 d-none d-lg-block'>{patient.nursesNote.summary}</div>
                                     <div className='col-3 col-sm-2 col-lg-1'>
                                         <MdHistoryEdu
-                                        className={styles.historyIcon}
+                                        className={styles.penIcon}
                                         type="button"
                                         data-bs-toggle="modal"
                                         data-bs-target={`#staticBackdrop-${patient.medicalRecordNumber}`} // Use a unique identifier
@@ -155,6 +163,10 @@ const Index = () => {
                                                 </div>
                                             </div>
                                         </div>
+                                        <BsTrashFill
+                                            className={styles.binIcon}
+                                            onClick={() => handleDeleteClick(patient.medicalRecordNumber)}
+                                        />
                                     </div>
                                     </div>
                                 </div>
