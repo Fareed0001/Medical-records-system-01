@@ -508,7 +508,7 @@ function Index() {
                                     <input type="text" className="form-control" id="prescribedMedication" />
                                 </div>
                                 <div className="mb-3">                                    
-                                    <label htmlFor="DispensingInstruction" className="col-form-label">Dispensing Instruction</label>
+                                    <label htmlFor="DispensingInstruction" className="col-form-label">Dispensing Instruction:</label>
                                     <input type="text" className="form-control" id="DispensingInstruction" />
                                 </div>
                                   
@@ -669,7 +669,59 @@ function Index() {
                             </div>
                         </div>
                     </div>
-                    {/* NOTE MODAL END  */}             
+                    {/* NOTE MODAL END  */}   
+
+
+
+
+                    {/* EXAMINATION MODAL START */}
+                    <button  
+                        type="button" className={`btn btn-outline-dark ${styles.bioDataDetailsButton}`}
+                        data-bs-toggle="modal"
+                        data-bs-target="#examination"
+                        >Examination
+                    </button>
+
+                    <div className="modal fade" id="examination" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div className="modal-content">
+                            <div className="modal-header">
+                            <h3 className="modal-title fs-5" id="staticBackdropLabel">Examination for {currentPatient.name}</h3> 
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body">
+                            <form>
+                                <div className="mb-3">                                    
+                                    <label htmlFor="generalPhysicalExam" className="col-form-label">General Physical Exam:</label>
+                                    <input type="text" className="form-control" id="generalPhysicalExam" />
+                                </div>
+                                <div className="mb-3">                                    
+                                    <label htmlFor="respiratoryExam" className="col-form-label">Respiratory Exam:</label>
+                                    <input type="text" className="form-control" id="respiratoryExam" />
+                                </div>
+                                <div className="mb-3">                                    
+                                    <label htmlFor="cardiovascularExam" className="col-form-label">Cardiovascular Exam:</label>
+                                    <input type="text" className="form-control" id="cardiovascularExam" />
+                                </div>
+                                <div className="mb-3">                                    
+                                    <label htmlFor="neurologicalExam" className="col-form-label">Neurological Exam:</label>
+                                    <input type="text" className="form-control" id="neurologicalExam" />
+                                </div>
+                                <div className="mb-3">                                    
+                                    <label htmlFor="abdominalExam" className="col-form-label">Abdominal Exam:</label>
+                                    <input type="text" className="form-control" id="abdominalExam" />
+                                </div>                                  
+                                </form>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Add record</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* EXAMINATION MODAL END  */}
+
+
                     </>
                     ) : (
                         <p>An error occured. Do not reload the page, instead go back and try accessing it again</p>

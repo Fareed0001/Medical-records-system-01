@@ -177,6 +177,7 @@ const Index = () => {
                                 {/* Map patientPageData and generate table rows */}
                                 {patientPageData.map((patient, index) => (
                                     <div className={`container ${styles.contentTableBody}`} key={patient.medicalRecordNumber}>
+                                    <Link href={`/DoctorDashboard/${patient.medicalRecordNumber}`}>
                                         <div className="row">
                                             <div className='col-1'>{index + 1}</div>
                                             <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>{patient.medicalRecordNumber}</div>
@@ -185,11 +186,10 @@ const Index = () => {
                                             <div className='col-1 d-none d-lg-block'>{patient.gender}</div>
                                             <div className='col-2 d-none d-lg-block'>{patient.dateOfBirth}</div>
                                             <div className='col-3 col-sm-2 col-lg-1'>
-                                            <Link href={`/DoctorDashboard/${patient.medicalRecordNumber}`}>
                                                 <MdHistoryEdu className={styles.historyIcon} />
-                                            </Link>
                                             </div>
                                         </div>
+                                        </Link>
                                     </div>
                                 ))}
                                 {/* End of mapping */}

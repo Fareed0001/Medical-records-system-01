@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Sidebar from '@/components/Sidebar/DoctorSidebar/Sidebar';
-import Navbar from '@/components/Navbar/DoctorNavbar/DoctorNavbar';
-import styles from "@/pages/DoctorDashboard/Styles.module.css";
+import Sidebar from '@/components/Sidebar/NurseSidebar/Sidebar';
+import Navbar from '@/components/Navbar/NurseNavbar/NurseNavbar';
+import styles from "@/pages/NurseDashboard/Styles.module.css";
 import { BiSearch } from "react-icons/bi";
 import { MdHistoryEdu } from "react-icons/md";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
@@ -73,6 +73,9 @@ const Index = () => {
                         <li className="nav-item">
                             <a className={`nav-link active ${styles.navLink}`} id="menu0-tab" data-bs-toggle="tab" href="#menu0" role="tab" aria-controls="menu0" aria-selected="true">Admitted Patients</a>
                         </li>
+                        <li className="nav-item">
+                            <a className={`nav-link ${styles.navLink}`} id="menu1-tab" data-bs-toggle="tab" href="#menu1" role="tab" aria-controls="menu1" aria-selected="false">Admit patient</a>
+                        </li>
                     </ul>
                     <div className={`row ${styles.searchNextDiv}`}>
                         <div className={`col-6 ${styles.searchDiv}`}>
@@ -124,7 +127,7 @@ const Index = () => {
                                                 data-bs-target={`#staticBackdrop-${patient.medicalRecordNumber}`} // Use a unique identifier
                                             />
                                             <div className="modal fade" id={`staticBackdrop-${patient.medicalRecordNumber}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby={`staticBackdropLabel-${patient.medicalRecordNumber}`} aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                                     <div className="modal-content">
                                                     <div className="modal-header">
                                                         <h1 className="modal-title fs-5" id={`staticBackdropLabel-${patient.medicalRecordNumber}`}>{patient.name}</h1>
@@ -157,7 +160,7 @@ const Index = () => {
                                                         {patient.ward.description}                                                                             
                                                     </div>
                                                         <div className="modal-footer">
-                                                            <Link href={`/DoctorDashboard/Admission/${patient.medicalRecordNumber}`}>
+                                                            <Link href={`/NurseDashboard/Admission/${patient.medicalRecordNumber}`}>
                                                                 <button type="button" className="btn btn-secondary">Bio-data</button>
                                                             </Link>
                                                             <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Discharge</button>
@@ -171,6 +174,76 @@ const Index = () => {
                                 ))}
                                 {/* End of mapping */}
                             </div>
+                        </div>
+
+                        <div className="tab-pane fade" id="menu1" role="tabpanel" aria-labelledby="menu1-tab">
+                            <form className={styles.form} onSubmit={handleFormSubmit}>
+                                <div className='row'>
+                                    <div className={`col-md-5 ${styles.formColDiv}`}>
+                                        <label htmlFor="name" className="form-label">Name</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="name"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-5 ${styles.formColDiv}`}>
+                                        <label htmlFor="wardName" className="form-label">Ward Type</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="wardName"
+                                            name="wardName"
+                                            value={formData.wardType}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-2 ${styles.formColDiv}`}>
+                                        <label htmlFor="appointmentDate" className="form-label">Date</label>
+                                        <input
+                                            type="date"
+                                            className="form-control"
+                                            id="appointmentDate"
+                                            name="appointmentDate"
+                                            value={formData.appointmentDate}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-6 ${styles.formColDiv}`}>
+                                        <label htmlFor="phone" className="form-label">Phone</label>
+                                        <input
+                                            type="number"
+                                            className="form-control"
+                                            id="phone"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-6 ${styles.formColDiv}`}>
+                                        <label htmlFor="disease" className="form-label">Disease</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="disease"
+                                            name="disease"
+                                            value={formData.disease}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                <div className={`col-auto ${styles.formButtonDiv}`}>
+                                    <button type="submit" className="btn btn-primary">Add patient</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
