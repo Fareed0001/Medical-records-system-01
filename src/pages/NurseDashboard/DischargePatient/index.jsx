@@ -3,7 +3,7 @@ import Sidebar from '@/components/Sidebar/NurseSidebar/Sidebar';
 import Navbar from '@/components/Navbar/NurseNavbar/NurseNavbar';
 import styles from "@/pages/NurseDashboard/Styles.module.css";
 import { BiSearch } from "react-icons/bi";
-import { MdHistoryEdu } from "react-icons/md";
+import { FaFileCircleCheck } from "react-icons/fa6";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { patientData } from "@/components/Data/PatientData";
 import Link from "next/link";
@@ -100,9 +100,6 @@ const Index = () => {
                         <li className="nav-item">
                             <a className={`nav-link active ${styles.navLink}`} id="menu0-tab" data-bs-toggle="tab" href="#menu0" role="tab" aria-controls="menu0" aria-selected="true">Inpatients</a>
                         </li>
-                        <li className="nav-item">
-                            <a className={`nav-link ${styles.navLink}`} id="menu1-tab" data-bs-toggle="tab" href="#menu1" role="tab" aria-controls="menu1" aria-selected="false">Admit New Patient</a>
-                        </li>
                     </ul>
                     <div className={`row ${styles.searchNextDiv}`}>
                         <div className={`col-6 ${styles.searchDiv}`}>
@@ -146,7 +143,7 @@ const Index = () => {
                                             <div className='col-2 d-none d-lg-block'>{patient.ward.capacity}</div>
                                             <div className='col-2 d-none d-lg-block'>{patient.ward.wardType}</div>
                                             <div className='col-3 col-sm-2 col-lg-1'>
-                                                <MdHistoryEdu
+                                                <FaFileCircleCheck
                                                     className={styles.historyIcon}
                                                     type="button"
                                                     data-bs-toggle="modal"
@@ -160,32 +157,46 @@ const Index = () => {
                                                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div className="modal-body">
-                                                                <strong>Bed number:</strong>
-                                                                {patient.ward.capacity}
-                                                                <hr />
-                                                                <strong>Ward:</strong>
-                                                                {patient.ward.wardType}
-                                                                <hr />
-                                                                <strong>Ward name:</strong>
-                                                                {patient.ward.name}
-                                                                <hr />
-                                                                <strong>Operation time:</strong>
-                                                                {patient.ward.operatingTime}
-                                                                <hr />
-                                                                <strong>Manager:</strong>
-                                                                {patient.ward.manager}
-                                                                <hr />
-                                                                <strong>Ward nurses:</strong>
-                                                                {patient.ward.nurses.join(', ')}
-                                                                <hr />
-                                                                <strong>Equipment available:</strong>
-                                                                {patient.ward.facilitiesEquipment.join(', ')}
-                                                                <hr />
-                                                                <strong>Ward description:</strong>
-                                                                {patient.ward.description}
+                                                                <form>
+                                                                    <div className="mb-3">
+                                                                        <label htmlFor="reasonForDischarge" className="col-form-label">Reason For Discharge:</label>
+                                                                        <input type="text" className="form-control" id="reasonForDischarge" />
+                                                                    </div>
+                                                                    
+                                                                    <div className="mb-3">
+                                                                        <label htmlFor="reasonForAdmission" className="col-form-label">Reason For Admission:</label>
+                                                                        <input type="text" className="form-control" id="reasonForAdmission" />
+                                                                    </div>
+                                                                    
+                                                                    <div className="mb-3">
+                                                                        <label htmlFor="finalDiagnosis" className="col-form-label">Final Diagnosis:</label>
+                                                                        <input type="text" className="form-control" id="finalDiagnosis" />
+                                                                    </div>
+                                                                    
+                                                                    <div className="mb-3">
+                                                                        <label htmlFor="admissionAndDischarge" className="col-form-label">Admission And Discharge:</label>
+                                                                        <input type="text" className="form-control" id="admissionAndDischarge" />
+                                                                    </div>
+                                                                    
+                                                                    <div className="mb-3">
+                                                                        <label htmlFor="medicationDosage" className="col-form-label">Medication Dosage:</label>
+                                                                        <input type="text" className="form-control" id="medicationDosage" />
+                                                                    </div>
+                                                                    
+                                                                    <div className="mb-3">
+                                                                        <label htmlFor="nextAppointment" className="col-form-label">Follow-up Appointment:</label>
+                                                                        <input type="date" className="form-control" id="nextAppointment" />
+                                                                    </div>
+                                                                    
+                                                                    <div className="mb-3">
+                                                                        <label htmlFor="dischargeSummary" className="col-form-label">Discharge Summary:</label>
+                                                                        <textarea type="text" className="form-control" id="dischargeSummary" />
+                                                                    </div>
+                                                                    
+                                                                </form>
                                                             </div>
                                                             <div className="modal-footer">
-                                                                <Link href={`/NurseDashboard/Admission/${patient.medicalRecordNumber}`}>
+                                                                <Link href={`/NurseDashboard/Discharge/${patient.medicalRecordNumber}`}>
                                                                     <button type="button" className="btn btn-secondary">Bio-data</button>
                                                                 </Link>
                                                                 <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Discharge</button>
@@ -198,87 +209,6 @@ const Index = () => {
                                     </div>
                                 ))}
                             </div>
-                        </div>
-                        <div className="tab-pane fade" id="menu1" role="tabpanel" aria-labelledby="menu1-tab">
-                            <form className={styles.form} onSubmit={handleFormSubmit}>
-                                <div className='row'>
-                                    <div className={`col-md-2 ${styles.formColDiv}`}>
-                                        <label htmlFor="medicalRecordNumber" className="form-label">Medical Number</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="medicalRecordNumber"
-                                            name="medicalRecordNumber"
-                                            value={formData.medicalRecordNumber}
-                                            onChange={handleFormInputChange}
-                                            required
-                                        />
-                                    </div>
-                                    <div className={`col-md-5 ${styles.formColDiv}`}>
-                                        <label htmlFor="name" className="form-label">Name</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="name"
-                                            name="name"
-                                            value={formData.name}
-                                            onChange={handleFormInputChange}
-                                            required
-                                        />
-                                    </div>
-                                    <div className={`col-md-5 ${styles.formColDiv}`}>
-                                        <label htmlFor="wardType" className="form-label">Ward Name</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="wardType"
-                                            name="wardType"
-                                            value={formData.wardType} // Access the ward name within the ward object
-                                            onChange={handleFormInputChange}
-                                            required
-                                        />
-                                    </div>
-                                    <div className={`col-md-2 ${styles.formColDiv}`}>
-                                        <label htmlFor="appointmentDate" className="form-label">Date</label>
-                                        <input
-                                            type="date"
-                                            className="form-control"
-                                            id="appointmentDate"
-                                            name="appointmentDate"
-                                            value={formData.appointmentDate}
-                                            onChange={handleFormInputChange}
-                                            required
-                                        />
-                                    </div>
-                                    <div className={`col-md-5 ${styles.formColDiv}`}>
-                                        <label htmlFor="phone" className="form-label">Phone</label>
-                                        <input
-                                            type="number"
-                                            className="form-control"
-                                            id="phone"
-                                            name="phone"
-                                            value={formData.phone}
-                                            onChange={handleFormInputChange}
-                                            required
-                                        />
-                                    </div>
-                                    <div className={`col-md-5 ${styles.formColDiv}`}>
-                                        <label htmlFor="disease" className="form-label">Disease</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            id="disease"
-                                            name="disease"
-                                            value={formData.disease}
-                                            onChange={handleFormInputChange}
-                                            required
-                                        />
-                                    </div>
-                                </div>
-                                <div className={`col-auto ${styles.formButtonDiv}`}>
-                                    <button type="submit" className="btn btn-primary">Add patient</button>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
