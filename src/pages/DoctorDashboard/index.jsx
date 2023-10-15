@@ -177,18 +177,18 @@ const Index = () => {
                                 {/* Map patientPageData and generate table rows */}
                                 {patientPageData.map((patient, index) => (
                                     <div className={`container ${styles.contentTableBody}`} key={patient.medicalRecordNumber}>
-                                    <Link href={`/DoctorDashboard/${patient.medicalRecordNumber}`}>
-                                        <div className="row">
-                                            <div className='col-1'>{index + 1}</div>
-                                            <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>{patient.medicalRecordNumber}</div>
-                                            <div className='col-8 col-sm-5 col-lg-3'>{patient.name}</div>
-                                            <div className='col-2 d-none d-lg-block'>{patient.phone}</div>
-                                            <div className='col-1 d-none d-lg-block'>{patient.gender}</div>
-                                            <div className='col-2 d-none d-lg-block'>{patient.dateOfBirth}</div>
-                                            <div className='col-3 col-sm-2 col-lg-1'>
-                                                <MdHistoryEdu className={styles.historyIcon} />
+                                        <Link href={`/DoctorDashboard/${patient.medicalRecordNumber}`}>
+                                            <div className="row">
+                                                <div className='col-1'>{index + 1}</div>
+                                                <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-2'>{patient.medicalRecordNumber}</div>
+                                                <div className='col-8 col-sm-5 col-lg-3'>{patient.name}</div>
+                                                <div className='col-2 d-none d-lg-block'>{patient.phone}</div>
+                                                <div className='col-1 d-none d-lg-block'>{patient.gender}</div>
+                                                <div className='col-2 d-none d-lg-block'>{patient.dateOfBirth}</div>
+                                                <div className='col-3 col-sm-2 col-lg-1'>
+                                                    <MdHistoryEdu className={styles.historyIcon} />
+                                                </div>
                                             </div>
-                                        </div>
                                         </Link>
                                     </div>
                                 ))}

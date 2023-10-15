@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Sidebar from '@/components/Sidebar/DoctorSidebar/Sidebar';
-import Navbar from '@/components/Navbar/DoctorNavbar/DoctorNavbar';
-import styles from "@/pages/DoctorDashboard/Styles.module.css";
+import Sidebar from '@/components/Sidebar/NurseSidebar/Sidebar';
+import Navbar from '@/components/Navbar/NurseNavbar/NurseNavbar';
+import styles from "@/pages/NurseDashboard/Styles.module.css";
 import { BiSearch } from "react-icons/bi";
 import { BsTrashFill } from "react-icons/bs";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
@@ -64,6 +64,7 @@ const Index = () => {
             setFormData({
                 name: '',
                 primaryCarePhysician: '',
+                phone: '',
                 appointmentDate: '',
                 disease: '',
             });
@@ -132,7 +133,7 @@ const Index = () => {
                                     <div className="row">
                                         <div className='col-1'>#</div>
                                         <div className='col-8 col-sm-5 col-lg-3'>Patient</div>
-                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>Doctor</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>Nurse</div>
                                         <div className='col-2 d-none d-lg-block'>Date</div>
                                         <div className='col-2 d-none d-lg-block'>Disease</div>
                                         <div className='col-3 col-sm-1'>Option</div>
@@ -140,22 +141,24 @@ const Index = () => {
                                 </div>
                                 {patientPageData.map((patient, index) => (
                                     <div className={`container ${styles.contentTableBody}`} key={patient.medicalRecordNumber}>
-                                        <div className="row">
-                                            <div className='col-1'>{index + 1}</div>
-                                            <div className='col-8 col-sm-5 col-lg-3'>{patient.name}</div>
-                                            <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>{patient.primaryCarePhysician}</div>
-                                            <div className='col-2 d-none d-lg-block'>{patient.appointmentDate}</div>
-                                            <div className='col-2 d-none d-lg-block'>{patient.disease}</div>
-                                            <div className='col-3 col-sm-2 col-lg-1'>
-                                                <Link href={`/DoctorDashboard/Appointment/${patient.medicalRecordNumber}`}>
-                                                    <MdHistoryEdu className={styles.penIcon} />
-                                                </Link>
-                                                <BsTrashFill
-                                                    className={styles.binIcon}
-                                                    onClick={() => handleDeleteClick(patient.medicalRecordNumber)}
-                                                />
+                                        <Link href={`/NurseDashboard/Appointment/${patient.medicalRecordNumber}`}>
+                                            <div className="row">
+                                                <div className='col-1'>{index + 1}</div>
+                                                <div className='col-8 col-sm-5 col-lg-3'>{patient.name}</div>
+                                                <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>{patient.primaryCarePhysician}</div>
+                                                <div className='col-2 d-none d-lg-block'>{patient.appointmentDate}</div>
+                                                <div className='col-2 d-none d-lg-block'>{patient.disease}</div>
+                                                <div className='col-3 col-sm-2 col-lg-1'>
+                                                    <MdHistoryEdu
+                                                        className={styles.penIcon}
+                                                    />
+                                                    <BsTrashFill
+                                                        className={styles.binIcon}
+                                                        onClick={() => handleDeleteClick(patient.medicalRecordNumber)}
+                                                    />
+                                                </div>
                                             </div>
-                                        </div>
+                                        </Link>
                                     </div>
                                 ))}
                             </div>

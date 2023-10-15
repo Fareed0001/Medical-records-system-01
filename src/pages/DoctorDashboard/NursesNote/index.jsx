@@ -36,7 +36,7 @@ const Index = () => {
     );
 
     // Slice the filtered patients to get the rows for the current page
-    const patientPageData = filteredPatients.slice(startIndex, endIndex);  
+    const patientPageData = filteredPatients.slice(startIndex, endIndex);
 
     // Function to handle search input change
     const handleSearchInputChange = (e) => {
@@ -117,59 +117,59 @@ const Index = () => {
                                 </div>
                                 {/* Map patientPageData and generate table rows */}
                                 {patientPageData.map((patient, index) => (
-                                <div className={`container ${styles.contentTableBody}`} key={patient.id}>
-                                    <div className="row">
-                                    <div className='col-1'>{index + 1}</div>
-                                    <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>{patient.medicalRecordNumber}</div>
-                                    <div className='col-8 col-sm-5 col-lg-3'>{patient.name}</div>
-                                    <div className='col-2 d-none d-lg-block'>{patient.nursesNote.date}</div>
-                                    <div className='col-2 d-none d-lg-block'>{patient.nursesNote.summary}</div>
-                                    <div className='col-3 col-sm-2 col-lg-1'>
-                                        <MdHistoryEdu
-                                        className={styles.penIcon}
-                                        type="button"
-                                        data-bs-toggle="modal"
-                                        data-bs-target={`#staticBackdrop-${patient.medicalRecordNumber}`} // Use a unique identifier
-                                        />
-                                        <div className="modal fade" id={`staticBackdrop-${patient.medicalRecordNumber}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby={`staticBackdropLabel-${patient.medicalRecordNumber}`} aria-hidden="true">
-                                            <div className="modal-dialog">
-                                                <div className="modal-content">
-                                                <div className="modal-header">
-                                                    <h1 className="modal-title fs-5" id={`staticBackdropLabel-${patient.medicalRecordNumber}`}>{patient.name}</h1>
-                                                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <div className={`container ${styles.contentTableBody}`} key={patient.id}>
+                                        <div className="row">
+                                            <div className='col-1'>{index + 1}</div>
+                                            <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>{patient.medicalRecordNumber}</div>
+                                            <div className='col-8 col-sm-5 col-lg-3'>{patient.name}</div>
+                                            <div className='col-2 d-none d-lg-block'>{patient.nursesNote.date}</div>
+                                            <div className='col-2 d-none d-lg-block'>{patient.nursesNote.summary}</div>
+                                            <div className='col-3 col-sm-2 col-lg-1'>
+                                                <MdHistoryEdu
+                                                    className={styles.penIcon}
+                                                    type="button"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target={`#staticBackdrop-${patient.medicalRecordNumber}`} // Use a unique identifier
+                                                />
+                                                <div className="modal fade" id={`staticBackdrop-${patient.medicalRecordNumber}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby={`staticBackdropLabel-${patient.medicalRecordNumber}`} aria-hidden="true">
+                                                    <div className="modal-dialog">
+                                                        <div className="modal-content">
+                                                            <div className="modal-header">
+                                                                <h1 className="modal-title fs-5" id={`staticBackdropLabel-${patient.medicalRecordNumber}`}>{patient.name}</h1>
+                                                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div className="modal-body">
+                                                                <strong>Date: </strong>
+                                                                {patient.nursesNote.date}
+                                                                <hr />
+                                                                <strong>Patient temperature: </strong>
+                                                                {patient.nursesNote.temperature}
+                                                                <hr />
+                                                                <strong>Urine output: </strong>
+                                                                {patient.nursesNote.urineOutput}
+                                                                <hr />
+                                                                <strong>Nurses Notes: </strong>
+                                                                {patient.nursesNote.notes}
+                                                                <hr />
+                                                                <strong>Summary: </strong>
+                                                                {patient.nursesNote.summary}
+                                                            </div>
+                                                            <div className="modal-footer">
+                                                                <Link href={`/DoctorDashboard/NursesNote/${patient.medicalRecordNumber}`}>
+                                                                    <button type="button" className="btn btn-secondary">Bio-data</button>
+                                                                </Link>
+                                                                <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Discharge</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div className="modal-body">
-                                                    <strong>Date: </strong>
-                                                    {patient.nursesNote.date}
-                                                    <hr />
-                                                    <strong>Patient temperature: </strong>
-                                                    {patient.nursesNote.temperature}
-                                                    <hr />
-                                                    <strong>Urine output: </strong>
-                                                    {patient.nursesNote.urineOutput}
-                                                    <hr />
-                                                    <strong>Nurses Notes: </strong>
-                                                    {patient.nursesNote.notes}
-                                                    <hr />
-                                                    <strong>Summary: </strong>
-                                                    {patient.nursesNote.summary}
-                                                </div>
-                                                <div className="modal-footer">
-                                                    <Link href={`/DoctorDashboard/NursesNote/${patient.medicalRecordNumber}`}>
-                                                        <button type="button" className="btn btn-secondary">Bio-data</button>
-                                                     </Link>
-                                                    <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Discharge</button>
-                                                </div>
-                                                </div>
+                                                <BsTrashFill
+                                                    className={styles.binIcon}
+                                                    onClick={() => handleDeleteClick(patient.medicalRecordNumber)}
+                                                />
                                             </div>
                                         </div>
-                                        <BsTrashFill
-                                            className={styles.binIcon}
-                                            onClick={() => handleDeleteClick(patient.medicalRecordNumber)}
-                                        />
                                     </div>
-                                    </div>
-                                </div>
                                 ))}
                                 {/* End of mapping */}
                             </div>

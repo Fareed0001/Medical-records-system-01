@@ -1,63 +1,91 @@
 import React, { useState, useEffect } from 'react';
-import Sidebar from '@/components/Sidebar/DoctorSidebar/Sidebar';
-import Navbar from '@/components/Navbar/DoctorNavbar/DoctorNavbar';
-import styles from "@/pages/DoctorDashboard/Styles.module.css";
+import Sidebar from '@/components/Sidebar/NurseSidebar/Sidebar';
+import Navbar from '@/components/Navbar/NurseNavbar/NurseNavbar';
+import styles from "@/pages/NurseDashboard/Styles.module.css";
 import { BiSearch } from "react-icons/bi";
 import { MdHistoryEdu } from "react-icons/md";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { patientData } from "@/components/Data/PatientData";
 import Link from "next/link";
 
-const ROWS_PER_PAGE = 5; // Number of rows to display per page
+const ROWS_PER_PAGE = 5;
 
 const Index = () => {
-    // State to track the current page
     const [currentPage, setCurrentPage] = useState(1);
-
-    // State to store the search input
     const [searchInput, setSearchInput] = useState('');
-
-    // State for the list of patients
     const [patients, setPatients] = useState([...patientData]);
 
-    // Function to filter patients with wards only
-    const patientsWithWards = patients.filter(patient => patient.ward);
-
-    // Calculate the starting index and ending index for the current page
     const startIndex = (currentPage - 1) * ROWS_PER_PAGE;
-    const endIndex = Math.min(startIndex + ROWS_PER_PAGE, patientsWithWards.length);
+    const endIndex = Math.min(startIndex + ROWS_PER_PAGE, patients.length);
 
-    // Filter the patients based on the search input for name, hospital number, or ward type
-    const filteredPatients = patientsWithWards.filter(patient =>
-        patient.name.toLowerCase().includes(searchInput.toLowerCase()) ||
-        patient.medicalRecordNumber.toLowerCase().includes(searchInput.toLowerCase()) ||
-        patient.ward.wardType.toLowerCase().includes(searchInput.toLowerCase())
-    );
+    const [formData, setFormData] = useState({
+        medicalRecordNumber: '',
+        name: '',
+        wardType: '', // Access the ward name within the ward object
+        phone: '',
+        appointmentDate: '',
+        disease: '',
+    });
 
-    // Slice the filtered patients to get the rows for the current page
+    const handleFormInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleFormSubmit = (e) => {
+        alert("New patient cannot be admitted at the moment for there is no available bed space. Try again when a patient has been discharged")
+
+        e.preventDefault();
+        if (
+            formData.medicalRecordNumber &&
+            formData.name &&
+            formData.wardType &&
+            formData.phone &&
+            formData.appointmentDate &&
+            formData.disease
+        ) {
+            const newPatient = {
+                ...formData,
+            };
+            setPatients([...patients, newPatient]);
+            setFormData({
+                medicalRecordNumber: '',
+                name: '',
+                wardType: '', // Access the ward name within the ward object
+                phone: '',
+                appointmentDate: '',
+                disease: '',
+            });
+        }
+    };
+
+    const filteredPatients = patients
+        .filter(patient => patient.ward) // Only include patients with the "ward" object
+        .filter(patient =>
+            patient.name.toLowerCase().includes(searchInput.toLowerCase()) ||
+            patient.medicalRecordNumber.toLowerCase().includes(searchInput.toLowerCase()) ||
+            patient.ward.wardType.toLowerCase().includes(searchInput.toLowerCase())
+        );
+
     const patientPageData = filteredPatients.slice(startIndex, endIndex);
 
-    // Function to handle the "Next" button click
     const handleNextPageClick = () => {
         if (currentPage < Math.ceil(filteredPatients.length / ROWS_PER_PAGE)) {
             setCurrentPage(currentPage + 1);
         }
     };
 
-    // Function to handle the "Previous" button click
     const handlePrevPageClick = () => {
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
         }
     };
 
-    // Function to handle search input change
     const handleSearchInputChange = (e) => {
         setSearchInput(e.target.value);
-        setCurrentPage(1); // Reset to the first page when searching
+        setCurrentPage(1);
     };
 
-    // Reset the current page and filtered data when the patients or search input changes
     useEffect(() => {
         setCurrentPage(1);
     }, [patients, searchInput]);
@@ -67,11 +95,13 @@ const Index = () => {
             <Sidebar />
             <div className="bodyContent">
                 <Navbar />
-                {/* body content start */}
                 <div className={styles.content}>
                     <ul className="nav nav-tabs" id="myTabs">
                         <li className="nav-item">
                             <a className={`nav-link active ${styles.navLink}`} id="menu0-tab" data-bs-toggle="tab" href="#menu0" role="tab" aria-controls="menu0" aria-selected="true">Admitted Patients</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className={`nav-link ${styles.navLink}`} id="menu1-tab" data-bs-toggle="tab" href="#menu1" role="tab" aria-controls="menu1" aria-selected="false">Admit New Patient</a>
                         </li>
                     </ul>
                     <div className={`row ${styles.searchNextDiv}`}>
@@ -80,7 +110,7 @@ const Index = () => {
                                 <input
                                     className="form-control me-2"
                                     type="search"
-                                    placeholder="Search by name, hospital number or ward"
+                                    placeholder="Search by name, hospital number, or ward"
                                     aria-label="Search"
                                     value={searchInput}
                                     onChange={handleSearchInputChange}
@@ -107,7 +137,6 @@ const Index = () => {
                                         <div className='col-3 col-sm-1'>Data</div>
                                     </div>
                                 </div>
-                                {/* Map patientPageData and generate table rows */}
                                 {patientPageData.map((patient, index) => (
                                     <div className={`container ${styles.contentTableBody}`} key={patient.medicalRecordNumber}>
                                         <div className="row">
@@ -124,14 +153,13 @@ const Index = () => {
                                                     data-bs-target={`#staticBackdrop-${patient.medicalRecordNumber}`} // Use a unique identifier
                                                 />
                                                 <div className="modal fade" id={`staticBackdrop-${patient.medicalRecordNumber}`} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby={`staticBackdropLabel-${patient.medicalRecordNumber}`} aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                                                    <div className="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                                         <div className="modal-content">
                                                             <div className="modal-header">
                                                                 <h1 className="modal-title fs-5" id={`staticBackdropLabel-${patient.medicalRecordNumber}`}>{patient.name}</h1>
                                                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div className="modal-body">
-
                                                                 <strong>Bed number:</strong>
                                                                 {patient.ward.capacity}
                                                                 <hr />
@@ -148,16 +176,16 @@ const Index = () => {
                                                                 {patient.ward.manager}
                                                                 <hr />
                                                                 <strong>Ward nurses:</strong>
-                                                                {patient.ward.nurses}
+                                                                {patient.ward.nurses.join(', ')}
                                                                 <hr />
                                                                 <strong>Equipment available:</strong>
-                                                                {patient.ward.facilitiesEquipment}
+                                                                {patient.ward.facilitiesEquipment.join(', ')}
                                                                 <hr />
                                                                 <strong>Ward description:</strong>
                                                                 {patient.ward.description}
                                                             </div>
                                                             <div className="modal-footer">
-                                                                <Link href={`/DoctorDashboard/Admission/${patient.medicalRecordNumber}`}>
+                                                                <Link href={`/NurseDashboard/Admission/${patient.medicalRecordNumber}`}>
                                                                     <button type="button" className="btn btn-secondary">Bio-data</button>
                                                                 </Link>
                                                                 <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Discharge</button>
@@ -169,12 +197,91 @@ const Index = () => {
                                         </div>
                                     </div>
                                 ))}
-                                {/* End of mapping */}
                             </div>
+                        </div>
+                        <div className="tab-pane fade" id="menu1" role="tabpanel" aria-labelledby="menu1-tab">
+                            <form className={styles.form} onSubmit={handleFormSubmit}>
+                                <div className='row'>
+                                    <div className={`col-md-2 ${styles.formColDiv}`}>
+                                        <label htmlFor="medicalRecordNumber" className="form-label">Medical Number</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="medicalRecordNumber"
+                                            name="medicalRecordNumber"
+                                            value={formData.medicalRecordNumber}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-5 ${styles.formColDiv}`}>
+                                        <label htmlFor="name" className="form-label">Name</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="name"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-5 ${styles.formColDiv}`}>
+                                        <label htmlFor="wardType" className="form-label">Ward Name</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="wardType"
+                                            name="wardType"
+                                            value={formData.wardType} // Access the ward name within the ward object
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-2 ${styles.formColDiv}`}>
+                                        <label htmlFor="appointmentDate" className="form-label">Date</label>
+                                        <input
+                                            type="date"
+                                            className="form-control"
+                                            id="appointmentDate"
+                                            name="appointmentDate"
+                                            value={formData.appointmentDate}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-5 ${styles.formColDiv}`}>
+                                        <label htmlFor="phone" className="form-label">Phone</label>
+                                        <input
+                                            type="number"
+                                            className="form-control"
+                                            id="phone"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-5 ${styles.formColDiv}`}>
+                                        <label htmlFor="disease" className="form-label">Disease</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="disease"
+                                            name="disease"
+                                            value={formData.disease}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                <div className={`col-auto ${styles.formButtonDiv}`}>
+                                    <button type="submit" className="btn btn-primary">Add patient</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-                {/* body content end */}
             </div>
         </div>
     );
