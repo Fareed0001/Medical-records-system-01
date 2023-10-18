@@ -160,7 +160,7 @@ const Index = () => {
                                                                 </form>
                                                             </div>
                                                             <div className="modal-footer">
-                                                                <Link href={`/NurseDashboard/Discharge/${patient.medicalRecordNumber}`}>
+                                                                <Link href={`/NurseDashboard/DischargePatient/${patient.medicalRecordNumber}`}>
                                                                     <button type="button" className="btn btn-secondary">Bio-data</button>
                                                                 </Link>
                                                                 <button 
