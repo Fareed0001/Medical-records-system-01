@@ -22,7 +22,9 @@ export const patientData = [
       drugHistory: 'Aspirin',
       familyHistory: 'No significant family history',
       socialHistory: 'Non-smoker, occasional alcohol',
-      summary: 'Patient presented with chest pain, likely due to hypertension.'
+      summary: 'Patient presented with chest pain, likely due to hypertension.',
+      requestTitle: 'Administer Medications',
+      requestContent: 'Administer patients medications at the correct dosage and time'
     },
     nursesNote: {
       temperature: '98.6°F',
@@ -176,7 +178,9 @@ export const patientData = [
       drugHistory: 'Proton pump inhibitors',
       familyHistory: 'No significant family history',
       socialHistory: 'Non-smoker',
-      summary: 'Patient presented with abdominal pain, likely due to gastric ulcers.'
+      summary: 'Patient presented with abdominal pain, likely due to gastric ulcers.',
+      requestTitle: 'Monitor Vital Signs',
+      requestContent: 'monitor and record patients vital signs, which include measurements of blood pressure, heart rate, respiratory rate, and temperature'
     },
     nursesNote: {
       temperature: '98.8°F',
@@ -242,7 +246,9 @@ export const patientData = [
       drugHistory: 'Prescribed migraine medication',
       familyHistory: 'Family history of migraines',
       socialHistory: 'Non-smoker, non-drinker',
-      summary: 'Patient presented with recurrent headaches, likely due to migraines.'
+      summary: 'Patient presented with recurrent headaches, likely due to migraines.',
+      requestTitle: 'Patient Monitoring and Assessment',
+      requestContent: 'regularly monitor and assess patients conditions by checking for changes in symptoms, assessing the effectiveness of treatment, and reporting any concerns or complications'
     },
     // Add lab report
     labReport: {
@@ -408,7 +414,9 @@ export const patientData = [
       drugHistory: 'Post-surgery medication',
       familyHistory: 'No significant family history',
       socialHistory: 'Non-smoker',
-      summary: 'Patient underwent surgery and is in the recovery phase. No complications.'
+      summary: 'Patient underwent surgery and is in the recovery phase. No complications.',
+      requestTitle: 'Assist with Medical Procedures',
+      requestContent: 'Give assistance so you get hands-on  experience during various medical procedures, such as wound care, minor surgical procedures, biopsies, or examinations'
     },
     nursesNote: {
       temperature: '98.9°F',
@@ -562,7 +570,9 @@ export const patientData = [
       drugHistory: 'Epinephrine for allergies',
       familyHistory: 'Family history of allergies',
       socialHistory: 'Non-smoker',
-      summary: 'Patient presented with an allergic reaction due to peanuts; known peanut allergy.'
+      summary: 'Patient presented with an allergic reaction due to peanuts; known peanut allergy.',
+      requestTitle: 'Provide Patient Education',
+      requestContent: 'Educate the patient and his family about medical conditions, treatment plans, and self-care.'
     },
     // Add lab report
     labReport: {

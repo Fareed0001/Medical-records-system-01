@@ -3,7 +3,8 @@ import Sidebar from '@/components/Sidebar/NurseSidebar/Sidebar';
 import Navbar from '@/components/Navbar/NurseNavbar/NurseNavbar';
 import styles from "@/pages/NurseDashboard/Styles.module.css";
 import { BiSearch } from "react-icons/bi";
-import { FaFileCircleCheck } from "react-icons/fa6";
+import { BsTrashFill } from "react-icons/bs";
+import { MdScheduleSend } from "react-icons/md";
 import { GrFormNextLink, GrFormPreviousLink } from "react-icons/gr";
 import { patientData } from "@/components/Data/PatientData";
 import Link from "next/link";
@@ -19,11 +20,10 @@ const Index = () => {
     const endIndex = Math.min(startIndex + ROWS_PER_PAGE, patients.length);
 
     const filteredPatients = patients
-        .filter(patient => patient.ward) // Only include patients with the "ward" object
+        .filter(patient => patient.doctorsNote.requestTitle) // Only include patients with the "ward" object
         .filter(patient =>
             patient.name.toLowerCase().includes(searchInput.toLowerCase()) ||
-            patient.medicalRecordNumber.toLowerCase().includes(searchInput.toLowerCase()) ||
-            patient.ward.wardType.toLowerCase().includes(searchInput.toLowerCase())
+            patient.medicalRecordNumber.toLowerCase().includes(searchInput.toLowerCase())
         );
 
     const patientPageData = filteredPatients.slice(startIndex, endIndex);
@@ -71,7 +71,7 @@ const Index = () => {
                                 <input
                                     className="form-control me-2"
                                     type="search"
-                                    placeholder="Search by name, hospital number, or ward"
+                                    placeholder="Search by name or hospital number"
                                     aria-label="Search"
                                     value={searchInput}
                                     onChange={handleSearchInputChange}
@@ -91,11 +91,10 @@ const Index = () => {
                                 <div className={`container ${styles.contentTableHead}`}>
                                     <div className="row">
                                         <div className='col-1'>#</div>
-                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>Hospital number</div>
-                                        <div className='col-8 col-sm-5 col-lg-3'>Patient</div>
-                                        <div className='col-2 d-none d-lg-block'>Bed number</div>
-                                        <div className='col-2 d-none d-lg-block'>Ward</div>
-                                        <div className='col-3 col-sm-1'>Data</div>
+                                        <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>Hospital Number</div>
+                                        <div className='col-8 col-sm-5 col-lg-4'>Name</div>
+                                        <div className='col-2 d-none d-lg-block'>Phone</div>
+                                        <div className='col-3 col-sm-2 col-lg-2'>Doctors request</div>
                                     </div>
                                 </div>
                                 {patientPageData.map((patient, index) => (
@@ -103,12 +102,11 @@ const Index = () => {
                                         <div className="row">
                                             <div className='col-1'>{index + 1}</div>
                                             <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>{patient.medicalRecordNumber}</div>
-                                            <div className='col-8 col-sm-5 col-lg-3'>{patient.name}</div>
-                                            <div className='col-2 d-none d-lg-block'>{patient.ward.capacity}</div>
-                                            <div className='col-2 d-none d-lg-block'>{patient.ward.wardType}</div>
-                                            <div className='col-3 col-sm-2 col-lg-1'>
-                                                <FaFileCircleCheck
-                                                    className={styles.historyIcon}
+                                            <div className='col-8 col-sm-5 col-lg-4'>{patient.name}</div>
+                                            <div className='col-2 d-none d-lg-block'>{patient.phone}</div>
+                                            <div className='col-3 col-sm-2 col-lg-2'>
+                                                <MdScheduleSend
+                                                    className={styles.penIcon}
                                                     type="button"
                                                     data-bs-toggle="modal"
                                                     data-bs-target={`#staticBackdrop-${patient.medicalRecordNumber}`} // Use a unique identifier
@@ -121,58 +119,27 @@ const Index = () => {
                                                                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div className="modal-body">
-                                                                <form>
-                                                                    <div className="mb-3">
-                                                                        <label htmlFor="reasonForDischarge" className="col-form-label">Reason For Discharge:</label>
-                                                                        <input type="text" className="form-control" id="reasonForDischarge" />
-                                                                    </div>
-                                                                    
-                                                                    <div className="mb-3">
-                                                                        <label htmlFor="reasonForAdmission" className="col-form-label">Reason For Admission:</label>
-                                                                        <input type="text" className="form-control" id="reasonForAdmission" />
-                                                                    </div>
-                                                                    
-                                                                    <div className="mb-3">
-                                                                        <label htmlFor="finalDiagnosis" className="col-form-label">Final Diagnosis:</label>
-                                                                        <input type="text" className="form-control" id="finalDiagnosis" />
-                                                                    </div>
-                                                                    
-                                                                    <div className="mb-3">
-                                                                        <label htmlFor="admissionAndDischarge" className="col-form-label">Admission And Discharge:</label>
-                                                                        <input type="text" className="form-control" id="admissionAndDischarge" />
-                                                                    </div>
-                                                                    
-                                                                    <div className="mb-3">
-                                                                        <label htmlFor="medicationDosage" className="col-form-label">Medication Dosage:</label>
-                                                                        <input type="text" className="form-control" id="medicationDosage" />
-                                                                    </div>
-                                                                    
-                                                                    <div className="mb-3">
-                                                                        <label htmlFor="nextAppointment" className="col-form-label">Follow-up Appointment:</label>
-                                                                        <input type="date" className="form-control" id="nextAppointment" />
-                                                                    </div>
-                                                                    
-                                                                    <div className="mb-3">
-                                                                        <label htmlFor="dischargeSummary" className="col-form-label">Discharge Summary:</label>
-                                                                        <textarea type="text" className="form-control" id="dischargeSummary" />
-                                                                    </div>
-                                                                    
-                                                                </form>
+                                                                <div className="mb-3">
+                                                                    <p><strong>Request title:</strong> {patient.doctorsNote.requestTitle}</p>
+                                                                </div>
+                                                                <hr />
+                                                                <div className="mb-3">
+                                                                    <p><strong>Request content:</strong> {patient.doctorsNote.requestContent}</p>
+                                                                </div>
                                                             </div>
                                                             <div className="modal-footer">
                                                                 <Link href={`/NurseDashboard/Discharge/${patient.medicalRecordNumber}`}>
                                                                     <button type="button" className="btn btn-secondary">Bio-data</button>
                                                                 </Link>
-                                                                <button 
-                                                                type="button"
-                                                                 className="btn btn-primary" 
-                                                                 data-bs-dismiss="modal"
-                                                                 onClick={() => handleDeleteClick(patient.medicalRecordNumber)}
-                                                                 >Discharge</button>
+                                                                <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Close</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <BsTrashFill
+                                                    className={styles.binIcon}
+                                                    onClick={() => handleDeleteClick(patient.medicalRecordNumber)}
+                                                />
                                             </div>
                                         </div>
                                     </div>

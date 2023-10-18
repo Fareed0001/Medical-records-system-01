@@ -2,7 +2,7 @@ import React from 'react';
 import { MdDateRange, MdQueue } from "react-icons/md";
 import { FaUserCircle, FaDoorOpen } from "react-icons/fa";
 import { BsFillSendPlusFill } from "react-icons/bs";
-import { GrNotes } from "react-icons/gr";
+import { GrNotes, GrDocumentTest } from "react-icons/gr";
 import { GiNotebook } from "react-icons/gi";
 import { MdSpaceDashboard } from "react-icons/md";
 
@@ -21,6 +21,11 @@ export const SidebarData = [
         icon: <MdDateRange />,
         title: "Appointment",
         link: "/NurseDashboard/Appointment"
+    },
+    {
+        icon: <GrDocumentTest />,
+        title: "Test",
+        link: "/NurseDashboard/Test"
     },
     {
         icon: <GiNotebook />,
