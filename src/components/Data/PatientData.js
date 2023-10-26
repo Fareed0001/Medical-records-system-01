@@ -103,6 +103,7 @@ export const patientData = [
     },
     // Add lab report
     labReport: {
+      labTest: "Full blood count",
       results: 'Elevated white blood cell count',
       recommendations: 'Start antibiotics for suspected infection.'
     },
@@ -191,6 +192,7 @@ export const patientData = [
     },
     // Add lab report
     labReport: {
+      labTest: "EUCr",
       results: 'Positive for H. pylori infection',
       recommendations: 'Start antibiotics for H. pylori eradication.'
     },
@@ -299,6 +301,7 @@ export const patientData = [
     },
     // Add lab report
     labReport: {
+      labTest: "Liver function test",
       results: 'Elevated white blood cell count',
       recommendations: 'Start antibiotics and continue asthma management.'
     },
@@ -383,6 +386,7 @@ export const patientData = [
     },
     // Add lab report
     labReport: {
+      labTest: "Thyroid function",
       results: 'No abnormalities in blood tests',
       recommendations: 'Pain relief and rest for recovery.'
     },
@@ -469,6 +473,7 @@ export const patientData = [
     },
     // Add lab report
     labReport: {
+      labTest: "Hormonal function",
       results: 'Elevated IgE levels indicative of allergy',
       recommendations: 'Avoid nuts, carry antihistamines.'
     },
@@ -621,6 +626,7 @@ export const patientData = [
     },
     // Add lab report
     labReport: {
+      labTest: "Toxicology",
       results: 'All blood test parameters within normal range',
       recommendations: 'Continue routine check-ups, maintain a healthy lifestyle.'
     },
@@ -656,6 +662,7 @@ export const patientData = [
     },
     // Add lab report
     labReport: {
+      labTest: "Cardiac enzyme assay",
       results: 'Elevated IgE levels indicative of allergy',
       recommendations: 'Avoid shellfish, carry epinephrine auto-injector.'
     },
@@ -725,6 +732,7 @@ export const patientData = [
     },
     // Add lab report
     labReport: {
+      labTest: "Fasting blood sugar",
       results: 'All health parameters within normal range',
       recommendations: 'Continue healthy lifestyle, follow up annually.'
     },
@@ -795,6 +803,7 @@ export const patientData = [
     },
     // Add lab report
     labReport: {
+      labTest: "Random blood sugar",
       results: 'Elevated white blood cell count, indicative of an infection',
       recommendations: 'Rest, drink fluids, and consider over-the-counter cold remedies.'
     },
@@ -863,6 +872,7 @@ export const patientData = [
     },
     // Add lab report
     labReport: {
+      labTest: "APTT/CT",
       results: 'Elevated IgE levels indicative of allergy',
       recommendations: 'Continue antihistamines, avoid pollen exposure.'
     },
