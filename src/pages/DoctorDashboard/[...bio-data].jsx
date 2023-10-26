@@ -769,7 +769,7 @@ function Index() {
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <label htmlFor="noteContent" className="col-form-label">Doctor Note:</label>
+                                                    <label htmlFor="noteContent" className="col-form-label">Doctors Note:</label>
                                                     <textarea type="text" className="form-control" id="noteContent" />
                                                 </div>
                                             </form>
