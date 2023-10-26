@@ -185,6 +185,9 @@ function Index() {
                                             {currentPatient.labReport ? ( // Check if currentPatient labReport is defined
                                                 <>
                                                     <div className="mb-3">
+                                                        <p>Date: {currentPatient.nursesNote.date}</p>
+                                                    </div>
+                                                    <div className="mb-3">
                                                         <p>Result: {currentPatient.labReport.results}</p>
                                                     </div>
                                                     <div className="mb-3">
@@ -285,6 +288,9 @@ function Index() {
                                             <h5>Laboratory Report</h5>
                                             {currentPatient && currentPatient.labReport ? ( // Check if currentPatient is defined
                                                 <>
+                                                    <div className="mb-3">
+                                                        <p>Date: {currentPatient.nursesNote.date}</p>
+                                                    </div>
                                                     <div className="mb-3">
                                                         <p>Result: <strong>{currentPatient.labReport.results}</strong></p>
                                                     </div>
@@ -563,6 +569,9 @@ function Index() {
                                             {currentPatient.prescription ? ( // Check if currentPatient is defined
                                                 <>
                                                     <div className="mb-3">
+                                                        <p>Date: {currentPatient.nursesNote.date}</p>
+                                                    </div>
+                                                    <div className="mb-3">
                                                         <p>Dispensing Instruction: {currentPatient.prescription.dispensingInstructions}</p>
                                                     </div>
                                                     <div className="mb-3">
@@ -697,6 +706,9 @@ function Index() {
                                             {currentPatient.radiologyReport ? ( // Check if currentPatient is defined
                                                 <>
                                                     <div className="mb-3">
+                                                        <p>Date: {currentPatient.nursesNote.date}</p>
+                                                    </div>
+                                                    <div className="mb-3">
                                                         <p>Study details: {currentPatient.radiologyReport.studyDetails}</p>
                                                     </div>
                                                     <div className="mb-3">
@@ -757,7 +769,7 @@ function Index() {
                                                 </div>
 
                                                 <div className="mb-3">
-                                                    <label htmlFor="noteContent" className="col-form-label">Note Content:</label>
+                                                    <label htmlFor="noteContent" className="col-form-label">Doctor's Note:</label>
                                                     <textarea type="text" className="form-control" id="noteContent" />
                                                 </div>
                                             </form>

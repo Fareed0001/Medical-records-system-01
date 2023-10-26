@@ -28,8 +28,8 @@ export const SidebarData = [
     },
     {
         icon: <BsFillSendPlusFill />,
-        title: "Doctor Request",
-        link: "/NurseDashboard/DoctorsRequest"
+        title: "Doctor Note",
+        link: "/NurseDashboard/DoctorsNote"
     },
     {
         icon: <FaDoorOpen />,

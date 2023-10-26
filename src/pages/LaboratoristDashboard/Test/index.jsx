@@ -3,6 +3,8 @@ import Sidebar from '@/components/Sidebar/LaboratoristSidebar/Sidebar';
 import Navbar from '@/components/Navbar/LaboratoristNavbar/LaboratoristNavbar';
 import styles from "@/pages/LaboratoristDashboard/Styles.module.css";
 import { patientData } from "@/components/Data/PatientData";
+import Select from 'react-select';
+
 
 const Index = () => {
     const [patients, setPatients] = useState([...patientData]);
@@ -48,24 +50,21 @@ const Index = () => {
                                         <div className='row'>
                                             <div className={`col-md-6 ${styles.formColDiv}`}>
                                                 <label htmlFor="name" className="form-label">Select patient</label>
-                                                <select
+                                                <Select
                                                     className="form-select"
-                                                    id="name"
                                                     name="name"
-                                                    value={formData.name}
-                                                    onChange={handleFormInputChange}
-                                                    aria-label="Select a patient"
-                                                    required
-                                                >
-                                                    <option value="" disabled>Select a patient</option>
-                                                    {patients.map((patient, index) => (
-                                                        <option key={patient.medicalRecordNumber} value={patient.name}>
-                                                            {patient.name}
-                                                        </option>
-                                                    ))}
-                                                </select>
+                                                    value={formData.name ? { value: formData.name, label: formData.name } : null}
+                                                    options={patients.map(patient => ({
+                                                        value: patient.name,
+                                                        label: patient.name
+                                                    }))}
+                                                    onChange={selectedOption => {
+                                                        setFormData({ ...formData, name: selectedOption.value });
+                                                    }}
+                                                    placeholder="Search or select a patient"
+                                                />
                                             </div>
-                                            <div className={`col-md-6 ${styles.formColDiv}`}>
+                                            <div className={`col-md-4 ${styles.formColDiv}`}>
                                                 <label htmlFor="testType" className="form-label">Select test type</label>
                                                 <select
                                                     className="form-select"
@@ -83,9 +82,18 @@ const Index = () => {
                                                         </option>
                                                     ))}
                                                 </select>
+                                            </div><div className={`col-md-2 ${styles.formColDiv}`}>
+                                                <label htmlFor="testType" className="form-label">Date</label>
+                                                <input
+                                                    type="date"
+                                                    className="form-control"
+                                                    id="date"
+                                                    name="date"
+                                                    value={formData.date}
+                                                    onChange={handleFormInputChange}
+                                                />
                                             </div>
-                                            <div className="row">
-                                                <div className={`col-12 ${styles.formColDiv}`}>
+                                            <div className={`col-12 ${styles.formColDiv}`}>
                                                 <label htmlFor="testResult" className="form-label">ENTER TEST RESULT DATA</label>
                                                 {formData.testType && (
                                                     <div>
@@ -104,7 +112,6 @@ const Index = () => {
                                                         ))}
                                                     </div>
                                                 )}
-                                            </div>
                                             </div>
                                         </div>
                                         <div className={`col-auto ${styles.formButtonDiv}`}>

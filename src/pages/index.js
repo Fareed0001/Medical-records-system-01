@@ -20,9 +20,9 @@ export default function Home() {
       router.push('/AccountantDashboard'); // Redirect to AccountantDashboard
     } else if (username === 'pharmacist' && password === 'pharmacist') {
       router.push('/PharmacistDashboard'); // Redirect to PharmacistDashboard
-    } else if (username === 'laboratorist' && password === 'laboratorist') {
+    } else if (username === 'lab' && password === 'lab') {
       router.push('/LaboratoristDashboard'); // Redirect to LaboratoristDashboard
-    } else if (username === 'receptionist' && password === 'receptionist') {
+    } else if (username === 'reception' && password === 'reception') {
       router.push('/ReceptionistDashboard'); // Redirect to ReceptionistDashboard
     } else {
       alert('Invalid username or password. Enter correct credentials');

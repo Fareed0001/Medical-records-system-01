@@ -26,6 +26,11 @@ const Index = () => {
         date: '',
         summary: '',
         notes: '',
+        bloodPressure: '',
+        pulseRate: '',
+        weight: '',
+        health: '',
+        height: '',
     });
 
     const filteredAppointments = patients
@@ -55,7 +60,12 @@ const Index = () => {
             formData.urineOutput &&
             formData.date &&
             formData.summary &&
-            formData.notes
+            formData.notes &&
+            formData.bloodPressure &&
+            formData.pulseRate &&
+            formData.weight &&
+            formData.health &&
+            formData.height 
         ) {
             const newPatient = {
                 ...formData,
@@ -69,6 +79,11 @@ const Index = () => {
                 date: '',
                 summary: '',
                 notes: '',
+                bloodPressure: '',
+                pulseRate: '',
+                weight: '',
+                health: '',
+                height: '',
             });
         }
     };
@@ -240,6 +255,66 @@ const Index = () => {
                                             id="date"
                                             name="date"
                                             value={formData.date}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-3 ${styles.formColDiv}`}>
+                                        <label htmlFor="bloodPressure" className="form-label">Blood Pressure</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="bloodPressure"
+                                            name="bloodPressure"
+                                            value={formData.bloodPressure}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-3 ${styles.formColDiv}`}>
+                                        <label htmlFor="pulseRate" className="form-label">Pulse rate</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="pulseRate"
+                                            name="pulseRate"
+                                            value={formData.pulseRate}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-3 ${styles.formColDiv}`}>
+                                        <label htmlFor="weight" className="form-label">Weight</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="weight"
+                                            name="weight"
+                                            value={formData.weight}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-3 ${styles.formColDiv}`}>
+                                        <label htmlFor="height" className="form-label">Height</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="height"
+                                            name="height"
+                                            value={formData.height}
+                                            onChange={handleFormInputChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={`col-md-12 ${styles.formColDiv}`}>
+                                        <label htmlFor="health" className="form-label">Health</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="health"
+                                            name="health"
+                                            value={formData.health}
                                             onChange={handleFormInputChange}
                                             required
                                         />

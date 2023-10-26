@@ -94,7 +94,7 @@ const Index = () => {
                                         <div className='d-none d-sm-block d-md-block d-lg-block col-sm-4 col-lg-3'>Hospital Number</div>
                                         <div className='col-8 col-sm-5 col-lg-4'>Name</div>
                                         <div className='col-2 d-none d-lg-block'>Phone</div>
-                                        <div className='col-3 col-sm-2 col-lg-2'>Doctors request</div>
+                                        <div className='col-3 col-sm-2 col-lg-2'>Doctors note</div>
                                     </div>
                                 </div>
                                 {patientPageData.map((patient, index) => (
@@ -128,7 +128,7 @@ const Index = () => {
                                                                 </div>
                                                             </div>
                                                             <div className="modal-footer">
-                                                                <Link href={`/NurseDashboard/DoctorsRequest/${patient.medicalRecordNumber}`}>
+                                                                <Link href={`/NurseDashboard/DoctorsNote/${patient.medicalRecordNumber}`}>
                                                                     <button type="button" className="btn btn-secondary">Bio-data</button>
                                                                 </Link>
                                                                 <button type="button" className="btn btn-primary" data-bs-dismiss="modal">Close</button>
