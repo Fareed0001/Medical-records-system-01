@@ -93,7 +93,8 @@ const Index = () => {
                                                     onChange={handleFormInputChange}
                                                 />
                                             </div>
-                                            <div className={`col-12 ${styles.formColDiv}`}>
+                                            <div className="row">
+                                                <div className={`col-12 ${styles.formColDiv}`}>
                                                 <label htmlFor="testResult" className="form-label">ENTER TEST RESULT DATA</label>
                                                 {formData.testType && (
                                                     <div>
@@ -112,6 +113,7 @@ const Index = () => {
                                                         ))}
                                                     </div>
                                                 )}
+                                            </div>
                                             </div>
                                         </div>
                                         <div className={`col-auto ${styles.formButtonDiv}`}>
