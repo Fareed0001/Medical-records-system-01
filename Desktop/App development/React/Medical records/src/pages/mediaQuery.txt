@@ -1,0 +1,18 @@
+/* start of pc styles */
+@media screen and (max-width: 991px) {}
+
+
+/* start of medium tablet styles */
+@media screen and (max-width: 767px) {} 
+
+/* start of phone styles */
+@media screen and (max-width: 479px) {}
+
+
+To hide bootstrap column on various display 
+Hidden on all .d-none
+Hidden on xs .d-none .d-sm-block
+Hidden on sm .d-sm-none .d-md-block
+Hidden on md .d-md-none .d-lg-block
+Hidden on lg .d-lg-none .d-xl-block
+Hidden on xl .d-xl-none

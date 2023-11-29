@@ -1,0 +1,153 @@
+.body {
+    display: flex;
+}
+
+.offCanvas {
+    display: none;
+}
+
+.banner {
+    border-radius: 24px;
+    width: 100%;
+    background-color: #237fea;
+    padding: 3% 5%;
+    color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.bannerText {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 4% auto auto;
+}
+
+.bannerSubText {
+    font-size: 1rem;
+}
+
+.banner button {
+    font-weight: 600;
+    color: #237fea;
+    margin: 8% auto auto;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.banner button:hover {
+    font-weight: 600;
+    background-color: #237fea;
+    color: white;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.banner img {
+    width: 80%;
+    margin: 0 10%;
+}
+
+.belowBannerCol {
+    background-color: #e7e7ee;
+    width: 100%;
+    border-radius: 12px;
+    margin: 10% 0;
+    padding: 6% 5% 4%;
+    text-align: center;
+    align-items: center;
+    color: #237fea;
+    cursor: pointer;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.belowBannerCol:hover {
+    background-color: #237fea;
+    color: #e7e7ee;
+}
+
+.belowBannerIcons {
+    font-size: 2rem;
+    margin: 0 2% 0 0;
+}
+
+.belowBannerCol p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+
+
+/* start of pc styles */
+@media screen and (max-width: 991px) {
+    .banner {
+        padding: 3% 5% 5%;
+    }
+    
+    .bannerText {
+        font-size: 1.6rem;
+    }
+
+    .banner img {
+        width: 100%;
+        margin: 15% 0 0;
+    }    
+
+    .banner button {
+        margin: 2% auto auto;
+    }    
+
+    .belowBannerCol {
+        margin: 10% 0;
+        padding: 8% 5% 4%;
+    }
+
+    .belowBannerIcons {
+        font-size: 1.5rem;
+    }
+
+    .belowBannerCol p {
+        font-size: 1.2rem;
+        display: block;
+    }
+}
+
+
+/* start of medium tablet styles */
+/* @media screen and (max-width: 767px) {}  */
+
+/* start of phone styles */
+@media screen and (max-width: 479px) {
+    .banner {
+        text-align: center;
+        padding: 3% 5% 8%;
+        margin: 5% 0 0;
+    }
+        
+    .bannerText {  
+        font-size: 1.8rem;      
+    }
+    
+    .bannerSubText {
+        margin: 3% 0;
+        font-size: 1.2rem;
+    }
+
+    .banner button {
+        font-size: 1rem;
+        font-weight: 400;
+    }    
+
+    .belowBannerCol {
+        margin: 5% 0 0;
+        padding: 4% 5% 2%;
+    }
+    
+    .belowBannerIcons {
+        font-size: 1.3rem;
+    }
+
+    .belowBannerCol p {
+        font-size: 1rem;
+        display: inline-block;
+    }
+    
+}

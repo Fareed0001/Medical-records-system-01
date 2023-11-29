@@ -1,0 +1,94 @@
+_NB: by entering rfc command in a blackpage, it creates the boiler content for 
+the page
+_NB: to hide bootstrap column on various display, you do
+Hidden on all .d-none
+Hidden on xs .d-none .d-sm-block
+Hidden on sm .d-sm-none .d-md-block
+Hidden on md .d-md-none .d-lg-block
+Hidden on lg .d-lg-none .d-xl-block
+Hidden on xl .d-xl-none
+
+
+
+=> Starting up a nextjs project
+= npx create-next-app medical-records-system
+√ Would you like to use TypeScript with this project? ... No 
+√ Would you like to use ESLint with this project? Yes
+√ Would you like to use Tailwind CSS with this project? ... No 
+√ Would you like to use `src/` directory with this project?  Yes
+√ Use App Router (recommended)? ... No 
+√ Would you like to customize the default import alias? ... No 
+
+
+=> Project structure
+- index.jsx (landing page) = login page
+- css = styles, sidebar, navbar, bodycontent
+- re-useable components = navbar, sidebar
+- cretae folders for admin, docs, nurses, 
+accountant, lab technician, receptionist etc to house their dashboard and pages
+
+
+=> In the _document.js page, paste bootstrap css and for js, paste it in _app.js head. 
+from (ie https://getbootstrap.com/)
+ie _document.js
+<Head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"></link>
+</Head> 
+ie _app.js
+<Head>
+ <script
+          async  // Add the async attribute to load the script asynchronously
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+          crossOrigin="anonymous"
+        ></script>
+</Head>
+
+
+=> React icons
+- to use react icons, goto (https://react-icons.github.io/react-icons/)
+
+
+=> Sidebar
+- in the src folder, create a components folder and a sidebar folder inside 
+components
+- inside, create the sidebar file (ie sidebar.jsx, sidebarData, 
+sidebar.module.css)
+- nb: by entering rfc command in a blackpage, it creates the boiler content for
+ the page
+- in sidebar.jsx, inport the modules.css, link and sidebardata.jsx
+- use a map function to map the contents of the sidebardata and display 
+all the sidebar items
+ie {SidebarData.map((data, key) => (
+        <Link key={key} href={data.link} className={styles.link}>
+             <li>
+                 <div>
+                      <span className={styles.icon}>{data.icon}</span>
+                      <span className={styles.title}> {data.title}</span>   
+                 </div>
+             </li>
+          </Link>
+     ))}
+
+
+=> Navbar
+- create a navabr folder inside components folder and a navbar.js and 
+navbar.module.css file
+- inside the navbar.jsx file, type rfc and hit enter for a bioler plate
+then create a simple navbar of your choice
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
