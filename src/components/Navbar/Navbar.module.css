@@ -1,0 +1,135 @@
+/* NAVBAR  */
+
+.navbar {
+    color: #01120A;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.username {
+    font-weight: 600;
+    font-size: .9rem;
+}
+
+.welcome {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.roleLink {
+    text-decoration: none;
+}
+
+.role {
+    font-weight: 700;
+    align-items: center;
+    color: #237fea;
+}
+
+.role .icon {
+    font-size: 1.5rem;
+}
+
+/* NAVBAR  */
+
+
+
+
+/* MOBILE SIDEBAR */
+/* Sidebar.module.css */
+.offCanvas {
+    display: none;
+}
+
+.mobileSidebar {
+    background-color: #e7e7ee;
+}
+
+.mobileSidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.mobileSidebar .link {
+    text-decoration: none;
+    color: #01120A;
+}
+
+/* Active link styles */
+.mobileSidebar ul li.activeItem {
+    background-color: #237FEA; /* Blue background for active link */
+    color: white; /* White text for active link */
+}
+
+.mobileSidebar ul li {
+    background-color: white;
+    border-radius: 24px;
+    padding: 5%;
+    margin: 5%;
+    cursor: pointer;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.mobileSidebar ul li:hover {
+    background-color: #237FEA;
+    color: white;
+}
+
+.mobileSidebar ul li .icon {
+    margin: 0 2% 0 30%;
+}
+
+.mobileSidebar ul li .title {
+    line-height: 0;
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+/* MOBILE SIDEBAR */
+
+
+
+/* MEDIA QUERIES  */
+
+/* start of pc styles */
+/* @media screen and (max-width: 991px) {} */
+
+
+/* start of medium tablet styles */
+@media screen and (max-width: 767px) {
+    .offCanvas {
+        display: inline-block;
+    }
+
+    .offCanvasWidth {
+        background-color: #e7e7ee;
+    }
+
+    .offcanvasHeader {
+        padding: 5% 10% 0;
+    }
+
+    .offCanvasImageLink {
+        text-decoration: none;
+    }   
+    
+    .offCanvasImageLink img {
+        width: 10rem;
+        height: auto;
+    }
+
+    .username {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .welcome {
+        display: none;
+    }
+}
+
+/* start of phone styles */
+/* @media screen and (max-width: 479px) {
+
+} */

@@ -1,0 +1,26 @@
+export const pharmacistData = [
+  {
+      id: 1,
+      name: 'John Doe',
+      email: 'john.doe@example.com',
+      department: 'Pharmacy Department',
+      supervisor: 'Dr. Smith',
+      gender: 'Male',
+      address: '123 Pharmacy Street, Cityville',
+      phone: '123-456-7890',
+      shift: 'Morning Shift',
+      password: 'password1',
+  },
+  {
+      id: 2,
+      name: 'Jane Smith',
+      email: 'jane.smith@example.com',
+      department: 'Pharmacy Department',
+      supervisor: 'Dr. Johnson',
+      gender: 'Female',
+      address: '456 Pharmacy Avenue, Townsville',
+      phone: '987-654-3210',
+      shift: 'Evening Shift',
+      password: 'password2',
+  },
+];

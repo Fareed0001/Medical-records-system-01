@@ -1,0 +1,290 @@
+.body {
+  display: flex;
+}
+
+.content .navLink {
+  background-color: #237fea;
+  font-weight: 600;
+  color: white;
+}
+
+/* content search next div start */
+
+.searchNextDiv {
+  margin: 2% 0 1%;
+}
+
+.searchNextDiv div {
+  padding: 0;
+}
+
+.searchDiv input {
+  width: 60%;
+  font-size: 0.9rem;
+  color: grey;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+}
+
+.searchDiv button {
+  color: white;
+}
+
+.nextPageDiv {
+  text-align: end;
+}
+
+.nextPageDiv p {
+  font-size: 0.8rem;
+  display: inline;
+  margin: auto auto auto 2%;
+  line-height: 3rem;
+}
+
+.nextPageSpan {
+  background-color: #237fea;
+  color: white;
+  border-radius: 6px;
+  padding: 0.5% 1%;
+}
+
+.nextPrevIcon {
+  cursor: pointer;
+}
+
+/* content search next div end  */
+
+/* content table start */
+
+.contentTable {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.contentTableHead {
+  background-color: #237fea;
+  border-radius: 12px 12px 0 0;
+  padding: 1%;
+  color: white;
+  font-weight: 600;
+}
+
+.contentTableBody {
+  padding: 2% 1%;
+  border-bottom: 0.5px solid #f5f5f5;
+}
+
+.contentTableBody:hover {
+  background-color: #e7e7ee;
+}
+
+.contentTableBody a {
+  color: black;
+  text-decoration: none;
+}
+
+.historyIcon,
+.penIcon {
+  color: #237fea;
+  cursor: pointer;
+}
+
+.historyIcon {
+  font-size: 1.5rem;
+}
+
+.historyIcon:hover,
+.penIcon:hover {
+  color: #0077ff;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+.binIcon {
+  color: #ff7e54;
+  cursor: pointer;
+  margin: 0 0 0 1rem;
+}
+
+.binIcon:hover {
+  color: #fc4103;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+.eyeIcon {
+  color: #555555;
+  cursor: pointer;
+  margin: 0 1rem 0 0;
+}
+
+.eyeIcon:hover {
+  color: #a9a9a9;
+}
+
+/* content table end  */
+
+/* form start  */
+
+.doctorForm {
+  border-radius: 12px;
+  border: none;
+  background-color: #f0f8ff;
+  padding: 3% 5%;
+}
+
+.formColDiv {
+  margin: 1% auto auto;
+}
+
+.formColDiv label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.formColDiv textarea {
+  height: 100px;
+}
+
+.formButtonDiv {
+  margin: 1% 0 0;
+}
+
+.formButtonDiv button {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* form end  */
+
+/* Bio data page start */
+.bioDataBody {
+  border-radius: 12px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 3% 5%;
+}
+
+.bioDataBody h4 {
+  margin: 0 0 3%;
+}
+
+.bioDataBody p {
+  font-weight: 500;
+  text-align: justify;
+  padding: 2% 0;
+}
+
+.bioDataDetails {
+  margin: 2% 0;
+  border-radius: 12px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 3% 5%;
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping to the next line */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bioDataDetailsButton {
+  margin: 1%;
+  display: inline-block;
+}
+/* Bio data page end */
+
+/* start of pc styles */
+@media screen and (max-width: 991px) {
+  .content .navLink {
+    font-size: 0.9rem;
+  }
+
+  .nextPageSpan {
+    padding: 0.1% 2% 1%;
+  }
+}
+
+/* start of medium tablet styles */
+@media screen and (max-width: 767px) {
+  .content {
+    margin: 5% auto auto;
+  }
+
+  .searchDiv form input,
+  .searchDiv form button {
+    height: 2.5rem;
+  }
+
+  .formColDiv {
+    margin: 3% auto auto;
+  }
+
+  .formButtonDiv {
+    margin: 1% 0 0;
+  }
+}
+
+/* start of phone styles */
+@media screen and (max-width: 479px) {
+  .searchNextDiv {
+    margin: 5% 0 5%;
+  }
+
+  .searchDiv form input,
+  .searchDiv form button {
+    height: 2rem;
+    box-shadow: none;
+  }
+
+  .searchDiv form input {
+    width: 80%;
+  }
+
+  .searchDiv form button {
+    width: 20%;
+  }
+
+  .nextPageDiv p {
+    margin: 0;
+    line-height: 0;
+  }
+
+  .contentTableHead {
+    padding: 3%;
+  }
+
+  .contentTableBody {
+    padding: 5% 3%;
+  }
+
+  .formButtonDiv {
+    margin: 3% 0 0;
+  }
+
+  .historyIcon {
+    font-size: 1.2rem;
+  }
+
+  /* Bio data page start */
+  .bioDataBody {
+    padding: 8% 5% 5%;
+  }
+
+  .bioDataBody p {
+    padding: 2% 0 0;
+  }
+
+  .bioDataDetails {
+    margin: 5% 0 2%;
+    padding: 5%;
+    display: grid;
+    grid-template-columns: 1fr; /* Set the column to 100% width */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bioDataDetailsButton {
+    margin: 2% 0;
+    display: inline-block;
+    width: 100%;
+  }
+}
