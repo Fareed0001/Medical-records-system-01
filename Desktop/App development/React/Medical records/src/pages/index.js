@@ -16,8 +16,8 @@ export default function Home() {
       router.push('/DoctorDashboard'); // Redirect to DoctorDashboard
     } else if (username === 'nurse' && password === 'nurse') {
       router.push('/NurseDashboard'); // Redirect to NurseDashboard
-    } else if (username === 'accountant' && password === 'accountant') {
-      router.push('/AccountantDashboard'); // Redirect to AccountantDashboard
+    } else if (username === 'cashier' && password === 'cashier') {
+      router.push('/CashierDashboard'); // Redirect to AccountantDashboard
     } else if (username === 'pharmacist' && password === 'pharmacist') {
       router.push('/PharmacistDashboard'); // Redirect to PharmacistDashboard
     } else if (username === 'lab' && password === 'lab') {
