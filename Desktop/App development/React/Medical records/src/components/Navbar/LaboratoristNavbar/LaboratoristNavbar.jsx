@@ -27,7 +27,7 @@ const Navbar = () => {
 
             <Link href="/" className={styles.roleLink}>
                 <p className={styles.role}><span className={styles.icon}>
-                    <SlChemistry /></span> Laboratorist</p>
+                    <SlChemistry /></span> Lab Technician</p>
             </Link>
 
         </div>
